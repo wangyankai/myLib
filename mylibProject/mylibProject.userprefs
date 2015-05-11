@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Sky/UI/UIWindow.cs">
+    <Files>
+      <File FileName="Assets/Scripts/TestExtend.cs" Line="25" Column="1" />
+      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyAnimator.cs" Line="87" Column="3" />
+      <File FileName="Assets/Scripts/ExtendClass.cs" Line="13" Column="35" />
+      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyAniCallBack.cs" Line="5" Column="28" />
+      <File FileName="Assets/Scripts/Sky/UI/UIWindow.cs" Line="45" Column="33" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
