@@ -1,0 +1,11 @@
+GAF: Flash to Unity3D
+Version 4.0
+
+1) Nesting support.
+2) Unity 5 support.
+3) iOS x64 support.
+4) Flash dynamic filters support.
+5) New Unity GAF Converter settings (conversion mode, debug & optimization).
+6) XML documentation for methods (from GAF assembly).
+7) Stencil buffer correct usage.
+8) Bugs fixes.
