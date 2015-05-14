@@ -62,9 +62,12 @@
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAniCallBack.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAniDuration.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAnimator.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyBezierCurve.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyBezierCurveOject.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyFlash.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyMoveByCurve.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyUtil.cs" />
      <Compile Include="Assets\Scripts\Sky\UI\UIWindow.cs" />
-     <Compile Include="Assets\Scripts\SkyAnimationCurve\SkyBezierCurve.cs" />
-     <Compile Include="Assets\Scripts\SkyAnimationCurve\SkyBezierCurveOject.cs" />
      <Compile Include="Assets\Scripts\TestExtend.cs" />
      <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
      <None Include="Assets\GAF\Resources\Shaders\GAFShaderBase.cginc" />

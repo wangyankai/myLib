@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using DG.Tweening;
+using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class SkyAnimator
 {
@@ -84,6 +86,31 @@ public class SkyAnimator
 			tw.OnStepComplete(completeObj.OnStepCompleteMethod);
 		}
 		return tw;
+	}
+
+	public static Tweener colorTo (Image obj, float time, Color target, SkyAniDuration vkDurType = SkyAniDuration.AnimationCurve, SkyAniCallBack completeObj = null)
+	{
+		Tweener tw = null;
+		tw = obj.DOColor (target,time).SetEase ((Ease)vkDurType);
+		if (completeObj != null) {
+			tw.OnComplete (completeObj.OnCompleteMethod);
+			tw.OnStart(completeObj.OnStartMethod);
+			tw.OnStepComplete(completeObj.OnStepCompleteMethod);
+		}
+		return tw;
+	}
+
+	public static Sequence moveToSequence(GameObject obj, List<float> times, List<Vector3> targets, bool isLocal, SkyAniDuration vkDurType = SkyAniDuration.AnimationCurve, SkyAniCallBack completeObj = null){
+
+		Sequence sequence = DOTween.Sequence();
+		if (completeObj != null) {
+			sequence.OnComplete (completeObj.OnCompleteMethod);
+		}
+		for (int i=0; i<times.Count; i++) {
+			sequence.Append(moveTo(obj,times[i],targets[i],true,vkDurType,null));
+		}
+		sequence.Play ();
+		return sequence;
 	}
 
 	public static Tweener moveToAlpha (GameObject obj, float time, float target, SkyAniDuration vkDurType = SkyAniDuration.AnimationCurve, SkyAniCallBack completeObj = null)
