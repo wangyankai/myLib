@@ -47,30 +47,32 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Demigiant\DOTweenPro\Editor\DOTweenAnimationInspector.cs" />
-     <Compile Include="Assets\GAF\Scripts\Asset\Editor\GAFAnimationAssetEditor.cs" />
-     <Compile Include="Assets\GAF\Scripts\Asset\Editor\GAFAssetPostProcessor.cs" />
-     <Compile Include="Assets\GAF\Scripts\Asset\Editor\GAFTexturesResourceEditor.cs" />
-     <Compile Include="Assets\GAF\Scripts\Core\Editor\GAFBakedMovieClipEditor.cs" />
-     <Compile Include="Assets\GAF\Scripts\Core\Editor\GAFConverterWindowListener.cs" />
-     <Compile Include="Assets\GAF\Scripts\Core\Editor\GAFMovieClipEditor.cs" />
-     <Compile Include="Assets\GAF\Scripts\Objects\Editor\GAFBakedObjectControllerEditor.cs" />
-     <Compile Include="Assets\GAF\Scripts\Objects\Editor\GAFBakedObjectsManagerEditor.cs" />
-     <Compile Include="Assets\GAF\Scripts\Objects\Editor\GAFObjectEditor.cs" />
+     <Compile Include="Assets\Lib\GAF\Scripts\Asset\Editor\GAFAnimationAssetEditor.cs" />
+     <Compile Include="Assets\Lib\GAF\Scripts\Asset\Editor\GAFAssetPostProcessor.cs" />
+     <Compile Include="Assets\Lib\GAF\Scripts\Asset\Editor\GAFTexturesResourceEditor.cs" />
+     <Compile Include="Assets\Lib\GAF\Scripts\Core\Editor\GAFBakedMovieClipEditor.cs" />
+     <Compile Include="Assets\Lib\GAF\Scripts\Core\Editor\GAFConverterWindowListener.cs" />
+     <Compile Include="Assets\Lib\GAF\Scripts\Core\Editor\GAFMovieClipEditor.cs" />
+     <Compile Include="Assets\Lib\GAF\Scripts\Objects\Editor\GAFBakedObjectControllerEditor.cs" />
+     <Compile Include="Assets\Lib\GAF\Scripts\Objects\Editor\GAFBakedObjectsManagerEditor.cs" />
+     <Compile Include="Assets\Lib\GAF\Scripts\Objects\Editor\GAFObjectEditor.cs" />
+     <Compile Include="Assets\Lib\codeandweb.com\Editor\TexturePackerImporter.cs" />
      <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
-     <None Include="Assets\GAF\Resources\Shaders\GAFShaderBase.cginc" />
-     <None Include="Assets\GAF\Resources\Shaders\GAFObjectsGroup.shader" />
-     <None Include="Assets\GAF\Docs\What&apos;s new.txt" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFShaderBase.cginc" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFObjectsGroup.shader" />
+     <None Include="Assets\Lib\GAF\Docs\What&apos;s new.txt" />
      <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />
-     <None Include="Assets\GAF\Resources\Shaders\GAFBlur.shader" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFBlur.shader" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
-     <None Include="Assets\GAF\Resources\Shaders\GAFFilters.cginc" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFFilters.cginc" />
      <None Include="Assets\Demigiant\DOTween\DOTween43.xml" />
-     <None Include="Assets\GAF\Resources\Shaders\GAFMaskReset.shader" />
-     <None Include="Assets\GAF\Resources\Shaders\GAFFilteredObject.shader" />
-     <None Include="Assets\GAF\Resources\Shaders\GAFGlow.shader" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFMaskReset.shader" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFFilteredObject.shader" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFGlow.shader" />
      <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
-     <None Include="Assets\GAF\Resources\Shaders\GAFMask.shader" />
-     <None Include="Assets\GAF\Docs\Readme.txt" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFMask.shader" />
+     <None Include="Assets\Lib\codeandweb.com\Readme.txt" />
+     <None Include="Assets\Lib\GAF\Docs\Readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.3/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -96,19 +98,19 @@
  <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
  </Reference>
  <Reference Include="GAF">
- <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/GAF/Plugins/GAF.dll</HintPath>
+ <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/Lib/GAF/Plugins/GAF.dll</HintPath>
  </Reference>
  <Reference Include="Ionic.Zip.Reduced">
- <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/GAF/Plugins/Ionic.Zip.Reduced.dll</HintPath>
+ <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/Lib/GAF/Plugins/Ionic.Zip.Reduced.dll</HintPath>
  </Reference>
  <Reference Include="GAFConverter">
- <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/GAF/Plugins/Editor/GAFConverter.dll</HintPath>
+ <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/Lib/GAF/Plugins/Editor/GAFConverter.dll</HintPath>
  </Reference>
  <Reference Include="GAFEditor">
- <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/GAF/Plugins/Editor/GAFEditor.dll</HintPath>
+ <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/Lib/GAF/Plugins/Editor/GAFEditor.dll</HintPath>
  </Reference>
  <Reference Include="MiniJson">
- <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/GAF/Plugins/Editor/MiniJson.dll</HintPath>
+ <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/Lib/GAF/Plugins/Editor/MiniJson.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>

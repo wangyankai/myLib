@@ -13,23 +13,28 @@ public class SkyFlash : MonoBehaviour {
     public Color colorMax;
     public float FirstAnimationTime;
     public float DelayTime;
+    public float AutoStartDelay;
     public SkyAniDuration PositionSkyAniDuration = SkyAniDuration.Linear;
 
     public Vector3 positionMin;
     public Vector3 positionMid;
     public Vector3 positionMax;
-	SkyAniCallBack scalFirstComplete;
-	SkyAniCallBack FirstAnimationComplete;
-	SkyAniCallBack colorFirstComplete;
-	SkyAniCallBack positionFirstComplete;
-	SkyAniCallBack delayTimeComplete;
+    SkyAniCallBack scalFirstComplete;
+    SkyAniCallBack FirstAnimationComplete;
+    SkyAniCallBack colorFirstComplete;
+    SkyAniCallBack positionFirstComplete;
+    SkyAniCallBack delayTimeComplete;
 
     public bool loop = true;
+    public bool AutoRun = true;
     private Image mImage;
 
 	void Start () {
         Init ();
-        FirstAnimation ();
+//        gameObject.SetActive (false);
+        if (AutoRun) {
+            StartCoroutine(delayTimeAction(AutoStartDelay,FirstAnimation));
+        }
 	}
 
     void Init(){
@@ -38,29 +43,29 @@ public class SkyFlash : MonoBehaviour {
         parentWidth = parentTransform.rect.width;
         mImage = GetComponent<Image> ();
         mImage.color = colorMin;
-		scalFirstComplete = new SkyAniCallBack ();
-		scalFirstComplete.SetCompleteMethod (()=>{SkyAnimator.scaleTo (gameObject, FirstAnimationTime/2f, scaleMin, SkyAniDuration.Linear, null);});
-		positionFirstComplete = new SkyAniCallBack ();
-		positionFirstComplete.SetCompleteMethod (()=>{
-			SkyAnimator.moveTo (gameObject, FirstAnimationTime/2f, SkyUtil.reletiveToLocal(positionMax,parentWidth,parentHight), true, PositionSkyAniDuration, FirstAnimationComplete);});
-		FirstAnimationComplete = new SkyAniCallBack ();
-		FirstAnimationComplete.SetCompleteMethod (()=>{
+        scalFirstComplete = new SkyAniCallBack ();
+        scalFirstComplete.SetCompleteMethod (()=>{SkyAnimator.scaleTo (gameObject, FirstAnimationTime/2f, scaleMin, SkyAniDuration.Linear, null);});
+        positionFirstComplete = new SkyAniCallBack ();
+        positionFirstComplete.SetCompleteMethod (()=>{
+            SkyAnimator.moveTo (gameObject, FirstAnimationTime/2f, SkyUtil.reletiveToLocal(positionMax,parentWidth,parentHight), true, PositionSkyAniDuration, FirstAnimationComplete);});
+        FirstAnimationComplete = new SkyAniCallBack ();
+        FirstAnimationComplete.SetCompleteMethod (()=>{
             gameObject.SetActive (false);
             if (loop) {
                 DelayAnimation();;
             }
         });
-		delayTimeComplete = new SkyAniCallBack ();
-		delayTimeComplete.SetCompleteMethod (()=>{FirstAnimation();});
-		colorFirstComplete = new SkyAniCallBack ();
-		colorFirstComplete.SetCompleteMethod (()=>{ SkyAnimator.colorTo (mImage, FirstAnimationTime/2f, colorMin, SkyAniDuration.Linear, null);});
+        delayTimeComplete = new SkyAniCallBack ();
+        delayTimeComplete.SetCompleteMethod (()=>{FirstAnimation();});
+        colorFirstComplete = new SkyAniCallBack ();
+        colorFirstComplete.SetCompleteMethod (()=>{ SkyAnimator.colorTo (mImage, FirstAnimationTime/2f, colorMin, SkyAniDuration.Linear, null);});
     }
 
     void FirstAnimation(){
         gameObject.SetActive (true);
         transform.localScale = scaleMin;
-		transform.localPosition = SkyUtil.reletiveToLocal (positionMin, parentWidth, parentHight);
-		SkyAnimator.moveTo (gameObject, FirstAnimationTime/2f, SkyUtil.reletiveToLocal(positionMid,parentWidth,parentHight), true, PositionSkyAniDuration, positionFirstComplete);
+        transform.localPosition = SkyUtil.reletiveToLocal (positionMin, parentWidth, parentHight);
+        SkyAnimator.moveTo (gameObject, FirstAnimationTime/2f, SkyUtil.reletiveToLocal(positionMid,parentWidth,parentHight), true, PositionSkyAniDuration, positionFirstComplete);
         SkyAnimator.scaleTo (gameObject, FirstAnimationTime/2f, scaleMax, SkyAniDuration.Linear, scalFirstComplete);
         SkyAnimator.colorTo (mImage, FirstAnimationTime/2f, colorMax, SkyAniDuration.Linear, colorFirstComplete);
     }
@@ -72,8 +77,13 @@ public class SkyFlash : MonoBehaviour {
             gameObject.SetActive (false);
         }
     }
-
 	
+    IEnumerator delayTimeAction (float delayTime,System.Action a)
+    {
+        yield return new WaitForSeconds (delayTime);
+        a ();
+    }
+
 	// Update is called once per frame
 	void Update () {
 	

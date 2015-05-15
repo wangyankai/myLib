@@ -1,0 +1,47 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# Sprite sheet: slot_game_new.png (2048 x 2048)
+# $TexturePacker:SmartUpdate:1735fef4e2f55f03708992327b79efb7:6a86c79f579453a188108814d57d7b73:2171af7ac4725afeb401a493271e26ed$
+#
+
+slot_game_downbar_auto;1526;1360;376;182;0.5;0.5
+slot_game_downbar_auto_disable;2;1358;376;182;0.5;0.5
+slot_game_downbar_auto_press;380;1358;376;182;0.5;0.5
+slot_game_downbar_bet_add;1904;1504;132;128;0.5;0.5
+slot_game_downbar_bet_add_disable;1904;1374;132;128;0.5;0.5
+slot_game_downbar_bet_add_press;1904;1244;132;128;0.5;0.5
+slot_game_downbar_bet_bg;1566;1544;336;126;0.5;0.5
+slot_game_downbar_bet_minus;1902;1114;132;128;0.5;0.5
+slot_game_downbar_bet_minus_disable;1390;1162;132;128;0.5;0.5
+slot_game_downbar_bet_minus_press;1390;1032;132;128;0.5;0.5
+slot_game_downbar_bg;2;1834;1920;212;0.5;0.5
+slot_game_downbar_maxsline;634;1174;170;112;0.5;0.5
+slot_game_downbar_maxsline_press;806;1174;170;112;0.5;0.5
+slot_game_downbar_spin;1042;1292;376;182;0.5;0.5
+slot_game_downbar_spin_disable;1524;1176;376;182;0.5;0.5
+slot_game_downbar_spin_press;1012;1108;376;182;0.5;0.5
+slot_game_downbar_stop;1524;992;376;182;0.5;0.5
+slot_game_downbar_stop_press;2;1174;376;182;0.5;0.5
+slot_game_downbar_win_bg;758;1412;282;128;0.5;0.5
+slot_game_upbar_bg;2;1672;1920;160;0.5;0.5
+slot_game_upbar_buycoins;2;1542;538;128;0.5;0.5
+slot_game_upbar_buycoins_light;1082;1648;482;22;0.5;0.5
+slot_game_upbar_buycoins_press;542;1542;538;128;0.5;0.5
+slot_game_upbar_coins;1924;1818;114;116;0.5;0.5
+slot_game_upbar_coins_bg;1082;1562;442;84;0.5;0.5
+slot_game_upbar_lobby;758;1288;252;122;0.5;0.5
+slot_game_upbar_lobby_press;380;1234;252;122;0.5;0.5
+slot_game_upbar_paytable;1924;1726;102;90;0.5;0.5
+slot_game_upbar_paytable_press;1924;1634;102;90;0.5;0.5
+slot_game_upbar_settings;1420;1384;102;90;0.5;0.5
+slot_game_upbar_settings_press;1420;1292;102;90;0.5;0.5
+slot_game_upbar_star;1924;1936;118;110;0.5;0.5
+slot_game_upbar_star_bg;1082;1476;442;84;0.5;0.5
+slot_game_upbar_star_progress_left;1996;1030;48;82;0.5;0.5
+slot_game_upbar_star_progress_light;1902;1022;92;90;0.5;0.5
+slot_game_upbar_star_progress_middle;2044;1964;1;82;0.5;0.5
+slot_game_upbar_star_progress_right;1996;946;48;82;0.5;0.5

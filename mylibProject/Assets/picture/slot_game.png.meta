@@ -1,0 +1,454 @@
+fileFormatVersion: 2
+guid: 1fc6f09f35e0943b98a2dbd3a991790b
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: slot_game_downbar_auto
+    21300002: slot_game_downbar_auto_disable
+    21300004: slot_game_downbar_auto_press
+    21300006: slot_game_downbar_bet_add
+    21300008: slot_game_downbar_bet_add_disable
+    21300010: slot_game_downbar_bet_add_press
+    21300012: slot_game_downbar_bet_bg
+    21300014: slot_game_downbar_bet_minus
+    21300016: slot_game_downbar_bet_minus_disable
+    21300018: slot_game_downbar_bet_minus_press
+    21300020: slot_game_downbar_bg
+    21300022: slot_game_downbar_maxsline
+    21300024: slot_game_downbar_maxsline_press
+    21300026: slot_game_downbar_spin
+    21300028: slot_game_downbar_spin_disable
+    21300030: slot_game_downbar_spin_press
+    21300032: slot_game_downbar_stop
+    21300034: slot_game_downbar_stop_press
+    21300036: slot_game_downbar_win_bg
+    21300038: slot_game_upbar_bg
+    21300040: slot_game_upbar_buycoins
+    21300042: slot_game_upbar_buycoins_light
+    21300044: slot_game_upbar_buycoins_press
+    21300046: slot_game_upbar_coins
+    21300048: slot_game_upbar_coins_bg
+    21300050: slot_game_upbar_lobby
+    21300052: slot_game_upbar_lobby_press
+    21300054: slot_game_upbar_paytable
+    21300056: slot_game_upbar_paytable_press
+    21300058: slot_game_upbar_settings
+    21300060: slot_game_upbar_settings_press
+    21300062: slot_game_upbar_star
+    21300064: slot_game_upbar_star_bg
+    21300066: slot_game_upbar_star_progress_left
+    21300068: slot_game_upbar_star_progress_light
+    21300070: slot_game_upbar_star_progress_middle
+    21300072: slot_game_upbar_star_progress_right
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: slot_game_downbar_auto
+      rect:
+        serializedVersion: 2
+        x: 1526
+        y: 1360
+        width: 376
+        height: 182
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_downbar_auto_disable
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1358
+        width: 376
+        height: 182
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_downbar_auto_press
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 1358
+        width: 376
+        height: 182
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_downbar_bet_add
+      rect:
+        serializedVersion: 2
+        x: 1904
+        y: 1504
+        width: 132
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_downbar_bet_add_disable
+      rect:
+        serializedVersion: 2
+        x: 1904
+        y: 1374
+        width: 132
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_downbar_bet_add_press
+      rect:
+        serializedVersion: 2
+        x: 1904
+        y: 1244
+        width: 132
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_downbar_bet_bg
+      rect:
+        serializedVersion: 2
+        x: 1566
+        y: 1544
+        width: 336
+        height: 126
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_downbar_bet_minus
+      rect:
+        serializedVersion: 2
+        x: 1902
+        y: 1114
+        width: 132
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_downbar_bet_minus_disable
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 1162
+        width: 132
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_downbar_bet_minus_press
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 1032
+        width: 132
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_downbar_bg
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1834
+        width: 1920
+        height: 212
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_downbar_maxsline
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 1174
+        width: 170
+        height: 112
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_downbar_maxsline_press
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 1174
+        width: 170
+        height: 112
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_downbar_spin
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 1292
+        width: 376
+        height: 182
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_downbar_spin_disable
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 1176
+        width: 376
+        height: 182
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_downbar_spin_press
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 1108
+        width: 376
+        height: 182
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_downbar_stop
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 992
+        width: 376
+        height: 182
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_downbar_stop_press
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1174
+        width: 376
+        height: 182
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_downbar_win_bg
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 1412
+        width: 282
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_upbar_bg
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1672
+        width: 1920
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_upbar_buycoins
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1542
+        width: 538
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_upbar_buycoins_light
+      rect:
+        serializedVersion: 2
+        x: 1082
+        y: 1648
+        width: 482
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_upbar_buycoins_press
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 1542
+        width: 538
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_upbar_coins
+      rect:
+        serializedVersion: 2
+        x: 1924
+        y: 1818
+        width: 114
+        height: 116
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_upbar_coins_bg
+      rect:
+        serializedVersion: 2
+        x: 1082
+        y: 1562
+        width: 442
+        height: 84
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_upbar_lobby
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 1288
+        width: 252
+        height: 122
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_upbar_lobby_press
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 1234
+        width: 252
+        height: 122
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_upbar_paytable
+      rect:
+        serializedVersion: 2
+        x: 1924
+        y: 1726
+        width: 102
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_upbar_paytable_press
+      rect:
+        serializedVersion: 2
+        x: 1924
+        y: 1634
+        width: 102
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_upbar_settings
+      rect:
+        serializedVersion: 2
+        x: 1420
+        y: 1384
+        width: 102
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_upbar_settings_press
+      rect:
+        serializedVersion: 2
+        x: 1420
+        y: 1292
+        width: 102
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_upbar_star
+      rect:
+        serializedVersion: 2
+        x: 1924
+        y: 1936
+        width: 118
+        height: 110
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_upbar_star_bg
+      rect:
+        serializedVersion: 2
+        x: 1082
+        y: 1476
+        width: 442
+        height: 84
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_upbar_star_progress_left
+      rect:
+        serializedVersion: 2
+        x: 1996
+        y: 1030
+        width: 48
+        height: 82
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_upbar_star_progress_light
+      rect:
+        serializedVersion: 2
+        x: 1902
+        y: 1022
+        width: 92
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_upbar_star_progress_middle
+      rect:
+        serializedVersion: 2
+        x: 2044
+        y: 1964
+        width: 1
+        height: 82
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_game_upbar_star_progress_right
+      rect:
+        serializedVersion: 2
+        x: 1996
+        y: 946
+        width: 48
+        height: 82
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
