@@ -62,8 +62,10 @@
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAniCallBack.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAniDuration.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAnimator.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyBaseAnimation.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyBezierCurve.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyBezierCurveOject.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyColorAnimation.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyFlash.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyMoveByCurve.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyUtil.cs" />

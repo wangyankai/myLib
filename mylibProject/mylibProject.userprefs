@@ -1,19 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Sky/SkyAnimation/SkyMoveByCurve.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Sky/SkyAnimation/SkyBaseAnimation.cs">
     <Files>
       <File FileName="Assets/Scripts/TestExtend.cs" Line="16" Column="3" />
       <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyAnimator.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ExtendClass.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyAniCallBack.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Sky/UI/UIWindow.cs" Line="1" Column="1" />
-      <File FileName="../../helloworld/Assets/Libs/EasyMaskingTransition/Scripts/EMTransition.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/CreateElement.cs" Line="1" Column="1" />
-      <File FileName="Assets/GAF/Scripts/Objects/GAFBakedObjectsManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/GAF/Scripts/Objects/GAFBakedObject.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyFlash.cs" Line="50" Column="35" />
-      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyMoveByCurve.cs" Line="29" Column="42" />
-      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyUtil.cs" Line="4" Column="21" />
+      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyFlash.cs" Line="43" Column="17" />
+      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyUtil.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyColorAnimation.cs" Line="13" Column="17" />
+      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyMoveByCurve.cs" Line="43" Column="2" />
+      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyBaseAnimation.cs" Line="46" Column="2" />
+      <File FileName="../../slot/Assets/Scripts/UI/UIComponent/ScrollList/SkyScrollPanel.cs" Line="35" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

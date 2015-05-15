@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class SkyFlash : MonoBehaviour {
+public class SkyFlash : SkyBaseAnimation {
 
 	// Use this for initialization
     private float parentHight = 1;
@@ -11,82 +11,46 @@ public class SkyFlash : MonoBehaviour {
     public Vector3 scaleMax;
     public Color colorMin;
     public Color colorMax;
-    public float FirstAnimationTime;
-    public float DelayTime;
-    public float AutoStartDelay;
-    public SkyAniDuration PositionSkyAniDuration = SkyAniDuration.Linear;
+  
 
     public Vector3 positionMin;
     public Vector3 positionMid;
     public Vector3 positionMax;
     SkyAniCallBack scalFirstComplete;
-    SkyAniCallBack FirstAnimationComplete;
     SkyAniCallBack colorFirstComplete;
     SkyAniCallBack positionFirstComplete;
-    SkyAniCallBack delayTimeComplete;
 
-    public bool loop = true;
-    public bool AutoRun = true;
+   
     private Image mImage;
 
-	void Start () {
-        Init ();
-//        gameObject.SetActive (false);
-        if (AutoRun) {
-            StartCoroutine(delayTimeAction(AutoStartDelay,FirstAnimation));
-        }
-	}
 
-    void Init(){
+
+	public override void Init(){
         RectTransform parentTransform = transform.parent.transform as RectTransform;
         parentHight = parentTransform.rect.height;
         parentWidth = parentTransform.rect.width;
         mImage = GetComponent<Image> ();
         mImage.color = colorMin;
         scalFirstComplete = new SkyAniCallBack ();
-        scalFirstComplete.SetCompleteMethod (()=>{SkyAnimator.scaleTo (gameObject, FirstAnimationTime/2f, scaleMin, SkyAniDuration.Linear, null);});
+        scalFirstComplete.SetCompleteMethod (()=>{SkyAnimator.scaleTo (gameObject, PlayTime/2f, scaleMin, SkyAniDuration.Linear, null);});
         positionFirstComplete = new SkyAniCallBack ();
         positionFirstComplete.SetCompleteMethod (()=>{
-            SkyAnimator.moveTo (gameObject, FirstAnimationTime/2f, SkyUtil.reletiveToLocal(positionMax,parentWidth,parentHight), true, PositionSkyAniDuration, FirstAnimationComplete);});
-        FirstAnimationComplete = new SkyAniCallBack ();
-        FirstAnimationComplete.SetCompleteMethod (()=>{
-            gameObject.SetActive (false);
-            if (loop) {
-                DelayAnimation();;
-            }
-        });
-        delayTimeComplete = new SkyAniCallBack ();
-        delayTimeComplete.SetCompleteMethod (()=>{FirstAnimation();});
+            SkyAnimator.moveTo (gameObject, PlayTime/2f, SkyUtil.reletiveToLocal(positionMax,parentWidth,parentHight), true, PositionSkyAniDuration, playComplete);});
         colorFirstComplete = new SkyAniCallBack ();
-        colorFirstComplete.SetCompleteMethod (()=>{ SkyAnimator.colorTo (mImage, FirstAnimationTime/2f, colorMin, SkyAniDuration.Linear, null);});
+        colorFirstComplete.SetCompleteMethod (()=>{ SkyAnimator.colorTo (mImage, PlayTime/2f, colorMin, SkyAniDuration.Linear, null);});
     }
 
-    void FirstAnimation(){
+	public override void Play(){
         gameObject.SetActive (true);
         transform.localScale = scaleMin;
         transform.localPosition = SkyUtil.reletiveToLocal (positionMin, parentWidth, parentHight);
-        SkyAnimator.moveTo (gameObject, FirstAnimationTime/2f, SkyUtil.reletiveToLocal(positionMid,parentWidth,parentHight), true, PositionSkyAniDuration, positionFirstComplete);
-        SkyAnimator.scaleTo (gameObject, FirstAnimationTime/2f, scaleMax, SkyAniDuration.Linear, scalFirstComplete);
-        SkyAnimator.colorTo (mImage, FirstAnimationTime/2f, colorMax, SkyAniDuration.Linear, colorFirstComplete);
+        SkyAnimator.moveTo (gameObject, PlayTime/2f, SkyUtil.reletiveToLocal(positionMid,parentWidth,parentHight), true, PositionSkyAniDuration, positionFirstComplete);
+        SkyAnimator.scaleTo (gameObject, PlayTime/2f, scaleMax, SkyAniDuration.Linear, scalFirstComplete);
+        SkyAnimator.colorTo (mImage, PlayTime/2f, colorMax, SkyAniDuration.Linear, colorFirstComplete);
     }
 
-    void DelayAnimation(){
-        if (loop) {
-            SkyAnimator.colorTo (mImage, DelayTime, colorMin, SkyAniDuration.Linear, delayTimeComplete);
-        } else {
-            gameObject.SetActive (false);
-        }
+	public override void DelayAction(){
+          SkyAnimator.colorTo (mImage, DelayTime, colorMin, SkyAniDuration.Linear, delayComplete);
     }
-	
-    IEnumerator delayTimeAction (float delayTime,System.Action a)
-    {
-        yield return new WaitForSeconds (delayTime);
-        a ();
-    }
-
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
 }
