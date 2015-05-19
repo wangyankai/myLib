@@ -41,6 +41,7 @@ public class CreateElement : MonoBehaviour {
 			element.skyBezierCurve.middlePoints.Add(temp);
 			element.skyBezierCurve.timeDuration =  Random.Range(1,2);
 			element.startAnimation(i*1f/count);
+			element.MOnAnimationCompleted = new SkyBezierCurveOject.MCallBack(()=>{Destroy(element.gameObject);});
 			elements.Add(element);
 		}
 	}
