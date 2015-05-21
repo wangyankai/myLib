@@ -117,5 +117,6 @@
 'Assets/Scripts/Sky/UI/SkyResizeScale.cs'
 'Assets/Scripts/Sky/UI/UIWindow.cs'
 'Assets/Scripts/TestExtend.cs'
+'Assets/Star.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Xml.Linq.dll'

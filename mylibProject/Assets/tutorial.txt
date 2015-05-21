@@ -1,0 +1,5 @@
+This tutorial can be found at
+
+http://catlikecoding.com/unity/tutorials/star/
+
+Copyright 2012 Catlike Coding

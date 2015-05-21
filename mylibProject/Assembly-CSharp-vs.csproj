@@ -114,6 +114,8 @@
      <Compile Include="Assets\Scripts\Sky\UI\SkyResizeScale.cs" />
      <Compile Include="Assets\Scripts\Sky\UI\UIWindow.cs" />
      <Compile Include="Assets\Scripts\TestExtend.cs" />
+     <Compile Include="Assets\Scripts\TestForEditor.cs" />
+     <Compile Include="Assets\Star.cs" />
      <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
      <None Include="Assets\ReadMe.txt" />
      <None Include="Assets\Lib\GAF\Resources\Shaders\GAFShaderBase.cginc" />
@@ -123,10 +125,12 @@
      <None Include="Assets\Font\font3\font.txt" />
      <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />
      <None Include="Assets\Lib\GAF\Resources\Shaders\GAFBlur.shader" />
+     <None Include="Assets\Star.shader" />
      <None Include="Assets\Fonts\LuckiestGuy\LICENSE.txt" />
      <None Include="Assets\Example Games\Angry Birds Style\_ReadMe.txt" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\Lib\GAF\Resources\Shaders\GAFFilters.cginc" />
+     <None Include="Assets\tutorial.txt" />
      <None Include="Assets\Demigiant\DOTween\DOTween43.xml" />
      <None Include="Assets\Font\font2\font.txt" />
      <None Include="Assets\Lib\GAF\Resources\Shaders\GAFMaskReset.shader" />

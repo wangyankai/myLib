@@ -6,9 +6,9 @@ public class SkyBaseAnimation : MonoBehaviour
 
 	public bool loop = true;
 	public bool AutoRun = true;
-	public float PlayTime;
-	public float DelayTime;
-	public float AutoStartDelayTime;
+	public float PlayTime=1;
+	public float DelayTime=1;
+	public float AutoStartDelayTime=1;
 	public SkyAniDuration PositionSkyAniDuration = SkyAniDuration.Linear;
 	protected SkyAniCallBack delayComplete;
 	protected SkyAniCallBack playComplete;

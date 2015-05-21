@@ -59,6 +59,9 @@
 -define:UNITY_EDITOR
 -define:UNITY_EDITOR_OSX
 'Assets/Demigiant/DOTweenPro/Editor/DOTweenAnimationInspector.cs'
+'Assets/Editor/SkyMoveByCurveEditor.cs'
+'Assets/Editor/StarInspector.cs'
+'Assets/Editor/TestEditor.cs'
 'Assets/Lib/GAF/Scripts/Asset/Editor/GAFAnimationAssetEditor.cs'
 'Assets/Lib/GAF/Scripts/Asset/Editor/GAFAssetPostProcessor.cs'
 'Assets/Lib/GAF/Scripts/Asset/Editor/GAFTexturesResourceEditor.cs'
