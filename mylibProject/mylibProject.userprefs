@@ -1,16 +1,18 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/BitmapFont/Scripts/BitmapFont.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Sky/SkyAnimation/SkySetParticleSortingLayer.cs">
     <Files>
-      <File FileName="Assets/Scripts/Sky/SkyGameCamera.cs" Line="18" Column="2" />
+      <File FileName="Assets/Scripts/Sky/SkyGameCamera.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyRestParticleSystemShape.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyFlash.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Sky/UI/SkyResizeScale.cs" Line="1" Column="1" />
       <File FileName="Assets/Lib/GAF/Scripts/Core/GAFMovieClip.cs" Line="1" Column="1" />
       <File FileName="Assets/Lib/GAF/Scripts/Core/GAFBakedMovieClip.cs" Line="1" Column="1" />
-      <File FileName="Assets/BitmapFont/Scripts/BitmapFont.cs" Line="159" Column="35" />
+      <File FileName="Assets/BitmapFont/Scripts/BitmapFont.cs" Line="180" Column="3" />
       <File FileName="Assets/BitmapFont/Scripts/BitmapFontLabel.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CreateElement.cs" Line="35" Column="26" />
+      <File FileName="Assets/Scripts/CreateElement.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GAFTest.cs" Line="17" Column="26" />
+      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkySetParticleSortingLayer.cs" Line="31" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
