@@ -54,8 +54,8 @@ public class SkyMoveByCurveEditor : Editor
 			EditorGUILayout.BeginHorizontal ();
 
 			GUILayout.Label ("time");
-			EditorGUILayout.PropertyField(point.FindPropertyRelative("time"), pointContent,buttonWidth);
-			EditorGUILayout.PropertyField(point.FindPropertyRelative("local"), pointContent, colorWidth);
+			EditorGUILayout.PropertyField (point.FindPropertyRelative ("time"), pointContent, buttonWidth);
+			EditorGUILayout.PropertyField (point.FindPropertyRelative ("local"), pointContent, colorWidth);
 			
 			if (GUILayout.Button (teleportContent, EditorStyles.miniButtonLeft, buttonWidth)) {
 				if (teleportingElement >= 0) {
