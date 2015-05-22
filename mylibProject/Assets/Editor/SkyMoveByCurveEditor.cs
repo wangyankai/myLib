@@ -6,7 +6,7 @@ public class SkyMoveByCurveEditor : Editor
 {
 	private static Vector3 pointSnap = Vector3.one * 0.1f;
 	private SerializedObject mEditor;
-	private SerializedProperty loop, AutoRun, PlayTime, DelayTime, AutoStartDelayTime, startPosition, points;
+	private SerializedProperty loop, AutoRun, PlayTime, DelayTime, AutoStartDelayTime, points;
 	private int teleportingElement;
 	private static GUIContent
 		insertContent = new GUIContent ("+", "duplicate this point"),
@@ -22,7 +22,6 @@ public class SkyMoveByCurveEditor : Editor
 		PlayTime = mEditor.FindProperty ("PlayTime");
 		DelayTime = mEditor.FindProperty ("DelayTime");
 		AutoStartDelayTime = mEditor.FindProperty ("AutoStartDelayTime");
-		startPosition = mEditor.FindProperty ("startPosition");
 		points = mEditor.FindProperty ("targets");
 
 		teleportingElement = -1;
@@ -42,7 +41,6 @@ public class SkyMoveByCurveEditor : Editor
 		EditorGUILayout.PropertyField (PlayTime);
 		EditorGUILayout.PropertyField (DelayTime);
 		EditorGUILayout.PropertyField (AutoStartDelayTime);
-		EditorGUILayout.PropertyField (startPosition);
 
 		EditorGUILayout.PropertyField (points);
 
@@ -53,8 +51,8 @@ public class SkyMoveByCurveEditor : Editor
 
 			EditorGUILayout.BeginHorizontal ();
 
-			GUILayout.Label ("time");
-			EditorGUILayout.PropertyField (point.FindPropertyRelative ("time"), pointContent, buttonWidth);
+			GUILayout.Label ("position");
+//			EditorGUILayout.PropertyField (point.FindPropertyRelative ("time"), pointContent, buttonWidth);
 			EditorGUILayout.PropertyField (point.FindPropertyRelative ("local"), pointContent, colorWidth);
 			
 			if (GUILayout.Button (teleportContent, EditorStyles.miniButtonLeft, buttonWidth)) {
@@ -77,7 +75,10 @@ public class SkyMoveByCurveEditor : Editor
 			EditorGUILayout.EndHorizontal ();
 		}
 
-
+		if (GUILayout.Button (insertContent, EditorStyles.miniButtonMid, buttonWidth)) {
+			SkyMoveByCurve mObject = (SkyMoveByCurve)target;
+			mObject.Play();
+		}
 		if (
 			mEditor.ApplyModifiedProperties () ||
 			(Event.current.type == EventType.ValidateCommand &&
@@ -97,19 +98,19 @@ public class SkyMoveByCurveEditor : Editor
 		Transform starTransform = mObject.transform.parent.transform;
 		Quaternion rotation = Quaternion.Euler (0f, 0f, 0f);
 		mObject.getNewSize ();
-		for (int i = 0; i < mObject.targets.Length; i++) {
+		for (int i = 1; i < mObject.targets.Length; i++) {
 			Vector3 temp = SkyUtil.reletiveToLocal (mObject.targets [i].local, mObject.parentWidth, mObject.parentHight);
 		
 			Vector3 oldPoint = starTransform.TransformPoint (rotation * temp);
 			Vector3 newPoint = Handles.FreeMoveHandle
 			(oldPoint, Quaternion.identity, 0.1f, pointSnap, Handles.DotCap);
 			if (oldPoint != newPoint) {
+				mObject.isDirty = true;
 				mObject.targets [i].local = Quaternion.Inverse (rotation) *
 					starTransform.InverseTransformPoint (newPoint);
 				mObject.targets [i].local.x = mObject.targets [i].local.x / mObject.parentWidth + 0.5f;
 				mObject.targets [i].local.y = mObject.targets [i].local.y / mObject.parentHight + 0.5f;
 				mObject.myUpdate ();
-
 			}
 		}
 	}
