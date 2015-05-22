@@ -28,10 +28,7 @@ public class SkyMoveByCurve : SkyBaseAnimation
 	private Sequence mSequence;
 	private List<float> times = new List<float> ();
 	private List<Vector3> positions = new List<Vector3> ();
-
-
 	public Transform m_Transform;
-
 	public Color m_Color = Color.green; // 线框颜色
 
 	public bool isDirty = true;
@@ -76,6 +73,7 @@ public class SkyMoveByCurve : SkyBaseAnimation
 	{
 		gameObject.SetActive (true);
 		transform.localScale = Vector3.one;
+		transform.localPosition = SkyUtil.reletiveToLocal (targets [0].local, parentWidth, parentHight);
 		computePath ();
 		mSequence = SkyAnimator.moveToSequence (gameObject, times, positions, true, SkyAniDuration.Linear, playComplete);
 	}
@@ -103,17 +101,20 @@ public class SkyMoveByCurve : SkyBaseAnimation
 	{
 		if (targets == null || targets.Length == 0) {
 			targets = new Point[]{ new Point ()};
+			isDirty = true;
 		}
 	}
 
 	void OnEnable ()
 	{
 		myUpdate ();
+		computePath ();
 	}
 
 	void Reset ()
 	{
 		myUpdate ();
+		computePath ();
 	}
 
 	void OnDrawGizmos ()
@@ -121,14 +122,18 @@ public class SkyMoveByCurve : SkyBaseAnimation
 		m_Transform = transform.parent.transform;
 		if (m_Transform == null)
 			return;
-		if (!transform.localPosition.Equals (positions [0])) {
+
+		if ((!UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode) && positions.Count>0) {
+			if (!transform.localPosition.Equals (positions [0])) {
 		
 				positions [0] = transform.localPosition;
-			targets [0].local.x = positions [0].x / parentWidth + 0.5f;
-			targets [0].local.y = positions [0].y / parentHight + 0.5f;
-        }    
-		computePath ();
+				targets [0].local.x = positions [0].x / parentWidth + 0.5f;
+				targets [0].local.y = positions [0].y / parentHight + 0.5f;
+			} 
+		}
 
+
+		computePath ();
 		// 设置矩阵
 		Matrix4x4 defaultMatrix = Gizmos.matrix;
 		Gizmos.matrix = m_Transform.localToWorldMatrix;
@@ -139,7 +144,11 @@ public class SkyMoveByCurve : SkyBaseAnimation
 	
 
 		for (int i=1; i<positions.Count; i++) {
-			Gizmos.DrawLine (positions [i - 1], positions [i]);
+			if (i == 0) {
+				Gizmos.DrawLine (SkyUtil.reletiveToLocal (targets [0].local, parentWidth, parentHight), positions [i]);
+			} else {
+				Gizmos.DrawLine (positions [i - 1], positions [i]);
+			}
 		}
         
 		// 恢复默认颜色
