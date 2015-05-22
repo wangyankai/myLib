@@ -113,6 +113,17 @@
      <Compile Include="Assets\Scripts\Sky\SkyGameCamera.cs" />
      <Compile Include="Assets\Scripts\Sky\UI\SkyResizeScale.cs" />
      <Compile Include="Assets\Scripts\Sky\UI\UIWindow.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\Utils\ResizeByAuto.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\Utils\ResizeBySetting.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\Utils\ResizeDialog.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\Utils\SrcollList\ElementButton.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\Utils\SrcollList\ElementButtonConfig.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\Utils\SrcollList\ItemPlistConfig.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\Utils\SrcollList\MyScrollPanel.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\Utils\SrcollList\SkyElementBase.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\Utils\SrcollList\SkyElementConfig.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\Utils\SrcollList\SkyScrollPanel.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\Utils\SrcollList\SkyScrollRect.cs" />
      <Compile Include="Assets\Scripts\TestExtend.cs" />
      <Compile Include="Assets\Scripts\TestForEditor.cs" />
      <Compile Include="Assets\Star.cs" />
