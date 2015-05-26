@@ -6,9 +6,10 @@ public class SkyMoveByCurveEditor : Editor
 {
 	private static Vector3 pointSnap = Vector3.one * 0.1f;
 	private SerializedObject mEditor;
-	private SerializedProperty loop, AutoRun, PlayTime, DelayTime, AutoStartDelayTime, points;
+	private SerializedProperty loop, AutoRun, PlayTime, DelayTime, AutoStartDelayTime, points,m_Color;
 	private int teleportingElement;
 	private static GUIContent
+		playContent = new GUIContent ("PLAY", "duplicate this point"),
 		insertContent = new GUIContent ("+", "duplicate this point"),
 		deleteContent = new GUIContent ("-", "delete this point"),
 		pointContent = GUIContent.none,
@@ -23,6 +24,7 @@ public class SkyMoveByCurveEditor : Editor
 		DelayTime = mEditor.FindProperty ("DelayTime");
 		AutoStartDelayTime = mEditor.FindProperty ("AutoStartDelayTime");
 		points = mEditor.FindProperty ("targets");
+		m_Color = mEditor.FindProperty ("m_Color");
 
 		teleportingElement = -1;
 		teleportContent.tooltip = "start teleporting this point";
@@ -67,18 +69,22 @@ public class SkyMoveByCurveEditor : Editor
 			}
 			if (GUILayout.Button (insertContent, EditorStyles.miniButtonMid, buttonWidth)) {
 				points.InsertArrayElementAtIndex (i);
+				((SkyMoveByCurve)target).isDirty = true;
 			}
 			if (GUILayout.Button (deleteContent, EditorStyles.miniButtonRight, buttonWidth)) {
 				points.DeleteArrayElementAtIndex (i);
+				((SkyMoveByCurve)target).isDirty = true;
 			}
 			
 			EditorGUILayout.EndHorizontal ();
 		}
 
-		if (GUILayout.Button (insertContent, EditorStyles.miniButtonMid, buttonWidth)) {
-			SkyMoveByCurve mObject = (SkyMoveByCurve)target;
-			mObject.Play();
+		EditorGUILayout.PropertyField (m_Color);
+
+		if (GUILayout.Button (playContent, EditorStyles.miniButtonMid, colorWidth)) {
+			((SkyMoveByCurve)target).Play();
 		}
+
 		if (
 			mEditor.ApplyModifiedProperties () ||
 			(Event.current.type == EventType.ValidateCommand &&
@@ -98,7 +104,7 @@ public class SkyMoveByCurveEditor : Editor
 		Transform starTransform = mObject.transform.parent.transform;
 		Quaternion rotation = Quaternion.Euler (0f, 0f, 0f);
 		mObject.getNewSize ();
-		for (int i = 1; i < mObject.targets.Length; i++) {
+		for (int i = 0; i < mObject.targets.Length; i++) {
 			Vector3 temp = SkyUtil.reletiveToLocal (mObject.targets [i].local, mObject.parentWidth, mObject.parentHight);
 		
 			Vector3 oldPoint = starTransform.TransformPoint (rotation * temp);

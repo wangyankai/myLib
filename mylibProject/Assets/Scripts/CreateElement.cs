@@ -22,32 +22,32 @@ public class CreateElement : MonoBehaviour {
 
 
 	public void create(){
-		elements.Clear ();
-		for (int i=0; i<count; i++) {
-			SkyBezierCurveOject element = Instantiate (skyBezierObject) as SkyBezierCurveOject;
-			element.skyBezierCurve = new SkyBezierCurve();
-			element.skyBezierCurve.endPoint = targarPosition.transform.localPosition;
-			element.transform.SetParent(transform,false);
-			element.transform.localPosition = startPosition.transform.localPosition;
-			element.transform.localScale = Vector3.zero;
-			Vector3 temp1 = Vector3.zero;
-			temp1.x = genOffset() + element.transform.localPosition.x;
-			temp1.y = genOffset();
-			Vector3 temp = Vector3.zero;
-			temp.x = genOffset() - element.transform.localPosition.x;
-			temp.y = genOffset();
-			element.skyBezierCurve.middlePoints.Clear();
-			element.skyBezierCurve.middlePoints.Add(temp1);
-			element.skyBezierCurve.middlePoints.Add(temp);
-			element.skyBezierCurve.timeDuration =  Random.Range(1,2);
-			element.startAnimation(i*1f/count);
-			element.MOnAnimationCompleted = new SkyBezierCurveOject.MCallBack(()=>{Destroy(element.gameObject);});
-			elements.Add(element);
-		}
+//		elements.Clear ();
+//		for (int i=0; i<count; i++) {
+//			SkyBezierCurveOject element = Instantiate (skyBezierObject) as SkyBezierCurveOject;
+//			element.skyBezierCurve = new SkyBezierCurve();
+//			element.skyBezierCurve.endPoint = targarPosition.transform.localPosition;
+//			element.transform.SetParent(transform,false);
+//			element.transform.localPosition = startPosition.transform.localPosition;
+//			element.transform.localScale = Vector3.zero;
+//			Vector3 temp1 = Vector3.zero;
+//			temp1.x = genOffset() + element.transform.localPosition.x;
+//			temp1.y = genOffset();
+//			Vector3 temp = Vector3.zero;
+//			temp.x = genOffset() - element.transform.localPosition.x;
+//			temp.y = genOffset();
+//			element.skyBezierCurve.middlePoints.Clear();
+//			element.skyBezierCurve.middlePoints.Add(temp1);
+//			element.skyBezierCurve.middlePoints.Add(temp);
+//			element.skyBezierCurve.timeDuration =  Random.Range(1,2);
+//			element.startAnimation(i*1f/count);
+//			element.MOnAnimationCompleted = new SkyBezierCurveOject.MCallBack(()=>{Destroy(element.gameObject);});
+//			elements.Add(element);
+//		}
 	}
 
 
-	private float genOffset(){
-		return Random.Range(-100,100);
-	}
+//	private float genOffset(){
+//		return Random.Range(-100,100);
+//	}
 }

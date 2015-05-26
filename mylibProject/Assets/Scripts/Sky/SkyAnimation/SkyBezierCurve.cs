@@ -1,19 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
+[Serializable]
 public class SkyBezierCurve
 {
 	public AnimationCurve animX;
 	public AnimationCurve animY;
-	public Vector3 startPoint;
-	public Vector3 endPoint;
-	private Vector3 middlePoint;
+	[SerializeField] public Vector3 startPoint;
+	[SerializeField] public Vector3 endPoint;
 	public float timeDuration;
 	public int keyFrame = 60;
 //	public bool isActive = false;
 
-	public List<Vector3> middlePoints = new List<Vector3> ();
+	[SerializeField] public List<Vector3> middlePoints ;
 	List<float> tPara = new List<float> ();
 	List<float> ftPara = new List<float> ();
 	List<int> para = new List<int> ();
@@ -100,15 +101,6 @@ public class SkyBezierCurve
 		return temp;
 	}
 
-	public void CreateCurveSingle ()
-	{
-		int totalKeyFrame = (int)timeDuration * keyFrame;
-		Keyframe[] ks_x = genFrame (totalKeyFrame, startPoint.x, endPoint.x, middlePoint.x);
-		Keyframe[] ks_y = genFrame (totalKeyFrame, startPoint.y, endPoint.y, middlePoint.y);
-		animX = new AnimationCurve (ks_x);
-		animY = new AnimationCurve (ks_y);
-	}
-
 	public void CreateCurve ()
 	{
 		int totalKeyFrame = (int)timeDuration * keyFrame;
@@ -118,27 +110,33 @@ public class SkyBezierCurve
 		animX = new AnimationCurve (ks_x);
 		animY = new AnimationCurve (ks_y);
 	}
-	
 
-	public static int genN (int a, int b)
-	{
-		if (a < b || a <= 0 || b < 0)
-			return 0;
-		if (b == 0) {
-			return 1;
+	public void Init(){
+		if (middlePoints == null || middlePoints.Count == 0) {
+			middlePoints = new List<Vector3>();
+			middlePoints.Add(Vector3.zero);
 		}
-
-		if (b > (a / 2 + 1)) {
-			return genN (a, a - b);
-		}
-
-		int tempA = 1;
-		int tempB = 1;
-		for (int i=1; i<=b; i++) {
-			tempA *= (a + 1 - i);
-			tempB *= i;
-		}
-		return tempA / tempB;
 	}
+
+//	public static int genN (int a, int b)
+//	{
+//		if (a < b || a <= 0 || b < 0)
+//			return 0;
+//		if (b == 0) {
+//			return 1;
+//		}
+//
+//		if (b > (a / 2 + 1)) {
+//			return genN (a, a - b);
+//		}
+//
+//		int tempA = 1;
+//		int tempB = 1;
+//		for (int i=1; i<=b; i++) {
+//			tempA *= (a + 1 - i);
+//			tempB *= i;
+//		}
+//		return tempA / tempB;
+//	}
 }
 

@@ -99,6 +99,7 @@
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyBezierCurve.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyBezierCurveOject.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyColorAnimation.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyCustomParticleSystem.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyFlash.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyMoveByCurve.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyRestParticleSystemShape.cs" />
@@ -124,6 +125,7 @@
      <Compile Include="Assets\Scripts\Sky\UI\Utils\SrcollList\SkyElementConfig.cs" />
      <Compile Include="Assets\Scripts\Sky\UI\Utils\SrcollList\SkyScrollPanel.cs" />
      <Compile Include="Assets\Scripts\Sky\UI\Utils\SrcollList\SkyScrollRect.cs" />
+     <Compile Include="Assets\Scripts\SkyDragEvent.cs" />
      <Compile Include="Assets\Scripts\TestExtend.cs" />
      <Compile Include="Assets\Scripts\TestForEditor.cs" />
      <Compile Include="Assets\Star.cs" />

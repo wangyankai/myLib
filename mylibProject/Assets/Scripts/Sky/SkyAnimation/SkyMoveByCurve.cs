@@ -28,7 +28,7 @@ public class SkyMoveByCurve : SkyBaseAnimation
 	private Sequence mSequence;
 	private List<float> times = new List<float> ();
 	private List<Vector3> positions = new List<Vector3> ();
-	public Transform m_Transform;
+	private Transform m_Transform;
 	public Color m_Color = Color.green; // 线框颜色
 
 	public bool isDirty = true;
@@ -43,10 +43,8 @@ public class SkyMoveByCurve : SkyBaseAnimation
 	{
 		if (isDirty) {
 			getNewSize ();
-			transform.localPosition = SkyUtil.reletiveToLocal (targets [0].local, parentWidth, parentHight);
 			times.Clear ();
 			positions.Clear ();
-
 			for (int i=0; i<targets.Length; i++) {
 				positions.Add (SkyUtil.reletiveToLocal (targets [i].local, parentWidth, parentHight));
 				if (i == 0)
@@ -123,13 +121,15 @@ public class SkyMoveByCurve : SkyBaseAnimation
 		if (m_Transform == null)
 			return;
 
-		if ((!UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode) && positions.Count>0) {
-			if (!transform.localPosition.Equals (positions [0])) {
-		
+		if ((!UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode) && positions.Count > 0 && (!transform.localPosition.Equals (positions [0]))) {
+			if (isDirty) {
+				transform.localPosition = positions [0];
+			} else {
 				positions [0] = transform.localPosition;
 				targets [0].local.x = positions [0].x / parentWidth + 0.5f;
 				targets [0].local.y = positions [0].y / parentHight + 0.5f;
-			} 
+				isDirty = true;
+			}
 		}
 
 
@@ -144,11 +144,7 @@ public class SkyMoveByCurve : SkyBaseAnimation
 	
 
 		for (int i=1; i<positions.Count; i++) {
-			if (i == 0) {
-				Gizmos.DrawLine (SkyUtil.reletiveToLocal (targets [0].local, parentWidth, parentHight), positions [i]);
-			} else {
-				Gizmos.DrawLine (positions [i - 1], positions [i]);
-			}
+			Gizmos.DrawLine (positions [i - 1], positions [i]);
 		}
         
 		// 恢复默认颜色

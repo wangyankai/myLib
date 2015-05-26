@@ -107,7 +107,7 @@ public class SkyAnimator
 			sequence.OnComplete (completeObj.OnCompleteMethod);
 		}
 		for (int i=0; i<times.Count; i++) {
-			sequence.Append(moveTo(obj,times[i],targets[i],true,vkDurType,null));
+			sequence.Append (moveTo (obj, times [i], targets [i], true, vkDurType, null));
 		}
 		sequence.Play ();
 		return sequence;
