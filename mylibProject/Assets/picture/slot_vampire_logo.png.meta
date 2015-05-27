@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: c58c184266b524c28afe46b3ff1d3696
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: slot_vampire_1
+    21300002: slot_vampire_2
+    21300004: slot_vampire_3
+    21300006: slot_vampire_4
+    21300008: slot_vampire_5
+    21300010: slot_vampire_6
+    21300012: slot_vampire_7
+    21300014: slot_vampire_8
+    21300016: slot_vampire_9
+    21300018: slot_vampire_bonus
+    21300020: slot_vampire_scatter
+    21300022: 'slot_vampire_wild  '
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: slot_vampire_1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1726
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_vampire_2
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1404
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_vampire_3
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1082
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_vampire_4
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_vampire_5
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 438
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_vampire_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 116
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_vampire_7
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 1726
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_vampire_8
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 1726
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_vampire_9
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 1726
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_vampire_bonus
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 1726
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slot_vampire_scatter
+      rect:
+        serializedVersion: 2
+        x: 1612
+        y: 1726
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'slot_vampire_wild  '
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 1404
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

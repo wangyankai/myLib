@@ -1,0 +1,22 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# Sprite sheet: slot_vampire_logo.png (2048 x 2048)
+# $TexturePacker:SmartUpdate:d6d0c994a550e2834d6c4fabfc8eb7a8:cf34a78ce0087b734db7e91628654b25:a41e7a571c655e5e1551a96515a05dc6$
+#
+
+slot_vampire_1;2;1726;320;320;0.5;0.5
+slot_vampire_2;2;1404;320;320;0.5;0.5
+slot_vampire_3;2;1082;320;320;0.5;0.5
+slot_vampire_4;2;760;320;320;0.5;0.5
+slot_vampire_5;2;438;320;320;0.5;0.5
+slot_vampire_6;2;116;320;320;0.5;0.5
+slot_vampire_7;324;1726;320;320;0.5;0.5
+slot_vampire_8;646;1726;320;320;0.5;0.5
+slot_vampire_9;968;1726;320;320;0.5;0.5
+slot_vampire_bonus;1290;1726;320;320;0.5;0.5
+slot_vampire_scatter;1612;1726;320;320;0.5;0.5
+slot_vampire_wild  ;324;1404;320;320;0.5;0.5

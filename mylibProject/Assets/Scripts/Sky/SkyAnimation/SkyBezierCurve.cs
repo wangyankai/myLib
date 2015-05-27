@@ -8,8 +8,8 @@ public class SkyBezierCurve
 {
 	public AnimationCurve animX;
 	public AnimationCurve animY;
-	[SerializeField] public Vector3 startPoint;
-	[SerializeField] public Vector3 endPoint;
+	public Vector3 startPoint;
+	public Vector3 endPoint;
 	public float timeDuration;
 	public int keyFrame = 60;
 //	public bool isActive = false;

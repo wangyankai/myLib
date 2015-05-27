@@ -85,7 +85,7 @@ public class SkyBezierCurveOject : MonoBehaviour
 			return;
 		
 
-		if (!transform.localPosition.Equals (skyBezierCurve.startPoint)) {
+		if ((!transform.localPosition.Equals (skyBezierCurve.startPoint))&&(!UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode)) {
 			if (isDirty) {
 				transform.localPosition = skyBezierCurve.startPoint;
 			} else {

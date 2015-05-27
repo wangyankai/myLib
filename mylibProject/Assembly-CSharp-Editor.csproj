@@ -67,6 +67,7 @@
      <None Include="Assets\Lib\GAF\Resources\Shaders\GAFObjectsGroup.shader" />
      <None Include="Assets\Example Games\Flappy Bird Style\_ReadMe.txt" />
      <None Include="Assets\Lib\GAF\Docs\What&apos;s new.txt" />
+     <None Include="Assets\Shaders\imageShime.shader" />
      <None Include="Assets\Font\font3\font.txt" />
      <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />
      <None Include="Assets\Lib\GAF\Resources\Shaders\GAFBlur.shader" />

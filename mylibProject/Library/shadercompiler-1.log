@@ -2,8 +2,54 @@ Base path: /Applications/Unity/Unity.app/Contents
 Pipe name: \\.\pipe\UnityShaderCompiler-1--1597271596
 Cmd: getPlatforms
 Cmd: preprocess
-  insize=521 outsize=276 ok=1
+  insize=434 outsize=1180 ok=1
 Cmd: compileSnippet
-  api=0 type=0 insize=545 outsize=313 kw= ok=1
+  api=0 type=0 insize=4216 outsize=919 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
 Cmd: compileSnippet
-  api=0 type=1 insize=545 outsize=84 kw= ok=1
+  api=0 type=1 insize=4216 outsize=360 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=2255 outsize=817 kw=POINT ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=2255 outsize=536 kw=POINT ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=1783 outsize=457 kw= ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=1783 outsize=159 kw= ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=3968 outsize=905 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=3968 outsize=297 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+Cmd: preprocess
+  insize=2018 outsize=458 ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=1862 outsize=328 kw= ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=1862 outsize=1663 kw= ok=1
+Cmd: preprocess
+  insize=2018 outsize=458 ok=1
+Cmd: preprocess
+  insize=2020 outsize=458 ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=1864 outsize=328 kw= ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=1864 outsize=1614 kw= ok=1
+Cmd: preprocess
+  insize=2020 outsize=458 ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=1864 outsize=328 kw= ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=1864 outsize=1614 kw= ok=1
+Cmd: preprocess
+  insize=2095 outsize=457 ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=1939 outsize=328 kw= ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=1939 outsize=1708 kw= ok=1
+Cmd: preprocess
+  insize=2097 outsize=457 ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=1941 outsize=328 kw= ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=1941 outsize=1659 kw= ok=1
+Cmd: preprocess
+  insize=2018 outsize=458 ok=1
