@@ -7,7 +7,7 @@ public class SkyBezierEditor : Editor
 
 	private static Vector3 pointSnap = Vector3.one * 0.1f;
 	private SerializedObject mEditor;
-	private SerializedProperty skyBezierCurve, middlePoints, fixedPointColor, curveColor;
+	private SerializedProperty loop, AutoRun, PlayTime, DelayTime, AutoStartDelayTime,skyBezierCurve, middlePoints, fixedPointColor, curveColor;
 	private int teleportingElement;
 	private static GUIContent
 		playContent = new GUIContent ("PLAY", "duplicate this point"),
@@ -19,6 +19,11 @@ public class SkyBezierEditor : Editor
 	void OnEnable ()
 	{
 		mEditor = new SerializedObject (target);
+		loop = mEditor.FindProperty ("loop");
+		AutoRun = mEditor.FindProperty ("AutoRun");
+		PlayTime = mEditor.FindProperty ("PlayTime");
+		DelayTime = mEditor.FindProperty ("DelayTime");
+		AutoStartDelayTime = mEditor.FindProperty ("AutoStartDelayTime");
 		skyBezierCurve = mEditor.FindProperty ("skyBezierCurve");
 		middlePoints = skyBezierCurve.FindPropertyRelative ("middlePoints");
 		fixedPointColor = mEditor.FindProperty ("fixedPointColor");
@@ -35,6 +40,12 @@ public class SkyBezierEditor : Editor
 	{
 		mEditor.Update ();
 	
+		EditorGUILayout.PropertyField (loop);
+		EditorGUILayout.PropertyField (AutoRun);
+		EditorGUILayout.PropertyField (PlayTime);
+		EditorGUILayout.PropertyField (DelayTime);
+		EditorGUILayout.PropertyField (AutoStartDelayTime);
+
 		EditorGUILayout.PropertyField (fixedPointColor);
 		EditorGUILayout.PropertyField (curveColor);
 		EditorGUILayout.PropertyField (skyBezierCurve.FindPropertyRelative ("animX"));
@@ -78,7 +89,7 @@ public class SkyBezierEditor : Editor
 		}
 
 		if (GUILayout.Button (playContent, EditorStyles.miniButtonMid, colorWidth)) {
-			((SkyBezierCurveOject)target).startAnimation (0);
+			((SkyBezierCurveOject)target).Play();
 		}
 		
 		if (

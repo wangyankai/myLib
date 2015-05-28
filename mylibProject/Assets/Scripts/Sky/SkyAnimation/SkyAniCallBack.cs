@@ -13,18 +13,21 @@ public class SkyAniCallBack
 	{
 	}
 
-	public void SetCompleteMethod (System.Action a)
+	public void AddCompleteMethod (System.Action a)
 	{
-		OnCompleteMethod = new TweenCallback (a);
+		OnCompleteMethod += new TweenCallback (a);
+	}
+	
+
+	public void AddStartMethod (System.Action a)
+	{
+		OnStartMethod += new TweenCallback (a);
 	}
 
-	public void SetStartMethod (System.Action a)
-	{
-		OnStartMethod = new TweenCallback (a);
-	}
 
-	public void SetStepCompleteMethod (System.Action a)
+	public void AddStepCompleteMethod (System.Action a)
 	{
-		OnStepCompleteMethod = new TweenCallback (a);
+		OnStepCompleteMethod += new TweenCallback (a);
 	}
+	
 }

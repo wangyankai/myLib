@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -16,7 +16,7 @@ public class UIWindow : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		vkAniCompleteOut = new SkyAniCallBack();
-		vkAniCompleteOut.SetCompleteMethod (delegate(){
+		vkAniCompleteOut.AddCompleteMethod (delegate(){
 			Debug.Log("I'm out");
 			gameObject.SetActive(false);
 		});

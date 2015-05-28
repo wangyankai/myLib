@@ -3,32 +3,37 @@ using System.Collections;
 using System.Collections.Generic;
 
 [ExecuteInEditMode]
-public class SkyBezierCurveOject : MonoBehaviour
+public class SkyBezierCurveOject : SkyBaseAnimation
 {
 	public SkyBezierCurve skyBezierCurve;
-	public delegate void MCallBack ();
+//	public delegate void MCallBack ();
    
-	public MCallBack MOnAnimationStart;
-	public MCallBack MOnAnimationCompleted;
+	public SkyAniCallBack ActionCallBack;
 	private Transform m_Transform;
 	public Color fixedPointColor = Color.green; // 线框颜色
 	public Color curveColor = Color.red;
 	public bool isDirty = true;
 
-	void Start ()
+	public override void Init ()
 	{
-
-	}
-
-	void Update ()
-	{
-    
+//		isDirty = true;
+//		computePath ();
+		skyBezierCurve.Init ();
 	}
     
-	public void startAnimation (float time)
+	public override void Play ()
 	{
 		computePath ();
-		StartCoroutine (Tweening (time));
+	    StartCoroutine (Tweening (AutoStartDelayTime));
+	}
+
+	public override void DelayAction ()
+	{  
+		if (DelayTime > 0) {
+			StartCoroutine (delayTimeAction (DelayTime,()=>{ delayComplete.OnCompleteMethod();}));
+		} else {
+			delayComplete.OnCompleteMethod();
+		}
 	}
 
 	public void computePath ()
@@ -45,18 +50,22 @@ public class SkyBezierCurveOject : MonoBehaviour
 		transform.localPosition = new Vector3 (skyBezierCurve.animX.Evaluate (time / skyBezierCurve.timeDuration), skyBezierCurve.animY.Evaluate (time / skyBezierCurve.timeDuration), 0);
 	}
 
+
 	IEnumerator Tweening (float time)
 	{
 		yield return new WaitForSeconds (time);
-		if (MOnAnimationStart != null)
-			MOnAnimationStart ();
+		if (ActionCallBack != null && ActionCallBack.OnStartMethod!=null)
+			ActionCallBack.OnStartMethod ();
 		float t = Time.time;
 		while (Time.time - t < skyBezierCurve.timeDuration) {
 			yield return 0;
 			UpdateAnimation (Time.time - t);
 		}
-		if (MOnAnimationCompleted != null)
-			MOnAnimationCompleted ();
+		if (ActionCallBack != null && ActionCallBack.OnCompleteMethod!=null)
+			ActionCallBack.OnCompleteMethod ();
+		if (playComplete != null) {
+			playComplete.OnCompleteMethod ();
+		}
 	}
 
 	public void myUpdate ()

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -16,7 +16,7 @@ public class SkyColorAnimation : SkyBaseAnimation {
 		mImage.color = colorMin;
 
 		colorFirstComplete = new SkyAniCallBack ();
-		colorFirstComplete.SetCompleteMethod (()=>{ SkyAnimator.colorTo (mImage, PlayTime/2f, colorMin, SkyAniDuration.Linear, playComplete);});
+		colorFirstComplete.AddCompleteMethod (()=>{ SkyAnimator.colorTo (mImage, PlayTime/2f, colorMin, SkyAniDuration.Linear, playComplete);});
 
 	}
 	

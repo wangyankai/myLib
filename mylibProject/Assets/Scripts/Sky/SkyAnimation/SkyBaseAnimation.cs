@@ -4,8 +4,8 @@ using System.Collections;
 public class SkyBaseAnimation : MonoBehaviour
 {
 
-	public bool loop = true;
-	public bool AutoRun = true;
+	public bool loop = false;
+	public bool AutoRun = false;
 	public float PlayTime=1;
 	public float DelayTime=1;
 	public float AutoStartDelayTime=1;
@@ -25,10 +25,10 @@ public class SkyBaseAnimation : MonoBehaviour
 	void baseInit ()
 	{
 		delayComplete = new SkyAniCallBack ();
-		delayComplete.SetCompleteMethod (() => {
+		delayComplete.AddCompleteMethod (() => {
 			Play ();});
 		playComplete = new SkyAniCallBack ();
-		playComplete.SetCompleteMethod (() => {
+		playComplete.AddCompleteMethod (() => {
 			PlayEnd ();
 			if (loop)
 				DelayAction ();});

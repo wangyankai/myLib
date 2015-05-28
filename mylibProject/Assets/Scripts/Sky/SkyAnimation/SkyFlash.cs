@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -32,12 +32,12 @@ public class SkyFlash : SkyBaseAnimation {
         mImage = GetComponent<Image> ();
         mImage.color = colorMin;
         scalFirstComplete = new SkyAniCallBack ();
-        scalFirstComplete.SetCompleteMethod (()=>{SkyAnimator.scaleTo (gameObject, PlayTime/2f, scaleMin, SkyAniDuration.Linear, null);});
+        scalFirstComplete.AddCompleteMethod (()=>{SkyAnimator.scaleTo (gameObject, PlayTime/2f, scaleMin, SkyAniDuration.Linear, null);});
         positionFirstComplete = new SkyAniCallBack ();
-        positionFirstComplete.SetCompleteMethod (()=>{
+        positionFirstComplete.AddCompleteMethod (()=>{
             SkyAnimator.moveTo (gameObject, PlayTime/2f, SkyUtil.reletiveToLocal(positionMax,parentWidth,parentHight), true, PositionSkyAniDuration, playComplete);});
         colorFirstComplete = new SkyAniCallBack ();
-        colorFirstComplete.SetCompleteMethod (()=>{ SkyAnimator.colorTo (mImage, PlayTime/2f, colorMin, SkyAniDuration.Linear, null);});
+        colorFirstComplete.AddCompleteMethod (()=>{ SkyAnimator.colorTo (mImage, PlayTime/2f, colorMin, SkyAniDuration.Linear, null);});
     }
 
 	public override void Play(){
