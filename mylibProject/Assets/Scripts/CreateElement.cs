@@ -25,7 +25,7 @@ public class CreateElement : MonoBehaviour {
 		elements.Clear ();
 		for (int i=0; i<count; i++) {
 			SkyBezierCurveOject element = Instantiate (skyBezierObject) as SkyBezierCurveOject;
-			element.skyBezierCurve = new SkyBezierCurve();
+			element.Init();
 			element.skyBezierCurve.endPoint = targarPosition.transform.localPosition;
 			element.transform.SetParent(transform,false);
 			element.transform.localPosition = startPosition.transform.localPosition;
@@ -37,17 +37,16 @@ public class CreateElement : MonoBehaviour {
 			Vector3 temp = Vector3.zero;
 			temp.x = genOffset() - element.transform.localPosition.x;
 			temp.y = genOffset();
-			element.skyBezierCurve.Init();
+
 			element.skyBezierCurve.middlePoints.Clear();
 			element.skyBezierCurve.middlePoints.Add(temp1);
 			element.skyBezierCurve.middlePoints.Add(temp);
 			element.skyBezierCurve.timeDuration =  Random.Range(1,2);
-			element.AutoStartDelayTime = i*1f/count;
+			element.DelayTime = i*1f/count;
 			element.skyBezierCurve.CreateCurve();
-			element.ActionCallBack = new SkyAniCallBack();
 			element.ActionCallBack.AddCompleteMethod(()=>{Destroy(element.gameObject);});
 			elements.Add(element);
-			element.Play();	
+			element.PlayWithDelay();	
 		}
 	}
 

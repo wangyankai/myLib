@@ -61,6 +61,7 @@
      <Compile Include="Assets\Lib\GAF\Scripts\Objects\Editor\GAFBakedObjectsManagerEditor.cs" />
      <Compile Include="Assets\Lib\GAF\Scripts\Objects\Editor\GAFObjectEditor.cs" />
      <Compile Include="Assets\Lib\codeandweb.com\Editor\TexturePackerImporter.cs" />
+     <None Include="Assets\Shaders\UVAnimation.shader" />
      <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
      <None Include="Assets\ReadMe.txt" />
      <None Include="Assets\Lib\GAF\Resources\Shaders\GAFShaderBase.cginc" />

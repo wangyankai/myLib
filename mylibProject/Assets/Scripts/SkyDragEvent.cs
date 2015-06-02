@@ -3,7 +3,8 @@ using System.Collections;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class SkyDragEvent : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler {
+public class SkyDragEvent : MonoBehaviour
+ {
 
 	private Vector2 startPoint;
 	private Vector2 endPoint;
@@ -54,4 +55,5 @@ public class SkyDragEvent : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDra
 	}
 	
 	private bool _isDraging;
+	
 }

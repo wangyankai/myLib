@@ -90,6 +90,7 @@
      <Compile Include="Assets\Lib\GAF\Scripts\Objects\GAFObject.cs" />
      <Compile Include="Assets\Lib\GAF\Scripts\Objects\GAFObjectsManager.cs" />
      <Compile Include="Assets\Scripts\CreateElement.cs" />
+     <Compile Include="Assets\Scripts\DragTest.cs" />
      <Compile Include="Assets\Scripts\ExtendClass.cs" />
      <Compile Include="Assets\Scripts\GAFTest.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAniCallBack.cs" />
@@ -129,6 +130,7 @@
      <Compile Include="Assets\Scripts\TestExtend.cs" />
      <Compile Include="Assets\Scripts\TestForEditor.cs" />
      <Compile Include="Assets\Star.cs" />
+     <None Include="Assets\Shaders\UVAnimation.shader" />
      <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
      <None Include="Assets\ReadMe.txt" />
      <None Include="Assets\Lib\GAF\Resources\Shaders\GAFShaderBase.cginc" />

@@ -26,6 +26,7 @@ public class SkyFlash : SkyBaseAnimation {
 
 
 	public override void Init(){
+		base.Init ();
         RectTransform parentTransform = transform.parent.transform as RectTransform;
         parentHight = parentTransform.rect.height;
         parentWidth = parentTransform.rect.width;
@@ -35,12 +36,13 @@ public class SkyFlash : SkyBaseAnimation {
         scalFirstComplete.AddCompleteMethod (()=>{SkyAnimator.scaleTo (gameObject, PlayTime/2f, scaleMin, SkyAniDuration.Linear, null);});
         positionFirstComplete = new SkyAniCallBack ();
         positionFirstComplete.AddCompleteMethod (()=>{
-            SkyAnimator.moveTo (gameObject, PlayTime/2f, SkyUtil.reletiveToLocal(positionMax,parentWidth,parentHight), true, PositionSkyAniDuration, playComplete);});
+            SkyAnimator.moveTo (gameObject, PlayTime/2f, SkyUtil.reletiveToLocal(positionMax,parentWidth,parentHight), true, PositionSkyAniDuration, playAction);});
         colorFirstComplete = new SkyAniCallBack ();
         colorFirstComplete.AddCompleteMethod (()=>{ SkyAnimator.colorTo (mImage, PlayTime/2f, colorMin, SkyAniDuration.Linear, null);});
     }
 
 	public override void Play(){
+		base.Play ();
         gameObject.SetActive (true);
         transform.localScale = scaleMin;
         transform.localPosition = SkyUtil.reletiveToLocal (positionMin, parentWidth, parentHight);
@@ -49,8 +51,9 @@ public class SkyFlash : SkyBaseAnimation {
         SkyAnimator.colorTo (mImage, PlayTime/2f, colorMax, SkyAniDuration.Linear, colorFirstComplete);
     }
 
-	public override void DelayAction(){
-          SkyAnimator.colorTo (mImage, DelayTime, colorMin, SkyAniDuration.Linear, delayComplete);
+	protected override void DelayAction(){
+//          SkyAnimator.colorTo (mImage, DelayTime, colorMin, SkyAniDuration.Linear, delayComplete);
+		base.DelayAction ();
     }
 
 }

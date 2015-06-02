@@ -35,8 +35,12 @@ public class SkyMoveByCurve : SkyBaseAnimation
 	
 	public override void Init ()
 	{
+		base.Init ();
 		isDirty = true;
 		computePath ();
+		playAction.AddStepCompleteMethod (()=>{
+			transform.localScale = Vector3.zero;
+		});
 	}
 
 	public void computePath ()
@@ -69,16 +73,17 @@ public class SkyMoveByCurve : SkyBaseAnimation
 
 	public override void Play ()
 	{
+		base.Play ();
 		gameObject.SetActive (true);
 		transform.localScale = Vector3.one;
 		transform.localPosition = SkyUtil.reletiveToLocal (targets [0].local, parentWidth, parentHight);
 		computePath ();
-		mSequence = SkyAnimator.moveToSequence (gameObject, times, positions, true, SkyAniDuration.Linear, playComplete);
+		mSequence = SkyAnimator.moveToSequence (gameObject, times, positions, true, SkyAniDuration.Linear, playAction);
 	}
 
-	public override void DelayAction ()
+	protected override void DelayAction ()
 	{  
-		SkyAnimator.scaleTo (gameObject, DelayTime, Vector3.zero, SkyAniDuration.Linear, delayComplete);
+		base.DelayAction ();
 	}
 
 	public void getNewSize ()

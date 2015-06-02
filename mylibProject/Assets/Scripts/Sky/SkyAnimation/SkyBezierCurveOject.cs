@@ -6,7 +6,6 @@ using System.Collections.Generic;
 public class SkyBezierCurveOject : SkyBaseAnimation
 {
 	public SkyBezierCurve skyBezierCurve;
-//	public delegate void MCallBack ();
    
 	public SkyAniCallBack ActionCallBack;
 	private Transform m_Transform;
@@ -16,24 +15,28 @@ public class SkyBezierCurveOject : SkyBaseAnimation
 
 	public override void Init ()
 	{
-//		isDirty = true;
-//		computePath ();
+		base.Init ();
+		if (skyBezierCurve == null) {
+			skyBezierCurve = new SkyBezierCurve();
+		}
+
+		if (ActionCallBack == null) {
+			ActionCallBack = new SkyAniCallBack();
+		}
+
 		skyBezierCurve.Init ();
 	}
     
 	public override void Play ()
 	{
+		base.Play ();
 		computePath ();
-	    StartCoroutine (Tweening (AutoStartDelayTime));
+	    StartCoroutine (Tweening ());
 	}
 
-	public override void DelayAction ()
+	protected override void DelayAction ()
 	{  
-		if (DelayTime > 0) {
-			StartCoroutine (delayTimeAction (DelayTime,()=>{ delayComplete.OnCompleteMethod();}));
-		} else {
-			delayComplete.OnCompleteMethod();
-		}
+		base.DelayAction ();
 	}
 
 	public void computePath ()
@@ -51,9 +54,8 @@ public class SkyBezierCurveOject : SkyBaseAnimation
 	}
 
 
-	IEnumerator Tweening (float time)
+	IEnumerator Tweening ()
 	{
-		yield return new WaitForSeconds (time);
 		if (ActionCallBack != null && ActionCallBack.OnStartMethod!=null)
 			ActionCallBack.OnStartMethod ();
 		float t = Time.time;
@@ -63,8 +65,8 @@ public class SkyBezierCurveOject : SkyBaseAnimation
 		}
 		if (ActionCallBack != null && ActionCallBack.OnCompleteMethod!=null)
 			ActionCallBack.OnCompleteMethod ();
-		if (playComplete != null) {
-			playComplete.OnCompleteMethod ();
+		if (playAction != null) {
+			playAction.OnCompleteMethod ();
 		}
 	}
 
