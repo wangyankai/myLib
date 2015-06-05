@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class SkyColorAnimation : SkyBaseAnimation {
+public class SkyColorAnimation : SkyBaseAnimationObject {
 
 	public Color colorMin;
 	public Color colorMax;
@@ -11,13 +11,12 @@ public class SkyColorAnimation : SkyBaseAnimation {
 	private Image mImage;
 	
 	public override void Init(){
-	
 		base.Init ();
 		mImage = GetComponent<Image> ();
 		mImage.color = colorMin;
 
 		colorFirstComplete = new SkyAniCallBack ();
-		colorFirstComplete.AddCompleteMethod (()=>{ SkyAnimator.colorTo (mImage, PlayTime/2f, colorMin, SkyAniDuration.Linear, playAction);});
+		colorFirstComplete.SetCompleteMethod (()=>{ SkyAnimator.colorTo (mImage, PlayTime/2f, colorMin, SkyAniDuration.Linear, playAction);});
 
 	}
 	
@@ -27,7 +26,7 @@ public class SkyColorAnimation : SkyBaseAnimation {
 		SkyAnimator.colorTo (mImage, PlayTime/2f, colorMax, SkyAniDuration.Linear, colorFirstComplete);
 	}
 	
-	protected override void DelayAction(){
+	public override void DelayAction(){
 //			SkyAnimator.colorTo (mImage, DelayTime, colorMin, SkyAniDuration.Linear, delayComplete);
 		base.DelayAction ();
 	}

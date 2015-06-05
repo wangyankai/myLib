@@ -12,4 +12,5 @@ public static class ExtendClass{
 			testExtend.testX = x;
 		}, 1, 1).SetTarget (testExtend);
 	}
+
 }

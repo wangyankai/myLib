@@ -2,9 +2,8 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-public class SkyFlash : SkyBaseAnimation {
-
-	// Use this for initialization
+public class SkyFlash : SkyBaseAnimationObject {
+	
     private float parentHight = 1;
     private float parentWidth = 1;
     public Vector3 scaleMin;
@@ -33,16 +32,16 @@ public class SkyFlash : SkyBaseAnimation {
         mImage = GetComponent<Image> ();
         mImage.color = colorMin;
         scalFirstComplete = new SkyAniCallBack ();
-        scalFirstComplete.AddCompleteMethod (()=>{SkyAnimator.scaleTo (gameObject, PlayTime/2f, scaleMin, SkyAniDuration.Linear, null);});
+        scalFirstComplete.SetCompleteMethod (()=>{SkyAnimator.scaleTo (gameObject, PlayTime/2f, scaleMin, SkyAniDuration.Linear, null);});
         positionFirstComplete = new SkyAniCallBack ();
         positionFirstComplete.AddCompleteMethod (()=>{
             SkyAnimator.moveTo (gameObject, PlayTime/2f, SkyUtil.reletiveToLocal(positionMax,parentWidth,parentHight), true, PositionSkyAniDuration, playAction);});
         colorFirstComplete = new SkyAniCallBack ();
-        colorFirstComplete.AddCompleteMethod (()=>{ SkyAnimator.colorTo (mImage, PlayTime/2f, colorMin, SkyAniDuration.Linear, null);});
+        colorFirstComplete.SetCompleteMethod (()=>{ SkyAnimator.colorTo (mImage, PlayTime/2f, colorMin, SkyAniDuration.Linear, null);});
     }
 
 	public override void Play(){
-		base.Play ();
+//		base.Play ();
         gameObject.SetActive (true);
         transform.localScale = scaleMin;
         transform.localPosition = SkyUtil.reletiveToLocal (positionMin, parentWidth, parentHight);
@@ -51,7 +50,7 @@ public class SkyFlash : SkyBaseAnimation {
         SkyAnimator.colorTo (mImage, PlayTime/2f, colorMax, SkyAniDuration.Linear, colorFirstComplete);
     }
 
-	protected override void DelayAction(){
+	public override void DelayAction(){
 //          SkyAnimator.colorTo (mImage, DelayTime, colorMin, SkyAniDuration.Linear, delayComplete);
 		base.DelayAction ();
     }

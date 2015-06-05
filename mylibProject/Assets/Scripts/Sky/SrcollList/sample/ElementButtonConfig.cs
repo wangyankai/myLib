@@ -15,6 +15,7 @@ public class ElementButtonConfig : SkyElementConfig
 		public Sprite sprite;
 		public ButtonConfigType buttonConfigType;
         public string desc ;
+		public bool IsSpecial = false;
 
 		public ConfigInf(Sprite sprite,ButtonConfigType buttonConfigType){
 			this.sprite = sprite;

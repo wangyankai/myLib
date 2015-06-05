@@ -5,7 +5,7 @@ using DG.Tweening;
 using System;
 
 [ExecuteInEditMode]
-public class SkyMoveByCurve : SkyBaseAnimation
+public class SkyMoveByCurve : SkyBaseAnimationObject
 {
 
 	[Serializable]
@@ -37,7 +37,6 @@ public class SkyMoveByCurve : SkyBaseAnimation
 	{
 		base.Init ();
 		isDirty = true;
-		computePath ();
 		playAction.AddStepCompleteMethod (()=>{
 			transform.localScale = Vector3.zero;
 		});
@@ -73,7 +72,7 @@ public class SkyMoveByCurve : SkyBaseAnimation
 
 	public override void Play ()
 	{
-		base.Play ();
+//		base.Play ();
 		gameObject.SetActive (true);
 		transform.localScale = Vector3.one;
 		transform.localPosition = SkyUtil.reletiveToLocal (targets [0].local, parentWidth, parentHight);
@@ -81,7 +80,7 @@ public class SkyMoveByCurve : SkyBaseAnimation
 		mSequence = SkyAnimator.moveToSequence (gameObject, times, positions, true, SkyAniDuration.Linear, playAction);
 	}
 
-	protected override void DelayAction ()
+	public override void DelayAction ()
 	{  
 		base.DelayAction ();
 	}

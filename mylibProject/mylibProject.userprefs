@@ -1,21 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DragTest.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Sky/SrcollList/sample/ElementButton.cs">
     <Files>
-      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyBezierCurveOject.cs" Line="42" Column="34" />
-      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyMoveByCurve.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyBezierCurve.cs" Line="1" Column="1" />
-      <File FileName="Assets/Editor/SkyMoveByCurveEditor.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyBaseAnimation.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/SkyDragEvent.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyAniCallBack.cs" Line="1" Column="1" />
-      <File FileName="Assets/Editor/SkyBezierEditor.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CreateElement.cs" Line="1" Column="1" />
-      <File FileName="Assets/Shaders/UVAnimation.shader" Line="1" Column="1" />
-      <File FileName="Assets/Example Games/Angry Birds Style/Scripts/ProjectileDragging.cs" Line="1" Column="1" />
-      <File FileName="Assets/Example Games/Angry Birds Style/Scripts/ProjectileFollow.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/DragTest.cs" Line="32" Column="4" />
-      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyCustomParticleSystem.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Sky/UI/Utils/TimeRecord.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Sky/UI/Utils/SharedPrefs.cs" Line="1" Column="1" />
+      <File FileName="../../slot/Assets/Scripts/App/SubSystems/ShopPaidInfo.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Sky/UI/UIWindow.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Sky/UI/Utils/SkyTime.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/UITest.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Sky/SrcollList/sample/ElementButton.cs" Line="35" Column="4" />
+      <File FileName="Assets/Scripts/Sky/SrcollList/sample/ElementButtonConfig.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

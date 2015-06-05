@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SkyBaseAnimation : MonoBehaviour
+public class SkyBaseAnimationObject : MonoBehaviour,SkyAction
 {
 
 	public bool loop = false;
@@ -10,8 +10,9 @@ public class SkyBaseAnimation : MonoBehaviour
 	public float DelayTime = 1;
 	public float AutoStartDelayTime = 1;
 	public SkyAniDuration PositionSkyAniDuration = SkyAniDuration.Linear;
-	protected SkyAniCallBack delayAction;
-	protected SkyAniCallBack playAction;
+	public SkyAniCallBack delayAction;
+	public SkyAniCallBack playAction;
+	public SkyAniSequence  sequence = null;
 	
 	void Start ()
 	{
@@ -21,16 +22,19 @@ public class SkyBaseAnimation : MonoBehaviour
 		}
 	}
 
+
+
 	public virtual  void Init ()
 	{
 		delayAction = new SkyAniCallBack ();
-		delayAction.AddCompleteMethod (() => {
+		delayAction.SetCompleteMethod (() => {
 			Play ();});
 		playAction = new SkyAniCallBack ();
-		playAction.AddCompleteMethod (() => {
+		playAction.SetCompleteMethod (() => {
 			if (playAction.OnStepCompleteMethod != null) {
 				playAction.OnStepCompleteMethod ();
 			}
+			PlayNextAction ();
 			if (loop)
 				DelayAction ();
 		});
@@ -43,11 +47,12 @@ public class SkyBaseAnimation : MonoBehaviour
 		}
 	}
 
-	public void PlayWithDelay(){
+	public void PlayWithDelay ()
+	{
 		DelayAction ();
 	}
 
-	protected virtual void DelayAction ()
+	public virtual void DelayAction ()
 	{
 
 		if (delayAction.OnStartMethod != null) {
@@ -59,6 +64,58 @@ public class SkyBaseAnimation : MonoBehaviour
 		} else {
 			delayAction.OnCompleteMethod ();
 		}
+	}
+
+	public virtual void PlayNextAction ()
+	{
+		if (sequence != null) {
+			sequence.PlayNext(this);
+		}
+	}
+	
+
+	public virtual void SetAniamtionSeqence (SkyAniSequence skyAniSequence)
+	{
+		this.sequence = skyAniSequence;
+	}
+
+	public virtual void RemoveFromSeqence ()
+	{
+		if (sequence != null) {
+			sequence.RemoveAction (this);
+		}
+	}
+
+	public  bool IsLoop(){
+		return loop;
+	}
+	
+	public  void SetLoop(bool isLoop){
+		this.loop = isLoop;
+	}
+	
+	public  bool IsAutoRun(){
+		return AutoRun;
+	}
+	
+	public void SetAutoRun(bool isAutoRun){
+		this.AutoRun = isAutoRun;
+	}
+	
+	public  float GetPlayTime(){
+		return PlayTime;
+	}
+	
+	public void SetPlayTime(float playTime){
+		this.PlayTime = playTime;
+	}
+	
+	public  float GetDelayTime(){
+		return DelayTime;
+	}
+	
+	public void SetDelayTime(float delayTime){
+		this.DelayTime = delayTime;
 	}
 	
 	protected IEnumerator delayTimeAction (float delayTime, System.Action a)

@@ -3,28 +3,34 @@ using System.Collections;
 using System.Collections.Generic;
 
 [ExecuteInEditMode]
-public class SkyBezierCurveOject : SkyBaseAnimation
+public class SkyBezierCurveOject : SkyBaseAnimationObject
 {
 	public SkyBezierCurve skyBezierCurve;
    
-	public SkyAniCallBack ActionCallBack;
 	private Transform m_Transform;
 	public Color fixedPointColor = Color.green; // 线框颜色
 	public Color curveColor = Color.red;
 	public bool isDirty = true;
+	void Awake ()
 
+	{
+		Init ();
+		if (AutoRun) {
+			StartCoroutine (delayTimeAction (AutoStartDelayTime, Play));
+		}
+	}
+
+
+
+	void Start (){
+	}
 	public override void Init ()
 	{
 		base.Init ();
 		if (skyBezierCurve == null) {
 			skyBezierCurve = new SkyBezierCurve();
+			skyBezierCurve.Init ();
 		}
-
-		if (ActionCallBack == null) {
-			ActionCallBack = new SkyAniCallBack();
-		}
-
-		skyBezierCurve.Init ();
 	}
     
 	public override void Play ()
@@ -34,7 +40,7 @@ public class SkyBezierCurveOject : SkyBaseAnimation
 	    StartCoroutine (Tweening ());
 	}
 
-	protected override void DelayAction ()
+	public override void DelayAction ()
 	{  
 		base.DelayAction ();
 	}
@@ -56,16 +62,14 @@ public class SkyBezierCurveOject : SkyBaseAnimation
 
 	IEnumerator Tweening ()
 	{
-		if (ActionCallBack != null && ActionCallBack.OnStartMethod!=null)
-			ActionCallBack.OnStartMethod ();
+		if (playAction != null && playAction.OnStartMethod!=null)
+			playAction.OnStartMethod ();
 		float t = Time.time;
 		while (Time.time - t < skyBezierCurve.timeDuration) {
 			yield return 0;
 			UpdateAnimation (Time.time - t);
 		}
-		if (ActionCallBack != null && ActionCallBack.OnCompleteMethod!=null)
-			ActionCallBack.OnCompleteMethod ();
-		if (playAction != null) {
+		if (playAction != null && playAction.OnCompleteMethod != null) {
 			playAction.OnCompleteMethod ();
 		}
 	}
@@ -89,8 +93,6 @@ public class SkyBezierCurveOject : SkyBaseAnimation
 
 	void OnDrawGizmos ()
 	{
-
-
 		m_Transform = transform.parent.transform;
 		if (m_Transform == null)
 			return;
