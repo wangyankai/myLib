@@ -7,20 +7,33 @@ public class SkyAniParallel : SkyBaseSequence
 	public override void AppendAction (SkyAction skyAction)
 	{
 		AnimationSequence.Add (skyAction);
+		setAction (skyAction);
+	}
+
+	public override  void AddHead (SkyAction skyAction)
+	{
+		AnimationSequence.Insert (0, skyAction);
+		setAction (skyAction);
+	}
+
+	private void setAction (SkyAction skyAction)
+	{
 		skyAction.SetAniamtionSeqence (this);
 		if (skyAction.GetPlayTime () > PlayTime) {
 			PlayTime = skyAction.GetPlayTime ();
-			this.ParentAction.ReComputePlaytime ();
+			if (ParentAction != null)
+				this.ParentAction.ReComputePlaytime ();
 		}
 	}
-	
+
 	public override void RemoveAction (SkyAction skyAction)
 	{
 		AnimationSequence.Remove (skyAction);
 		skyAction.SetAniamtionSeqence (null);
 		if (PlayTime == skyAction.GetDelayTime ()) {
 			ReComputePlaytime ();
-			this.ParentAction.ReComputePlaytime ();
+			if (ParentAction != null)
+				this.ParentAction.ReComputePlaytime ();
 		}
 	}
 	
@@ -33,9 +46,9 @@ public class SkyAniParallel : SkyBaseSequence
 		}
 	}
 
-	public override void Play ()
+	public override void PlayLoop ()
 	{
-		base.Play ();
+		base.PlayLoop ();
 		if (AnimationSequence.Count > 0) {
 			foreach (SkyAction skyAction in AnimationSequence) {
 				skyAction.Play ();

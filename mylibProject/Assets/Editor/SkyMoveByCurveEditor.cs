@@ -1,4 +1,4 @@
-﻿using UnityEditor;
+using UnityEditor;
 using UnityEngine;
 
 [CanEditMultipleObjects, CustomEditor(typeof(SkyMoveByCurve))]
@@ -82,7 +82,7 @@ public class SkyMoveByCurveEditor : Editor
 		EditorGUILayout.PropertyField (m_Color);
 
 		if (GUILayout.Button (playContent, EditorStyles.miniButtonMid, colorWidth)) {
-			((SkyMoveByCurve)target).Play();
+			((SkyMoveByCurve)target).PlayLoop();
 		}
 
 		if (

@@ -1,4 +1,4 @@
-﻿using UnityEditor;
+using UnityEditor;
 using UnityEngine;
 
 [CanEditMultipleObjects, CustomEditor(typeof(SkyBezierCurveOject))]
@@ -89,7 +89,7 @@ public class SkyBezierEditor : Editor
 		}
 
 		if (GUILayout.Button (playContent, EditorStyles.miniButtonMid, colorWidth)) {
-			((SkyBezierCurveOject)target).Play();
+			((SkyBezierCurveOject)target).PlayLoop();
 		}
 		
 		if (

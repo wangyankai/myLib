@@ -5,9 +5,9 @@ public interface SkyAction
 {
 	void Init ();
 
-	void Play ();
+	void PlayLoop ();
 	
-	void PlayWithDelay ();
+	void Play ();
 	
 	void DelayAction ();
 

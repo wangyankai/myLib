@@ -20,8 +20,8 @@ public class SkyColorAnimation : SkyBaseAnimationObject {
 
 	}
 	
-	public override void Play(){
-		base.Play ();
+	public override void PlayLoop(){
+		base.PlayLoop ();
 		gameObject.SetActive (true);
 		SkyAnimator.colorTo (mImage, PlayTime/2f, colorMax, SkyAniDuration.Linear, colorFirstComplete);
 	}

@@ -8,9 +8,9 @@ public class SkyDelayAnimation : SkyBaseAnimationNormal {
 		this.Init ();
 	}
 
-	public override void Play ()
+	public override void PlayLoop ()
 	{
-		base.Play ();
+		base.PlayLoop ();
 		delayTimeAction (PlayTime,playAction);
 	}
 

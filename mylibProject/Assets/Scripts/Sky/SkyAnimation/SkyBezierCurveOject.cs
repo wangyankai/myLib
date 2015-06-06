@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -16,7 +16,7 @@ public class SkyBezierCurveOject : SkyBaseAnimationObject
 	{
 		Init ();
 		if (AutoRun) {
-			StartCoroutine (delayTimeAction (AutoStartDelayTime, Play));
+			StartCoroutine (delayTimeAction (AutoStartDelayTime, PlayLoop));
 		}
 	}
 
@@ -33,9 +33,9 @@ public class SkyBezierCurveOject : SkyBaseAnimationObject
 		}
 	}
     
-	public override void Play ()
+	public override void PlayLoop ()
 	{
-		base.Play ();
+		base.PlayLoop ();
 		computePath ();
 	    StartCoroutine (Tweening ());
 	}

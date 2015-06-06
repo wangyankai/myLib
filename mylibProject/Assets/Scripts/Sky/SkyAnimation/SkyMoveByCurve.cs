@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -70,7 +70,7 @@ public class SkyMoveByCurve : SkyBaseAnimationObject
 		}
 	}
 
-	public override void Play ()
+	public override void PlayLoop ()
 	{
 //		base.Play ();
 		gameObject.SetActive (true);

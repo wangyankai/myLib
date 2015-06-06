@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class SkyBaseAnimationObject : MonoBehaviour,SkyAction
@@ -7,7 +7,7 @@ public class SkyBaseAnimationObject : MonoBehaviour,SkyAction
 	public bool loop = false;
 	public bool AutoRun = false;
 	public float PlayTime = 1;
-	public float DelayTime = 1;
+	public float DelayTime = 0;
 	public float AutoStartDelayTime = 1;
 	public SkyAniDuration PositionSkyAniDuration = SkyAniDuration.Linear;
 	public SkyAniCallBack delayAction;
@@ -18,7 +18,7 @@ public class SkyBaseAnimationObject : MonoBehaviour,SkyAction
 	{
 		Init ();
 		if (AutoRun) {
-			StartCoroutine (delayTimeAction (AutoStartDelayTime, Play));
+			StartCoroutine (delayTimeAction (AutoStartDelayTime, PlayLoop));
 		}
 	}
 
@@ -26,7 +26,7 @@ public class SkyBaseAnimationObject : MonoBehaviour,SkyAction
 	{
 		delayAction = new SkyAniCallBack ();
 		delayAction.SetCompleteMethod (() => {
-			Play ();});
+			PlayLoop ();});
 		playAction = new SkyAniCallBack ();
 		playAction.SetCompleteMethod (() => {
 			if (playAction.OnStepCompleteMethod != null) {
@@ -38,19 +38,19 @@ public class SkyBaseAnimationObject : MonoBehaviour,SkyAction
 		});
 	}
 	
-	public virtual	void Play ()
+	public virtual	void PlayLoop ()
 	{
 		if (playAction.OnStartMethod != null) {
 			playAction.OnStartMethod ();
 		}
 	}
 
-	public void PlayWithDelay ()
+	public void Play ()
 	{
 		if (DelayTime > 0) {
 			DelayAction ();
 		} else {
-			Play ();
+			PlayLoop ();
 		}
 	}
 

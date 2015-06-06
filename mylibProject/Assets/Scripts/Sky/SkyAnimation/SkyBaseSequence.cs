@@ -46,4 +46,7 @@ public class SkyBaseSequence : SkyBaseAnimationNormal
 
 	public virtual void ReComputePlaytime(){
 	}
+
+	public virtual  void AddHead(SkyAction skyAction){
+	}
 }

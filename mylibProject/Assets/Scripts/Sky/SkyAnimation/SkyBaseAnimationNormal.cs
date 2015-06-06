@@ -8,7 +8,7 @@ public class SkyBaseAnimationNormal : SkyAction
 	public bool loop = false;
 	public bool AutoRun = false;
 	public float PlayTime = 1;
-	public float DelayTime = 1;
+	public float DelayTime = 0;
 	public float AutoStartDelayTime = 1;
 	public SkyAniDuration PositionSkyAniDuration = SkyAniDuration.Linear;
 	public SkyAniCallBack delayAction;
@@ -19,7 +19,7 @@ public class SkyBaseAnimationNormal : SkyAction
 	{
 		delayAction = new SkyAniCallBack ();
 		delayAction.AddCompleteMethod (() => {
-			Play ();});
+			PlayLoop ();});
 		playAction = new SkyAniCallBack ();
 		playAction.AddCompleteMethod (() => {
 			if (playAction.OnStepCompleteMethod != null) {
@@ -31,19 +31,19 @@ public class SkyBaseAnimationNormal : SkyAction
 		});
 	}
 	
-	public virtual	void Play ()
+	public virtual	void PlayLoop ()
 	{
 		if (playAction.OnStartMethod != null) {
 			playAction.OnStartMethod ();
 		}
 	}
 	
-	public void PlayWithDelay ()
+	public void Play ()
 	{
 		if (DelayTime > 0) {
 			DelayAction ();
 		} else {
-			Play ();
+			PlayLoop ();
 		}
 	}
 	

@@ -40,7 +40,7 @@ public class SkyFlash : SkyBaseAnimationObject {
         colorFirstComplete.SetCompleteMethod (()=>{ SkyAnimator.colorTo (mImage, PlayTime/2f, colorMin, SkyAniDuration.Linear, null);});
     }
 
-	public override void Play(){
+	public override void PlayLoop(){
 //		base.Play ();
         gameObject.SetActive (true);
         transform.localScale = scaleMin;
