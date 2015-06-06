@@ -8,14 +8,14 @@ public class SkyAniSequence : SkyBaseSequence {
 		AnimationSequence.Add (skyAction);
 		skyAction.SetAniamtionSeqence (this);
 		PlayTime += skyAction.GetPlayTime ();
-		this.sequence.ReComputePlaytime ();
+		this.ParentAction.ReComputePlaytime ();
 	}
 	
 	public override void RemoveAction(SkyAction skyAction){
 		AnimationSequence.Remove (skyAction);
 		skyAction.SetAniamtionSeqence (null);
 		PlayTime -= skyAction.GetPlayTime ();
-		this.sequence.ReComputePlaytime ();
+		this.ParentAction.ReComputePlaytime ();
 	}
 
 	

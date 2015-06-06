@@ -10,7 +10,7 @@ public class SkyAniParallel : SkyBaseSequence
 		skyAction.SetAniamtionSeqence (this);
 		if (skyAction.GetPlayTime () > PlayTime) {
 			PlayTime = skyAction.GetPlayTime ();
-			this.sequence.ReComputePlaytime ();
+			this.ParentAction.ReComputePlaytime ();
 		}
 	}
 	
@@ -20,7 +20,7 @@ public class SkyAniParallel : SkyBaseSequence
 		skyAction.SetAniamtionSeqence (null);
 		if (PlayTime == skyAction.GetDelayTime ()) {
 			ReComputePlaytime ();
-			this.sequence.ReComputePlaytime ();
+			this.ParentAction.ReComputePlaytime ();
 		}
 	}
 	

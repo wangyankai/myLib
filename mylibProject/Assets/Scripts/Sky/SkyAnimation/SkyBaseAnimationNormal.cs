@@ -13,7 +13,7 @@ public class SkyBaseAnimationNormal : SkyAction
 	public SkyAniDuration PositionSkyAniDuration = SkyAniDuration.Linear;
 	public SkyAniCallBack delayAction;
 	public SkyAniCallBack playAction;
-	public SkyBaseSequence  sequence = null;
+	public SkyBaseSequence  ParentAction = null;
 
 	public virtual  void Init ()
 	{
@@ -54,20 +54,20 @@ public class SkyBaseAnimationNormal : SkyAction
 
 	public virtual void PlayNextAction ()
 	{
-		if (sequence != null) {
-			sequence.PlayNext (this);
+		if (ParentAction != null) {
+			ParentAction.PlayNext (this);
 		}
 	}
 
 	public virtual void SetAniamtionSeqence (SkyBaseSequence skyAniSequence)
 	{
-		this.sequence = skyAniSequence;
+		this.ParentAction = skyAniSequence;
 	}
 
 	public virtual void RemoveFromSeqence ()
 	{
-		if (sequence != null) {
-			sequence.RemoveAction (this);
+		if (ParentAction != null) {
+			ParentAction.RemoveAction (this);
 		}
 	}
 
