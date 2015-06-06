@@ -8,13 +8,12 @@ public class SkyBaseAnimationNormal : SkyAction
 	public bool loop = false;
 	public bool AutoRun = false;
 	public float PlayTime = 1;
-	public float DelayTime = 4;
+	public float DelayTime = 1;
 	public float AutoStartDelayTime = 1;
 	public SkyAniDuration PositionSkyAniDuration = SkyAniDuration.Linear;
 	public SkyAniCallBack delayAction;
 	public SkyAniCallBack playAction;
-	public SkyAniSequence  sequence = null;
-
+	public SkyBaseSequence  sequence = null;
 
 	public virtual  void Init ()
 	{
@@ -26,7 +25,7 @@ public class SkyBaseAnimationNormal : SkyAction
 			if (playAction.OnStepCompleteMethod != null) {
 				playAction.OnStepCompleteMethod ();
 			}
-			PlayNextAction();
+			PlayNextAction ();
 			if (loop)
 				DelayAction ();
 		});
@@ -50,65 +49,84 @@ public class SkyBaseAnimationNormal : SkyAction
 	
 	public virtual void DelayAction ()
 	{
-
+		delayTimeAction (DelayTime, delayAction);
 	}
 
-	public virtual void PlayNextAction(){
-       if (sequence != null) {
-			sequence.PlayNext(this);
+	public virtual void PlayNextAction ()
+	{
+		if (sequence != null) {
+			sequence.PlayNext (this);
 		}
 	}
 
-	public virtual void SetAniamtionSeqence(SkyAniSequence skyAniSequence){
+	public virtual void SetAniamtionSeqence (SkyBaseSequence skyAniSequence)
+	{
 		this.sequence = skyAniSequence;
 	}
 
-	public virtual void RemoveFromSeqence(){
+	public virtual void RemoveFromSeqence ()
+	{
 		if (sequence != null) {
-			sequence.RemoveAction(this);
+			sequence.RemoveAction (this);
 		}
 	}
 
-	public  bool IsLoop(){
+	public  bool IsLoop ()
+	{
 		return loop;
 	}
 
-	public  void SetLoop(bool isLoop){
+	public  void SetLoop (bool isLoop)
+	{
 		this.loop = isLoop;
 	}
 
-	public  bool IsAutoRun(){
+	public  bool IsAutoRun ()
+	{
 		return AutoRun;
 	}
 
-	public void SetAutoRun(bool isAutoRun){
+	public void SetAutoRun (bool isAutoRun)
+	{
 		this.AutoRun = isAutoRun;
 	}
 
-	public  float GetPlayTime(){
+	public  float GetPlayTime ()
+	{
 		return PlayTime;
 	}
 
-	public void SetPlayTime(float playTime){
+	public void SetPlayTime (float playTime)
+	{
 		this.PlayTime = playTime;
 	}
 
-	public  float GetDelayTime(){
+	public  float GetDelayTime ()
+	{
 		return DelayTime;
 	}
 
-	public void SetDelayTime(float delayTime){
+	public void SetDelayTime (float delayTime)
+	{
 		this.DelayTime = delayTime;
 	}
 
 	public float time;
 
-	public  Tweener RunDelayTime ()
+    public void delayTimeAction (float delayTime, SkyAniCallBack skyAnicallBack)
+	{
+		Tweener tw = null;
+		tw = RunDelayTime (delayTime, delayTime);
+		tw.SetTarget (delayTime);
+		tw.OnComplete (skyAnicallBack.OnCompleteMethod);
+	}
+
+	private  Tweener RunDelayTime (float endValue, float Duration)
 	{
 		this.time = 0;
-		return DOTween.To (() => DelayTime, delegate (float x) {
+		return DOTween.To (() => this.time, delegate (float x) {
 			this.time = x;
-		}, 1, 1).SetTarget (this);
+		}, endValue, Duration).SetTarget (this);
 	}
 
 

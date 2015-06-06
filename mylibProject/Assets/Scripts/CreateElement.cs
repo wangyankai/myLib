@@ -56,24 +56,28 @@ public class CreateElement : MonoBehaviour {
 			animationSquence.AppendAction(element);
 		}
 
-		SkyAniSequence tempSeq = new SkyAniSequence();
+		SkyAniParallel tempSeq = new SkyAniParallel();
+
 		SkyDelayAnimation skyDelay0 = new SkyDelayAnimation ();
 		skyDelay0.playAction.AddCompleteMethod (Test2);
+		skyDelay0.SetPlayTime (3f);
 		tempSeq.AppendAction (skyDelay0);
 		SkyDelayAnimation skyDelay1 = new SkyDelayAnimation ();
-		skyDelay0.playAction.AddCompleteMethod (Test3);
+		skyDelay1.playAction.AddCompleteMethod (Test3);
 		tempSeq.AppendAction (skyDelay1);
 
 		animationSquence.AppendAction(tempSeq);
-
+//		animationSquence.AppendAction(skyDelay1);
 		SkyDelayAnimation skyDelay = new SkyDelayAnimation ();
 		skyDelay.playAction.AddCompleteMethod (Test);
 //		animation.Add(skyDelay);
 //		skyDelay.Play ();
 		animationSquence.AppendAction(skyDelay);
+//		animationSquence.AppendAction(skyDelay0);
 //		foreach (SkyAnimation skyAnimation in animation) {
 //			skyAnimation.Play();
 //		}
+//		animationSquence.RemoveAll ();
 		animationSquence.Play ();
 	}
 

@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public interface SkyAction  {
+public interface SkyAction
+{
 	void Init ();
 
 	void Play ();
@@ -10,26 +11,26 @@ public interface SkyAction  {
 	
 	void DelayAction ();
 
-	void PlayNextAction();
+	void PlayNextAction ();
 
-	void SetAniamtionSeqence(SkyAniSequence skyAniSequence);
+	void SetAniamtionSeqence (SkyBaseSequence skyAniSequence);
 
-	void RemoveFromSeqence();
+	void RemoveFromSeqence ();
 
-	bool IsLoop();
+	bool IsLoop ();
 
-	void SetLoop(bool isLoop);
+	void SetLoop (bool isLoop);
 
-	bool IsAutoRun();
+	bool IsAutoRun ();
 
-	void SetAutoRun(bool isAutoRun);
+	void SetAutoRun (bool isAutoRun);
 
-	float GetPlayTime();
+	float GetPlayTime ();
 
-	void SetPlayTime(float playTime);
+	void SetPlayTime (float playTime);
 
-	float GetDelayTime();
+	float GetDelayTime ();
 
-	void SetDelayTime(float delayTime);
+	void SetDelayTime (float delayTime);
 
 }

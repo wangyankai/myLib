@@ -96,10 +96,12 @@
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAction.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAniCallBack.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAniDuration.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAniParallel.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAniSequence.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAnimator.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyBaseAnimationNormal.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyBaseAnimationObject.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyBaseSequence.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyBezierCurve.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyBezierCurveOject.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyColorAnimation.cs" />

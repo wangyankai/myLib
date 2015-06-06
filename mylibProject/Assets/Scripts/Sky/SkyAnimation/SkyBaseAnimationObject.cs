@@ -12,7 +12,7 @@ public class SkyBaseAnimationObject : MonoBehaviour,SkyAction
 	public SkyAniDuration PositionSkyAniDuration = SkyAniDuration.Linear;
 	public SkyAniCallBack delayAction;
 	public SkyAniCallBack playAction;
-	public SkyAniSequence  sequence = null;
+	public SkyBaseSequence  sequence = null;
 	
 	void Start ()
 	{
@@ -21,8 +21,6 @@ public class SkyBaseAnimationObject : MonoBehaviour,SkyAction
 			StartCoroutine (delayTimeAction (AutoStartDelayTime, Play));
 		}
 	}
-
-
 
 	public virtual  void Init ()
 	{
@@ -49,7 +47,11 @@ public class SkyBaseAnimationObject : MonoBehaviour,SkyAction
 
 	public void PlayWithDelay ()
 	{
-		DelayAction ();
+		if (DelayTime > 0) {
+			DelayAction ();
+		} else {
+			Play ();
+		}
 	}
 
 	public virtual void DelayAction ()
@@ -69,12 +71,11 @@ public class SkyBaseAnimationObject : MonoBehaviour,SkyAction
 	public virtual void PlayNextAction ()
 	{
 		if (sequence != null) {
-			sequence.PlayNext(this);
+			sequence.PlayNext (this);
 		}
 	}
-	
 
-	public virtual void SetAniamtionSeqence (SkyAniSequence skyAniSequence)
+	public virtual void SetAniamtionSeqence (SkyBaseSequence skyAniSequence)
 	{
 		this.sequence = skyAniSequence;
 	}
@@ -86,35 +87,43 @@ public class SkyBaseAnimationObject : MonoBehaviour,SkyAction
 		}
 	}
 
-	public  bool IsLoop(){
+	public  bool IsLoop ()
+	{
 		return loop;
 	}
 	
-	public  void SetLoop(bool isLoop){
+	public  void SetLoop (bool isLoop)
+	{
 		this.loop = isLoop;
 	}
 	
-	public  bool IsAutoRun(){
+	public  bool IsAutoRun ()
+	{
 		return AutoRun;
 	}
 	
-	public void SetAutoRun(bool isAutoRun){
+	public void SetAutoRun (bool isAutoRun)
+	{
 		this.AutoRun = isAutoRun;
 	}
 	
-	public  float GetPlayTime(){
+	public  float GetPlayTime ()
+	{
 		return PlayTime;
 	}
 	
-	public void SetPlayTime(float playTime){
+	public void SetPlayTime (float playTime)
+	{
 		this.PlayTime = playTime;
 	}
 	
-	public  float GetDelayTime(){
+	public  float GetDelayTime ()
+	{
 		return DelayTime;
 	}
 	
-	public void SetDelayTime(float delayTime){
+	public void SetDelayTime (float delayTime)
+	{
 		this.DelayTime = delayTime;
 	}
 	
