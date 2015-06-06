@@ -25,6 +25,7 @@ public class CreateElement : MonoBehaviour {
 
 	public void create(){
 	
+		animationSquence.RemoveAll ();
 		elements.Clear ();
 		for (int i=0; i<count; i++) {
 			SkyBezierCurveOject element = Instantiate (skyBezierObject) as SkyBezierCurveOject;
@@ -51,9 +52,9 @@ public class CreateElement : MonoBehaviour {
 				element.RemoveFromSeqence();
 				Destroy(element.gameObject);});
 //			elements.Add(element);
-//			element.PlayWithDelay();
+			element.Play ();
 //			animation.Add(element);
-			animationSquence.AppendAction(element);
+//			animationSquence.AppendAction(element);
 		}
 
 		SkyAniParallel tempSeq = new SkyAniParallel();

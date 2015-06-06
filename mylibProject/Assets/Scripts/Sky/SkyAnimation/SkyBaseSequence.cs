@@ -36,7 +36,8 @@ public class SkyBaseSequence : SkyBaseAnimationNormal
 		}
 		AnimationSequence.Clear ();
 		PlayTime = 0;
-		this.ParentAction.ReComputePlaytime ();
+		if(this.ParentAction!=null)
+			this.ParentAction.ReComputePlaytime ();
 	}
 
 	public  virtual void PlayNext (SkyAction skyAction)
