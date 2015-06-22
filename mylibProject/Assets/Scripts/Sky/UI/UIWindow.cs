@@ -20,7 +20,6 @@ public class UIWindow : MonoBehaviour
 	public SkyAniDuration AniDurationIn = SkyAniDuration.Linear;
 	public UIAnimation UIAnimationOut = UIAnimation.NOAnimation;
 	public SkyAniDuration AniDurationOut = SkyAniDuration.Linear;
-	public GameObject buttonPrefab;
 
 	void Start ()
 	{

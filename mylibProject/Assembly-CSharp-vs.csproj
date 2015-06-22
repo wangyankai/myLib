@@ -93,6 +93,7 @@
      <Compile Include="Assets\Scripts\DragTest.cs" />
      <Compile Include="Assets\Scripts\ExtendClass.cs" />
      <Compile Include="Assets\Scripts\GAFTest.cs" />
+     <Compile Include="Assets\Scripts\Sky\Mesh\MeshImage.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAction.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAniCallBack.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAniDuration.cs" />
@@ -133,6 +134,7 @@
      <Compile Include="Assets\Scripts\Sky\UI\Utils\ResizeBySetting.cs" />
      <Compile Include="Assets\Scripts\Sky\UI\Utils\ResizeDialog.cs" />
      <Compile Include="Assets\Scripts\Sky\UI\Utils\SharedPrefs.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\Utils\SkySreenUtils.cs" />
      <Compile Include="Assets\Scripts\Sky\UI\Utils\SkyTime.cs" />
      <Compile Include="Assets\Scripts\Sky\UI\Utils\TimeRecord.cs" />
      <Compile Include="Assets\Scripts\SkyDragEvent.cs" />

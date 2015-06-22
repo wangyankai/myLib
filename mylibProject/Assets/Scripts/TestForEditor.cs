@@ -19,9 +19,9 @@ public class TestForEditor : MonoBehaviour
 	}
 
 	public void getNewSize(){
-		RectTransform parentTransform = transform as RectTransform;
-		parentHight = parentTransform.rect.height;
-		parentWidth = parentTransform.rect.width;
+//		RectTransform parentTransform = transform as RectTransform;
+//		parentHight = parentTransform.rect.height;
+//		parentWidth = parentTransform.rect.width;
 //		Debug.Log (" H " + parentHight + " w " + parentWidth);
 	}
 
