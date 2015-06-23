@@ -1,6 +1,6 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Star.shader">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Sky/Mesh/MeshImage.cs">
     <Files>
       <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyBaseAnimationNormal.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/CreateElement.cs" Line="1" Column="1" />
@@ -8,14 +8,15 @@
       <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyAniParallel.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyAniSequence.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyBaseSequence.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/TestForEditor.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/TestForEditor.cs" Line="24" Column="46" />
       <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyAction.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyBaseAnimationObject.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Sky/UI/UIWindow.cs" Line="1" Column="1" />
       <File FileName="Assets/Shaders/UVAnimation.shader" Line="1" Column="1" />
       <File FileName="Assets/Shaders/imageShime.shader" Line="1" Column="1" />
-      <File FileName="Assets/Star.cs" Line="36" Column="33" />
+      <File FileName="Assets/Star.cs" Line="4" Column="20" />
       <File FileName="Assets/Star.shader" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Sky/Mesh/MeshImage.cs" Line="158" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
