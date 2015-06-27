@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using DG.Tweening;
 
@@ -11,7 +11,7 @@ public class SkyDelayAnimation : SkyBaseAnimationNormal {
 	public override void PlayLoop ()
 	{
 		base.PlayLoop ();
-		delayTimeAction (PlayTime,playAction);
+		delayTimeAction (PlayTime,PlayAction);
 	}
 
 }

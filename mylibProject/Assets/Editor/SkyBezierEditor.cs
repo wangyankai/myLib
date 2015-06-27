@@ -19,11 +19,11 @@ public class SkyBezierEditor : Editor
 	void OnEnable ()
 	{
 		mEditor = new SerializedObject (target);
-		loop = mEditor.FindProperty ("loop");
-		AutoRun = mEditor.FindProperty ("AutoRun");
-		PlayTime = mEditor.FindProperty ("PlayTime");
-		DelayTime = mEditor.FindProperty ("DelayTime");
-		AutoStartDelayTime = mEditor.FindProperty ("AutoStartDelayTime");
+		loop = mEditor.FindProperty ("_loop");
+		AutoRun = mEditor.FindProperty ("_AutoRun");
+		PlayTime = mEditor.FindProperty ("_PlayTime");
+		DelayTime = mEditor.FindProperty ("_DelayTime");
+		AutoStartDelayTime = mEditor.FindProperty ("_AutoStartDelayTime");
 		skyBezierCurve = mEditor.FindProperty ("skyBezierCurve");
 		middlePoints = skyBezierCurve.FindPropertyRelative ("middlePoints");
 		fixedPointColor = mEditor.FindProperty ("fixedPointColor");

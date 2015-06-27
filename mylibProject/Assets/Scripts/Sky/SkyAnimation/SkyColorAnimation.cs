@@ -16,7 +16,7 @@ public class SkyColorAnimation : SkyBaseAnimationObject {
 		mImage.color = colorMin;
 
 		colorFirstComplete = new SkyAniCallBack ();
-		colorFirstComplete.SetCompleteMethod (()=>{ SkyAnimator.colorTo (mImage, PlayTime/2f, colorMin, SkyAniDuration.Linear, playAction);});
+		colorFirstComplete.SetCompleteMethod (()=>{ SkyAnimator.colorTo (mImage, PlayTime/2f, colorMin, SkyAniDuration.Linear, PlayAction);});
 
 	}
 	
@@ -26,9 +26,9 @@ public class SkyColorAnimation : SkyBaseAnimationObject {
 		SkyAnimator.colorTo (mImage, PlayTime/2f, colorMax, SkyAniDuration.Linear, colorFirstComplete);
 	}
 	
-	public override void DelayAction(){
+	public override void Delay(){
 //			SkyAnimator.colorTo (mImage, DelayTime, colorMin, SkyAniDuration.Linear, delayComplete);
-		base.DelayAction ();
+		base.Delay ();
 	}
 	
 

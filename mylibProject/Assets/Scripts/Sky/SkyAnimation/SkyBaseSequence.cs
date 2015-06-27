@@ -32,11 +32,11 @@ public class SkyBaseSequence : SkyBaseAnimationNormal
 	public void RemoveAll ()
 	{
 		foreach (SkyAction skyAction in AnimationSequence) {
-			skyAction.SetAniamtionSeqence (null);
+			skyAction.ParentAction = null;
 		}
 		AnimationSequence.Clear ();
 		PlayTime = 0;
-		if(this.ParentAction!=null)
+		if (this.ParentAction != null)
 			this.ParentAction.ReComputePlaytime ();
 	}
 
@@ -45,9 +45,11 @@ public class SkyBaseSequence : SkyBaseAnimationNormal
 
 	}
 
-	public virtual void ReComputePlaytime(){
+	public virtual void ReComputePlaytime ()
+	{
 	}
 
-	public virtual  void AddHead(SkyAction skyAction){
+	public virtual  void AddHead (SkyAction skyAction)
+	{
 	}
 }

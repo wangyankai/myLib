@@ -4,16 +4,75 @@ using System.Collections;
 public class SkyBaseAnimationObject : MonoBehaviour,SkyAction
 {
 
-	public bool loop = false;
-	public bool AutoRun = false;
-	public float PlayTime = 1;
-	public float DelayTime = 0;
-	public float AutoStartDelayTime = 1;
-	public SkyAniDuration PositionSkyAniDuration = SkyAniDuration.Linear;
-	public SkyAniCallBack delayAction;
-	public SkyAniCallBack playAction;
-	public SkyBaseSequence  sequence = null;
-	
+	public bool Loop {
+		get{ return _loop;}
+		set{ _loop = value;}
+	}
+
+	[SerializeField]
+	private bool
+		_loop = false;
+
+	public bool AutoRun {
+		get{ return _AutoRun;}
+		set{ _AutoRun = value;}
+	}
+
+	[SerializeField]
+	private bool
+		_AutoRun = false;
+
+	public float PlayTime {
+		get{ return _PlayTime;}
+		set{ _PlayTime = value;}
+	}
+
+	[SerializeField]
+	private float
+		_PlayTime = 1;
+
+	public float DelayTime {
+		get{ return _DelayTime;}
+		set{ _DelayTime = value;}
+	}
+
+	[SerializeField]
+	private float
+		_DelayTime = 0;
+
+	public float AutoStartDelayTime {
+		get{ return _AutoStartDelayTime;}
+		set{ _AutoStartDelayTime = value;}
+	}
+
+	[SerializeField]
+	private float
+		_AutoStartDelayTime = 1;
+
+	public SkyAniDuration PositionSkyAniDuration {
+		get{ return _PositionSkyAniDuration;}
+		set{ _PositionSkyAniDuration = value;}
+	}
+
+	[SerializeField]
+	private SkyAniDuration
+		_PositionSkyAniDuration = SkyAniDuration.Linear;
+
+	public SkyAniCallBack DelayAction {
+		get;
+		set;
+	}
+
+	public SkyAniCallBack PlayAction {
+		get;
+		set;
+	}
+
+	public SkyBaseSequence  ParentAction {
+		get;
+		set;
+	}
+
 	void Start ()
 	{
 		Init ();
@@ -24,107 +83,64 @@ public class SkyBaseAnimationObject : MonoBehaviour,SkyAction
 
 	public virtual  void Init ()
 	{
-		delayAction = new SkyAniCallBack ();
-		delayAction.SetCompleteMethod (() => {
+
+		ParentAction = null;
+		DelayAction = new SkyAniCallBack ();
+		DelayAction.SetCompleteMethod (() => {
 			PlayLoop ();});
-		playAction = new SkyAniCallBack ();
-		playAction.SetCompleteMethod (() => {
-			if (playAction.OnStepCompleteMethod != null) {
-				playAction.OnStepCompleteMethod ();
+		PlayAction = new SkyAniCallBack ();
+		PlayAction.SetCompleteMethod (() => {
+			if (PlayAction.OnStepCompleteMethod != null) {
+				PlayAction.OnStepCompleteMethod ();
 			}
-			PlayNextAction ();
-			if (loop)
-				DelayAction ();
+			PlayNext ();
+			if (Loop)
+				Delay ();
 		});
 	}
 	
 	public virtual	void PlayLoop ()
 	{
-		if (playAction.OnStartMethod != null) {
-			playAction.OnStartMethod ();
+		if (PlayAction.OnStartMethod != null) {
+			PlayAction.OnStartMethod ();
 		}
 	}
 
 	public void Play ()
 	{
 		if (DelayTime > 0) {
-			DelayAction ();
+			Delay ();
 		} else {
 			PlayLoop ();
 		}
 	}
 
-	public virtual void DelayAction ()
+	public virtual void Delay ()
 	{
 
-		if (delayAction.OnStartMethod != null) {
-			delayAction.OnStartMethod ();
+		if (DelayAction.OnStartMethod != null) {
+			DelayAction.OnStartMethod ();
 		}
 		if (DelayTime > 0) {
 			StartCoroutine (delayTimeAction (DelayTime, () => {
-				delayAction.OnCompleteMethod ();}));
+				DelayAction.OnCompleteMethod ();}));
 		} else {
-			delayAction.OnCompleteMethod ();
+			DelayAction.OnCompleteMethod ();
 		}
 	}
 
-	public virtual void PlayNextAction ()
+	public virtual void PlayNext ()
 	{
-		if (sequence != null) {
-			sequence.PlayNext (this);
+		if (ParentAction != null) {
+			ParentAction.PlayNext (this);
 		}
-	}
-
-	public virtual void SetAniamtionSeqence (SkyBaseSequence skyAniSequence)
-	{
-		this.sequence = skyAniSequence;
 	}
 
 	public virtual void RemoveFromSeqence ()
 	{
-		if (sequence != null) {
-			sequence.RemoveAction (this);
+		if (ParentAction != null) {
+			ParentAction.RemoveAction (this);
 		}
-	}
-
-	public  bool IsLoop ()
-	{
-		return loop;
-	}
-	
-	public  void SetLoop (bool isLoop)
-	{
-		this.loop = isLoop;
-	}
-	
-	public  bool IsAutoRun ()
-	{
-		return AutoRun;
-	}
-	
-	public void SetAutoRun (bool isAutoRun)
-	{
-		this.AutoRun = isAutoRun;
-	}
-	
-	public  float GetPlayTime ()
-	{
-		return PlayTime;
-	}
-	
-	public void SetPlayTime (float playTime)
-	{
-		this.PlayTime = playTime;
-	}
-	
-	public  float GetDelayTime ()
-	{
-		return DelayTime;
-	}
-	
-	public void SetDelayTime (float delayTime)
-	{
-		this.DelayTime = delayTime;
 	}
 	
 	protected IEnumerator delayTimeAction (float delayTime, System.Action a)

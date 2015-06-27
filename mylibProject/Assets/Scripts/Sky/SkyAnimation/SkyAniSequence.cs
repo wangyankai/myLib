@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class SkyAniSequence : SkyBaseSequence
@@ -19,8 +19,8 @@ public class SkyAniSequence : SkyBaseSequence
 	
 	private void setAction (SkyAction skyAction)
 	{
-		skyAction.SetAniamtionSeqence (this);
-		PlayTime += skyAction.GetPlayTime ();
+		skyAction.ParentAction = null;
+		PlayTime += skyAction.PlayTime;
 		if (ParentAction != null)
 			this.ParentAction.ReComputePlaytime ();
 	}
@@ -28,8 +28,8 @@ public class SkyAniSequence : SkyBaseSequence
 	public override void RemoveAction (SkyAction skyAction)
 	{
 		AnimationSequence.Remove (skyAction);
-		skyAction.SetAniamtionSeqence (null);
-		PlayTime -= skyAction.GetPlayTime ();
+		skyAction.ParentAction = null;
+		PlayTime -= skyAction.PlayTime;
 		if (ParentAction != null)
 			this.ParentAction.ReComputePlaytime ();
 	}
@@ -40,7 +40,7 @@ public class SkyAniSequence : SkyBaseSequence
 		if (AnimationSequence.Count > 0) {
 			AnimationSequence [0].Play ();
 		} else {
-			playAction.OnCompleteMethod ();
+			PlayAction.OnCompleteMethod ();
 		}
 	}
 	
@@ -51,7 +51,7 @@ public class SkyAniSequence : SkyBaseSequence
 			if (index < AnimationSequence.Count - 1) {
 				AnimationSequence [index + 1].Play ();
 			} else {
-				playAction.OnCompleteMethod ();
+				PlayAction.OnCompleteMethod ();
 			}
 		}
 	}
@@ -60,7 +60,7 @@ public class SkyAniSequence : SkyBaseSequence
 	{
 		PlayTime = 0;
 		foreach (SkyAction skyAction in AnimationSequence) {
-			PlayTime += skyAction.GetPlayTime ();
+			PlayTime += skyAction.PlayTime;
 		}
 	}
 }

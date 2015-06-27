@@ -40,9 +40,9 @@ public class SkyBezierCurveOject : SkyBaseAnimationObject
 	    StartCoroutine (Tweening ());
 	}
 
-	public override void DelayAction ()
+	public override void Delay ()
 	{  
-		base.DelayAction ();
+		base.Delay ();
 	}
 
 	public void computePath ()
@@ -62,15 +62,15 @@ public class SkyBezierCurveOject : SkyBaseAnimationObject
 
 	IEnumerator Tweening ()
 	{
-		if (playAction != null && playAction.OnStartMethod!=null)
-			playAction.OnStartMethod ();
+		if (PlayAction != null && PlayAction.OnStartMethod!=null)
+			PlayAction.OnStartMethod ();
 		float t = Time.time;
 		while (Time.time - t < skyBezierCurve.timeDuration) {
 			yield return 0;
 			UpdateAnimation (Time.time - t);
 		}
-		if (playAction != null && playAction.OnCompleteMethod != null) {
-			playAction.OnCompleteMethod ();
+		if (PlayAction != null && PlayAction.OnCompleteMethod != null) {
+			PlayAction.OnCompleteMethod ();
 		}
 	}
 

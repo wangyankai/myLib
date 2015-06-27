@@ -18,11 +18,11 @@ public class SkyMoveByCurveEditor : Editor
 	void OnEnable ()
 	{
 		mEditor = new SerializedObject (target);
-		loop = mEditor.FindProperty ("loop");
-		AutoRun = mEditor.FindProperty ("AutoRun");
-		PlayTime = mEditor.FindProperty ("PlayTime");
-		DelayTime = mEditor.FindProperty ("DelayTime");
-		AutoStartDelayTime = mEditor.FindProperty ("AutoStartDelayTime");
+		loop = mEditor.FindProperty ("_loop");
+		AutoRun = mEditor.FindProperty ("_AutoRun");
+		PlayTime = mEditor.FindProperty ("_PlayTime");
+		DelayTime = mEditor.FindProperty ("_DelayTime");
+		AutoStartDelayTime = mEditor.FindProperty ("_AutoStartDelayTime");
 		points = mEditor.FindProperty ("targets");
 		m_Color = mEditor.FindProperty ("m_Color");
 

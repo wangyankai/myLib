@@ -3,34 +3,60 @@ using System.Collections;
 
 public interface SkyAction
 {
+	bool Loop {
+		get;
+		set;
+	}
+
+	bool AutoRun {
+		get;
+		set;
+	}
+
+	float PlayTime {
+		get;
+		set;
+	}
+
+	float DelayTime {
+		get;
+		set;
+	}
+
+	float AutoStartDelayTime {
+		get;
+		set;
+	}
+
+	SkyAniDuration PositionSkyAniDuration {
+		get;
+		set;
+	}
+
+	SkyAniCallBack DelayAction {
+		get;
+		set;
+	}
+
+	SkyAniCallBack PlayAction {
+		get;
+		set;
+	}
+
+	SkyBaseSequence  ParentAction {
+		get;
+		set;
+	}
+
 	void Init ();
 
 	void PlayLoop ();
 	
 	void Play ();
 	
-	void DelayAction ();
+	void Delay ();
 
-	void PlayNextAction ();
-
-	void SetAniamtionSeqence (SkyBaseSequence skyAniSequence);
+	void PlayNext ();
 
 	void RemoveFromSeqence ();
-
-	bool IsLoop ();
-
-	void SetLoop (bool isLoop);
-
-	bool IsAutoRun ();
-
-	void SetAutoRun (bool isAutoRun);
-
-	float GetPlayTime ();
-
-	void SetPlayTime (float playTime);
-
-	float GetDelayTime ();
-
-	void SetDelayTime (float delayTime);
-
 }

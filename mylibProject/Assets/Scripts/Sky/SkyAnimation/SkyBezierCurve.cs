@@ -14,12 +14,14 @@ public class SkyBezierCurve
 	public int keyFrame = 60;
 //	public bool isActive = false;
 
-	[SerializeField] public List<Vector3> middlePoints ;
+	[SerializeField]
+	public List<Vector3> middlePoints ;
 	List<float> tPara = new List<float> ();
 	List<float> ftPara = new List<float> ();
 	List<int> para = new List<int> ();
 
-	public SkyBezierCurve(){
+	public SkyBezierCurve ()
+	{
 	}
 
 	private float genBezier (float t, float pStart, float pEnd, float pIn)
@@ -86,7 +88,7 @@ public class SkyBezierCurve
 		int lenth = middlePoints.Count + 2;
 		float temp = para [0] * ftPara [lenth - 1] * tPara [0] * startPoint.x + para [lenth - 1] * ftPara [0] * tPara [lenth - 1] * endPoint.x;
 		for (int i=1; i<=lenth-2; i++) {
-			temp += para [i] * ftPara [lenth - i-1] * tPara [i] * middlePoints [i - 1].x;
+			temp += para [i] * ftPara [lenth - i - 1] * tPara [i] * middlePoints [i - 1].x;
 		}
 		return temp;
 	}
@@ -96,7 +98,7 @@ public class SkyBezierCurve
 		int lenth = middlePoints.Count + 2;
 		float temp = para [0] * ftPara [lenth - 1] * tPara [0] * startPoint.y + para [lenth - 1] * ftPara [0] * tPara [lenth - 1] * endPoint.y;
 		for (int i=1; i<=lenth-2; i++) {
-			temp += para [i] * ftPara [lenth - i-1] * tPara [i] * middlePoints [i - 1].y;
+			temp += para [i] * ftPara [lenth - i - 1] * tPara [i] * middlePoints [i - 1].y;
 		}
 		return temp;
 	}
@@ -111,10 +113,11 @@ public class SkyBezierCurve
 		animY = new AnimationCurve (ks_y);
 	}
 
-	public void Init(){
+	public void Init ()
+	{
 		if (middlePoints == null || middlePoints.Count == 0) {
-			middlePoints = new List<Vector3>();
-			middlePoints.Add(Vector3.zero);
+			middlePoints = new List<Vector3> ();
+			middlePoints.Add (Vector3.zero);
 		}
 	}
 
