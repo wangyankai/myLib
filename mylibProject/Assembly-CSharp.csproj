@@ -1,200 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.20506</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5269D7FB-4EAA-6994-0E8D-A34B71C941B8}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <BaseDirectory>Assets</BaseDirectory>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{5269D7FB-4EAA-6994-0E8D-A34B71C941B8}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>True</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>False</Optimize>
-    <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_4_6_3;UNITY_4_6;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_IL2CPP;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;UNITY5_SCRIPTING_IN_UNITY4;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <NoWarn>0169</NoWarn>
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_6_3;UNITY_4_6;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_IL2CPP;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;UNITY5_SCRIPTING_IN_UNITY4;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>True</Optimize>
-    <OutputPath>Temp\bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <NoWarn>0169</NoWarn>
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\Applications\Unity\Unity.app\Contents\Frameworks\Managed\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor">
-      <HintPath>..\..\..\..\Applications\Unity\Unity.app\Contents\Frameworks\Managed\UnityEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xml" />
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
+	<Reference Include="UnityEngine">
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+	</Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BitmapFont\Scripts\BitmapFont.cs" />
-    <Compile Include="Assets\BitmapFont\Scripts\BitmapFontLabel.cs" />
-    <Compile Include="Assets\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
-    <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Background.cs" />
-    <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Bullet.cs" />
-    <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\DestroyArea.cs" />
-    <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Emitter.cs" />
-    <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Enemy.cs" />
-    <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Explosion.cs" />
-    <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Manager.cs" />
-    <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\ObjectPool.cs" />
-    <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Player.cs" />
-    <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\ShipResetScript.cs" />
-    <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Spaceship.cs" />
-    <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\WaveScript.cs" />
-    <Compile Include="Assets\Example Games\Angry Birds Style\Scripts\ProjectileDragging.cs" />
-    <Compile Include="Assets\Example Games\Angry Birds Style\Scripts\ProjectileFollow.cs" />
-    <Compile Include="Assets\Example Games\Angry Birds Style\Scripts\Resetter.cs" />
-    <Compile Include="Assets\Example Games\Angry Birds Style\Scripts\TargetDamage.cs" />
-    <Compile Include="Assets\Example Games\Flappy Bird Style\Scripts\BirdScript.cs" />
-    <Compile Include="Assets\Example Games\Flappy Bird Style\Scripts\CameraFollow.cs" />
-    <Compile Include="Assets\Example Games\Flappy Bird Style\Scripts\ColumnScript.cs" />
-    <Compile Include="Assets\Example Games\Flappy Bird Style\Scripts\ColumnSpawnScript.cs" />
-    <Compile Include="Assets\Example Games\Flappy Bird Style\Scripts\GameControlScript.cs" />
-    <Compile Include="Assets\Example Games\Flappy Bird Style\Scripts\ScrollScript.cs" />
-    <Compile Include="Assets\Example Games\Hat Trick - The Catch Game\Scripts\HT_DestroyOnContact.cs" />
-    <Compile Include="Assets\Example Games\Hat Trick - The Catch Game\Scripts\HT_Explode.cs" />
-    <Compile Include="Assets\Example Games\Hat Trick - The Catch Game\Scripts\HT_GameController.cs" />
-    <Compile Include="Assets\Example Games\Hat Trick - The Catch Game\Scripts\HT_HatController.cs" />
-    <Compile Include="Assets\Example Games\Hat Trick - The Catch Game\Scripts\HT_Restart.cs" />
-    <Compile Include="Assets\Example Games\Hat Trick - The Catch Game\Scripts\HT_Score.cs" />
-    <Compile Include="Assets\Example Games\Hat Trick - The Catch Game\Scripts\HT_SetParticleSortingLayer.cs" />
-    <Compile Include="Assets\Example Games\Hat Trick - The Catch Game\Scripts\HT_StartGame.cs" />
-    <Compile Include="Assets\Lib\GAF\Examples\Scripts\GAFSceneController.cs" />
-    <Compile Include="Assets\Lib\GAF\Scripts\Asset\GAFAnimationAsset.cs" />
-    <Compile Include="Assets\Lib\GAF\Scripts\Asset\GAFTexturesResource.cs" />
-    <Compile Include="Assets\Lib\GAF\Scripts\Core\GAFBakedMovieClip.cs" />
-    <Compile Include="Assets\Lib\GAF\Scripts\Core\GAFMovieClip.cs" />
-    <Compile Include="Assets\Lib\GAF\Scripts\Objects\GAFBakedObject.cs" />
-    <Compile Include="Assets\Lib\GAF\Scripts\Objects\GAFBakedObjectController.cs" />
-    <Compile Include="Assets\Lib\GAF\Scripts\Objects\GAFBakedObjectsManager.cs" />
-    <Compile Include="Assets\Lib\GAF\Scripts\Objects\GAFObject.cs" />
-    <Compile Include="Assets\Lib\GAF\Scripts\Objects\GAFObjectsManager.cs" />
-    <Compile Include="Assets\Scripts\CreateElement.cs" />
-    <Compile Include="Assets\Scripts\DragTest.cs" />
-    <Compile Include="Assets\Scripts\ExtendClass.cs" />
-    <Compile Include="Assets\Scripts\GAFTest.cs" />
-    <Compile Include="Assets\Scripts\Sky\Mesh\MeshImage.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAction.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAniCallBack.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAniDuration.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAniParallel.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAniSequence.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAnimator.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyBaseAnimationNormal.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyBaseAnimationObject.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyBaseSequence.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyBezierCurve.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyBezierCurveOject.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyColorAnimation.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyCustomParticleSystem.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyDelayAnimation.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyFlash.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyMoveByCurve.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkySetParticleSortingLayer.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyUtil.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyCustomFont\BMFont.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyCustomFont\BMFontReader.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyCustomFont\BMGlyph.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyCustomFont\BetterList.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyCustomFont\ByteReader.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyCustomFont\MyFont.cs" />
-    <Compile Include="Assets\Scripts\Sky\SkyGameCamera.cs" />
-    <Compile Include="Assets\Scripts\Sky\SrcollList\SkyElementBase.cs" />
-    <Compile Include="Assets\Scripts\Sky\SrcollList\SkyElementConfig.cs" />
-    <Compile Include="Assets\Scripts\Sky\SrcollList\SkyScrollPanel.cs" />
-    <Compile Include="Assets\Scripts\Sky\SrcollList\SkyScrollRect.cs" />
-    <Compile Include="Assets\Scripts\Sky\SrcollList\sample\ElementButton.cs" />
-    <Compile Include="Assets\Scripts\Sky\SrcollList\sample\ElementButtonConfig.cs" />
-    <Compile Include="Assets\Scripts\Sky\SrcollList\sample\ItemPlistConfig.cs" />
-    <Compile Include="Assets\Scripts\Sky\SrcollList\sample\MyScrollPanel.cs" />
-    <Compile Include="Assets\Scripts\Sky\UI\SkyResizeScale.cs" />
-    <Compile Include="Assets\Scripts\Sky\UI\UIWindow.cs" />
-    <Compile Include="Assets\Scripts\Sky\UI\Utils\ResizeByAuto.cs" />
-    <Compile Include="Assets\Scripts\Sky\UI\Utils\ResizeBySetting.cs" />
-    <Compile Include="Assets\Scripts\Sky\UI\Utils\ResizeDialog.cs" />
-    <Compile Include="Assets\Scripts\Sky\UI\Utils\SharedPrefs.cs" />
-    <Compile Include="Assets\Scripts\Sky\UI\Utils\SkySreenUtils.cs" />
-    <Compile Include="Assets\Scripts\Sky\UI\Utils\SkyTime.cs" />
-    <Compile Include="Assets\Scripts\Sky\UI\Utils\TimeRecord.cs" />
-    <Compile Include="Assets\Scripts\SkyDragEvent.cs" />
-    <Compile Include="Assets\Scripts\TestExtend.cs" />
-    <Compile Include="Assets\Scripts\TestForEditor.cs" />
-    <Compile Include="Assets\Scripts\UITest.cs" />
-    <Compile Include="Assets\Star.cs" />
-    <None Include="Assets\Shaders\UVAnimation.shader" />
-    <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
-    <None Include="Assets\ReadMe.txt" />
-    <None Include="Assets\Lib\GAF\Resources\Shaders\GAFShaderBase.cginc" />
-    <None Include="Assets\Lib\GAF\Resources\Shaders\GAFObjectsGroup.shader" />
-    <None Include="Assets\Example Games\Flappy Bird Style\_ReadMe.txt" />
-    <None Include="Assets\Shaders\imageShime.shader" />
-    <None Include="Assets\Font\font3\font.txt" />
-    <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />
-    <None Include="Assets\Lib\GAF\Resources\Shaders\GAFBlur.shader" />
-    <None Include="Assets\Star.shader" />
-    <None Include="Assets\Fonts\LuckiestGuy\LICENSE.txt" />
-    <None Include="Assets\Example Games\Angry Birds Style\_ReadMe.txt" />
-    <None Include="Assets\Demigiant\DOTween\readme.txt" />
-    <None Include="Assets\Lib\GAF\Resources\Shaders\GAFFilters.cginc" />
-    <None Include="Assets\tutorial.txt" />
-    <None Include="Assets\Demigiant\DOTween\DOTween43.xml" />
-    <None Include="Assets\Font\font2\font.txt" />
-    <None Include="Assets\Lib\GAF\Resources\Shaders\GAFMaskReset.shader" />
-    <None Include="Assets\Example Games\2D Scrolling Shooter\Fonts\PressStart2P-Regular\OFL.txt" />
-    <None Include="Assets\Lib\GAF\Resources\Shaders\GAFFilteredObject.shader" />
-    <None Include="Assets\Example Games\Hat Trick - The Catch Game\_ReadMe.txt" />
-    <None Include="Assets\Example Games\Hat Trick - The Catch Game\Fonts\LuckiestGuy\LICENSE.txt" />
-    <None Include="Assets\Lib\GAF\Resources\Shaders\GAFGlow.shader" />
-    <None Include="Assets\BitmapFontDemo\MyFont.fnt" />
-    <None Include="Assets\Example Games\2D Scrolling Shooter\_ReadMe.txt" />
-    <None Include="Assets\Font\font1\font.txt" />
-    <None Include="Assets\BitmapFontDemo\MyFontRetina.fnt" />
-    <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
-    <None Include="Assets\Lib\GAF\Resources\Shaders\GAFMask.shader" />
-    <None Include="Assets\Lib\codeandweb.com\Readme.txt" />
-    <None Include="Assets\Fonts\PressStart2P-Regular\OFL.txt" />
-    <None Include="Assets\Lib\GAF\Docs\Readme.txt" />
-    <Reference Include="UnityEngine.UI">
-      <HintPath>..\..\..\..\Applications\Unity\Unity.app\Contents\UnityExtensions\Unity\GUISystem\4.6.3\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween">
-      <HintPath>Assets\Demigiant\DOTween\DOTween.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween43">
-      <HintPath>Assets\Demigiant\DOTween\DOTween43.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween46">
-      <HintPath>Assets\Demigiant\DOTween\DOTween46.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTweenPro">
-      <HintPath>Assets\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
-    </Reference>
-    <Reference Include="GAF">
-      <HintPath>Assets\Lib\GAF\Plugins\GAF.dll</HintPath>
-    </Reference>
-    <Reference Include="Ionic.Zip.Reduced">
-      <HintPath>Assets\Lib\GAF\Plugins\Ionic.Zip.Reduced.dll</HintPath>
-    </Reference>
-    <None Include="Assets\Lib\GAF\Docs\What%27s new.txt" />
+     <Compile Include="Assets\BitmapFont\Scripts\BitmapFont.cs" />
+     <Compile Include="Assets\BitmapFont\Scripts\BitmapFontLabel.cs" />
+     <Compile Include="Assets\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
+     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Background.cs" />
+     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Bullet.cs" />
+     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\DestroyArea.cs" />
+     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Emitter.cs" />
+     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Explosion.cs" />
+     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Manager.cs" />
+     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\ObjectPool.cs" />
+     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Player.cs" />
+     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\ShipResetScript.cs" />
+     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Spaceship.cs" />
+     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\WaveScript.cs" />
+     <Compile Include="Assets\Example Games\Angry Birds Style\Scripts\ProjectileDragging.cs" />
+     <Compile Include="Assets\Example Games\Angry Birds Style\Scripts\ProjectileFollow.cs" />
+     <Compile Include="Assets\Example Games\Angry Birds Style\Scripts\Resetter.cs" />
+     <Compile Include="Assets\Example Games\Angry Birds Style\Scripts\TargetDamage.cs" />
+     <Compile Include="Assets\Example Games\Flappy Bird Style\Scripts\BirdScript.cs" />
+     <Compile Include="Assets\Example Games\Flappy Bird Style\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Example Games\Flappy Bird Style\Scripts\ColumnScript.cs" />
+     <Compile Include="Assets\Example Games\Flappy Bird Style\Scripts\ColumnSpawnScript.cs" />
+     <Compile Include="Assets\Example Games\Flappy Bird Style\Scripts\GameControlScript.cs" />
+     <Compile Include="Assets\Example Games\Flappy Bird Style\Scripts\ScrollScript.cs" />
+     <Compile Include="Assets\Example Games\Hat Trick - The Catch Game\Scripts\HT_DestroyOnContact.cs" />
+     <Compile Include="Assets\Example Games\Hat Trick - The Catch Game\Scripts\HT_Explode.cs" />
+     <Compile Include="Assets\Example Games\Hat Trick - The Catch Game\Scripts\HT_GameController.cs" />
+     <Compile Include="Assets\Example Games\Hat Trick - The Catch Game\Scripts\HT_HatController.cs" />
+     <Compile Include="Assets\Example Games\Hat Trick - The Catch Game\Scripts\HT_Restart.cs" />
+     <Compile Include="Assets\Example Games\Hat Trick - The Catch Game\Scripts\HT_Score.cs" />
+     <Compile Include="Assets\Example Games\Hat Trick - The Catch Game\Scripts\HT_SetParticleSortingLayer.cs" />
+     <Compile Include="Assets\Example Games\Hat Trick - The Catch Game\Scripts\HT_StartGame.cs" />
+     <Compile Include="Assets\ItemCtrl.cs" />
+     <Compile Include="Assets\Lib\GAF\Examples\Scripts\GAFSceneController.cs" />
+     <Compile Include="Assets\Lib\GAF\Scripts\Asset\GAFAnimationAsset.cs" />
+     <Compile Include="Assets\Lib\GAF\Scripts\Asset\GAFTexturesResource.cs" />
+     <Compile Include="Assets\Lib\GAF\Scripts\Core\GAFBakedMovieClip.cs" />
+     <Compile Include="Assets\Lib\GAF\Scripts\Core\GAFMovieClip.cs" />
+     <Compile Include="Assets\Lib\GAF\Scripts\Objects\GAFBakedObject.cs" />
+     <Compile Include="Assets\Lib\GAF\Scripts\Objects\GAFBakedObjectController.cs" />
+     <Compile Include="Assets\Lib\GAF\Scripts\Objects\GAFBakedObjectsManager.cs" />
+     <Compile Include="Assets\Lib\GAF\Scripts\Objects\GAFObject.cs" />
+     <Compile Include="Assets\Lib\GAF\Scripts\Objects\GAFObjectsManager.cs" />
+     <Compile Include="Assets\ListView.cs" />
+     <Compile Include="Assets\Scripts\CreateElement.cs" />
+     <Compile Include="Assets\Scripts\DragTest.cs" />
+     <Compile Include="Assets\Scripts\ExtendClass.cs" />
+     <Compile Include="Assets\Scripts\GAFTest.cs" />
+     <Compile Include="Assets\Scripts\Sky\Mesh\MeshImage.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAction.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAniCallBack.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAniDuration.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAniParallel.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAniSequence.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAnimator.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyBaseAnimationNormal.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyBaseAnimationObject.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyBaseSequence.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyBezierCurve.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyBezierCurveOject.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyColorAnimation.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyCustomParticleSystem.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyDelayAnimation.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyFlash.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyMoveByCurve.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyRestParticleSystemShape.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkySetParticleSortingLayer.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyUtil.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyCustomFont\BMFont.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyCustomFont\BMFontReader.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyCustomFont\BMGlyph.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyCustomFont\BetterList.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyCustomFont\ByteReader.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyCustomFont\MyFont.cs" />
+     <Compile Include="Assets\Scripts\Sky\SkyGameCamera.cs" />
+     <Compile Include="Assets\Scripts\Sky\SrcollList\SkyElementBase.cs" />
+     <Compile Include="Assets\Scripts\Sky\SrcollList\SkyElementConfig.cs" />
+     <Compile Include="Assets\Scripts\Sky\SrcollList\SkyScrollPanel.cs" />
+     <Compile Include="Assets\Scripts\Sky\SrcollList\SkyScrollRect.cs" />
+     <Compile Include="Assets\Scripts\Sky\SrcollList\sample\ElementButton.cs" />
+     <Compile Include="Assets\Scripts\Sky\SrcollList\sample\ElementButtonConfig.cs" />
+     <Compile Include="Assets\Scripts\Sky\SrcollList\sample\ItemPlistConfig.cs" />
+     <Compile Include="Assets\Scripts\Sky\SrcollList\sample\MyScrollPanel.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\SkyResizeScale.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\UIWindow.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\Utils\ResizeByAuto.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\Utils\ResizeBySetting.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\Utils\ResizeDialog.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\Utils\SharedPrefs.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\Utils\SkySreenUtils.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\Utils\SkyTime.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\Utils\TimeRecord.cs" />
+     <Compile Include="Assets\Scripts\SkyDragEvent.cs" />
+     <Compile Include="Assets\Scripts\TestExtend.cs" />
+     <Compile Include="Assets\Scripts\TestForEditor.cs" />
+     <Compile Include="Assets\Scripts\UITest.cs" />
+     <Compile Include="Assets\Star.cs" />
+     <None Include="Assets\Shaders\UVAnimation.shader" />
+     <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
+     <None Include="Assets\ReadMe.txt" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFShaderBase.cginc" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFObjectsGroup.shader" />
+     <None Include="Assets\Example Games\Flappy Bird Style\_ReadMe.txt" />
+     <None Include="Assets\Lib\GAF\Docs\What&apos;s new.txt" />
+     <None Include="Assets\Shaders\imageShime.shader" />
+     <None Include="Assets\Font\font3\font.txt" />
+     <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFBlur.shader" />
+     <None Include="Assets\Star.shader" />
+     <None Include="Assets\Fonts\LuckiestGuy\LICENSE.txt" />
+     <None Include="Assets\Example Games\Angry Birds Style\_ReadMe.txt" />
+     <None Include="Assets\Demigiant\DOTween\readme.txt" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFFilters.cginc" />
+     <None Include="Assets\tutorial.txt" />
+     <None Include="Assets\Demigiant\DOTween\DOTween43.xml" />
+     <None Include="Assets\Font\font2\font.txt" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFMaskReset.shader" />
+     <None Include="Assets\Example Games\2D Scrolling Shooter\Fonts\PressStart2P-Regular\OFL.txt" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFFilteredObject.shader" />
+     <None Include="Assets\Example Games\Hat Trick - The Catch Game\_ReadMe.txt" />
+     <None Include="Assets\Example Games\Hat Trick - The Catch Game\Fonts\LuckiestGuy\LICENSE.txt" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFGlow.shader" />
+     <None Include="Assets\BitmapFontDemo\MyFont.fnt" />
+     <None Include="Assets\Example Games\2D Scrolling Shooter\_ReadMe.txt" />
+     <None Include="Assets\Font\font1\font.txt" />
+     <None Include="Assets\BitmapFontDemo\MyFontRetina.fnt" />
+     <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFMask.shader" />
+     <None Include="Assets\Lib\codeandweb.com\Readme.txt" />
+     <None Include="Assets\Fonts\PressStart2P-Regular\OFL.txt" />
+     <None Include="Assets\Lib\GAF\Docs\Readme.txt" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.3/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween43">
+ <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/Demigiant/DOTween/DOTween43.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween46">
+ <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/Demigiant/DOTween/DOTween46.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTweenPro">
+ <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+ </Reference>
+ <Reference Include="GAF">
+ <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/Lib/GAF/Plugins/GAF.dll</HintPath>
+ </Reference>
+ <Reference Include="Ionic.Zip.Reduced">
+ <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/Lib/GAF/Plugins/Ionic.Zip.Reduced.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -204,4 +208,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  
 </Project>

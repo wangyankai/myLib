@@ -79,6 +79,7 @@
      <Compile Include="Assets\Example Games\Hat Trick - The Catch Game\Scripts\HT_Score.cs" />
      <Compile Include="Assets\Example Games\Hat Trick - The Catch Game\Scripts\HT_SetParticleSortingLayer.cs" />
      <Compile Include="Assets\Example Games\Hat Trick - The Catch Game\Scripts\HT_StartGame.cs" />
+     <Compile Include="Assets\ItemCtrl.cs" />
      <Compile Include="Assets\Lib\GAF\Examples\Scripts\GAFSceneController.cs" />
      <Compile Include="Assets\Lib\GAF\Scripts\Asset\GAFAnimationAsset.cs" />
      <Compile Include="Assets\Lib\GAF\Scripts\Asset\GAFTexturesResource.cs" />
@@ -89,6 +90,7 @@
      <Compile Include="Assets\Lib\GAF\Scripts\Objects\GAFBakedObjectsManager.cs" />
      <Compile Include="Assets\Lib\GAF\Scripts\Objects\GAFObject.cs" />
      <Compile Include="Assets\Lib\GAF\Scripts\Objects\GAFObjectsManager.cs" />
+     <Compile Include="Assets\ListView.cs" />
      <Compile Include="Assets\Scripts\CreateElement.cs" />
      <Compile Include="Assets\Scripts\DragTest.cs" />
      <Compile Include="Assets\Scripts\ExtendClass.cs" />
