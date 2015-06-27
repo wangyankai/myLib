@@ -47,9 +47,9 @@ public class CreateElement : MonoBehaviour {
 			element.skyBezierCurve.middlePoints.Add(temp);
 			element.skyBezierCurve.timeDuration =  Random.Range(1,2);
 			element.DelayTime = i*1f/count;
-			element.skyBezierCurve.CreateCurve();
-			element.PlayAction.AddCompleteMethod(()=>{
-				element.RemoveFromSeqence();
+			element.skyBezierCurve.CreateCurve2();
+			element.PlayCallBack.AddCompleteMethod(()=>{
+				element.RemoveFromParent();
 				Destroy(element.gameObject);});
 //			elements.Add(element);
 			element.Play ();
@@ -60,17 +60,17 @@ public class CreateElement : MonoBehaviour {
 		SkyAniParallel tempSeq = new SkyAniParallel();
 
 		SkyDelayAnimation skyDelay0 = new SkyDelayAnimation ();
-		skyDelay0.PlayAction.AddCompleteMethod (Test2);
+		skyDelay0.PlayCallBack.AddCompleteMethod (Test2);
 		skyDelay0.PlayTime = 3f;
 		tempSeq.AppendAction (skyDelay0);
 		SkyDelayAnimation skyDelay1 = new SkyDelayAnimation ();
-		skyDelay1.PlayAction.AddCompleteMethod (Test3);
+		skyDelay1.PlayCallBack.AddCompleteMethod (Test3);
 		tempSeq.AppendAction (skyDelay1);
 
 		animationSquence.AppendAction(tempSeq);
 //		animationSquence.AppendAction(skyDelay1);
 		SkyDelayAnimation skyDelay = new SkyDelayAnimation ();
-		skyDelay.PlayAction.AddCompleteMethod (Test);
+		skyDelay.PlayCallBack.AddCompleteMethod (Test);
 //		animation.Add(skyDelay);
 //		skyDelay.Play ();
 		animationSquence.AppendAction(skyDelay);

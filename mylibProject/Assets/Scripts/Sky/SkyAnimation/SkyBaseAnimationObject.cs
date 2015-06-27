@@ -58,12 +58,12 @@ public class SkyBaseAnimationObject : MonoBehaviour,SkyAction
 	private SkyAniDuration
 		_PositionSkyAniDuration = SkyAniDuration.Linear;
 
-	public SkyAniCallBack DelayAction {
+	public SkyAniCallBack DelayCallBack {
 		get;
 		set;
 	}
 
-	public SkyAniCallBack PlayAction {
+	public SkyAniCallBack PlayCallBack {
 		get;
 		set;
 	}
@@ -83,15 +83,14 @@ public class SkyBaseAnimationObject : MonoBehaviour,SkyAction
 
 	public virtual  void Init ()
 	{
-
 		ParentAction = null;
-		DelayAction = new SkyAniCallBack ();
-		DelayAction.SetCompleteMethod (() => {
+		DelayCallBack = new SkyAniCallBack ();
+		DelayCallBack.SetCompleteMethod (() => {
 			PlayLoop ();});
-		PlayAction = new SkyAniCallBack ();
-		PlayAction.SetCompleteMethod (() => {
-			if (PlayAction.OnStepCompleteMethod != null) {
-				PlayAction.OnStepCompleteMethod ();
+		PlayCallBack = new SkyAniCallBack ();
+		PlayCallBack.SetCompleteMethod (() => {
+			if (PlayCallBack.OnStepCompleteMethod != null) {
+				PlayCallBack.OnStepCompleteMethod ();
 			}
 			PlayNext ();
 			if (Loop)
@@ -99,10 +98,10 @@ public class SkyBaseAnimationObject : MonoBehaviour,SkyAction
 		});
 	}
 	
-	public virtual	void PlayLoop ()
+	public virtual void PlayLoop ()
 	{
-		if (PlayAction.OnStartMethod != null) {
-			PlayAction.OnStartMethod ();
+		if (PlayCallBack.OnStartMethod != null) {
+			PlayCallBack.OnStartMethod ();
 		}
 	}
 
@@ -117,15 +116,14 @@ public class SkyBaseAnimationObject : MonoBehaviour,SkyAction
 
 	public virtual void Delay ()
 	{
-
-		if (DelayAction.OnStartMethod != null) {
-			DelayAction.OnStartMethod ();
+		if (DelayCallBack.OnStartMethod != null) {
+			DelayCallBack.OnStartMethod ();
 		}
 		if (DelayTime > 0) {
 			StartCoroutine (delayTimeAction (DelayTime, () => {
-				DelayAction.OnCompleteMethod ();}));
+				DelayCallBack.OnCompleteMethod ();}));
 		} else {
-			DelayAction.OnCompleteMethod ();
+			DelayCallBack.OnCompleteMethod ();
 		}
 	}
 
@@ -136,7 +134,7 @@ public class SkyBaseAnimationObject : MonoBehaviour,SkyAction
 		}
 	}
 
-	public virtual void RemoveFromSeqence ()
+	public virtual void RemoveFromParent ()
 	{
 		if (ParentAction != null) {
 			ParentAction.RemoveAction (this);

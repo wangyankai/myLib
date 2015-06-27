@@ -35,12 +35,12 @@ public class SkyBaseAnimationNormal : SkyAction
 		set;
 	}
 
-	public SkyAniCallBack DelayAction {
+	public SkyAniCallBack DelayCallBack {
 		get;
 		set;
 	}
 
-	public SkyAniCallBack PlayAction {
+	public SkyAniCallBack PlayCallBack {
 		get;
 		set;
 	}
@@ -54,13 +54,13 @@ public class SkyBaseAnimationNormal : SkyAction
 	{
 		PositionSkyAniDuration = SkyAniDuration.Linear;
 		ParentAction = null;
-		DelayAction = new SkyAniCallBack ();
-		DelayAction.AddCompleteMethod (() => {
+		DelayCallBack = new SkyAniCallBack ();
+		DelayCallBack.AddCompleteMethod (() => {
 			PlayLoop ();});
-		PlayAction = new SkyAniCallBack ();
-		PlayAction.AddCompleteMethod (() => {
-			if (PlayAction.OnStepCompleteMethod != null) {
-				PlayAction.OnStepCompleteMethod ();
+		PlayCallBack = new SkyAniCallBack ();
+		PlayCallBack.AddCompleteMethod (() => {
+			if (PlayCallBack.OnStepCompleteMethod != null) {
+				PlayCallBack.OnStepCompleteMethod ();
 			}
 			PlayNext ();
 			if (Loop)
@@ -68,10 +68,10 @@ public class SkyBaseAnimationNormal : SkyAction
 		});
 	}
 	
-	public virtual	void PlayLoop ()
+	public virtual void PlayLoop ()
 	{
-		if (PlayAction.OnStartMethod != null) {
-			PlayAction.OnStartMethod ();
+		if (PlayCallBack.OnStartMethod != null) {
+			PlayCallBack.OnStartMethod ();
 		}
 	}
 	
@@ -86,7 +86,7 @@ public class SkyBaseAnimationNormal : SkyAction
 	
 	public virtual void Delay ()
 	{
-		delayTimeAction (DelayTime, DelayAction);
+		DelayTimeAction (DelayTime, DelayCallBack);
 	}
 
 	public virtual void PlayNext ()
@@ -96,24 +96,24 @@ public class SkyBaseAnimationNormal : SkyAction
 		}
 	}
 	
-	public virtual void RemoveFromSeqence ()
+	public virtual void RemoveFromParent ()
 	{
 		if (ParentAction != null) {
 			ParentAction.RemoveAction (this);
 		}
 	}
 
-	public float time;
+	private float time;
 
-	public void delayTimeAction (float delayTime, SkyAniCallBack skyAnicallBack)
+	public void DelayTimeAction (float delayTime, SkyAniCallBack skyAnicallBack)
 	{
 		Tweener tw = null;
-		tw = RunDelayTime (delayTime, delayTime);
+		tw = runDelayTime (delayTime, delayTime);
 		tw.SetTarget (delayTime);
 		tw.OnComplete (skyAnicallBack.OnCompleteMethod);
 	}
 
-	private  Tweener RunDelayTime (float endValue, float Duration)
+	private  Tweener runDelayTime (float endValue, float Duration)
 	{
 		this.time = 0;
 		return DOTween.To (() => this.time, delegate (float x) {

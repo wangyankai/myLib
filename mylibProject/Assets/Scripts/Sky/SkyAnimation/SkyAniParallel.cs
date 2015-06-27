@@ -53,9 +53,9 @@ public class SkyAniParallel : SkyBaseSequence
 			foreach (SkyAction skyAction in AnimationSequence) {
 				skyAction.Play ();
 			}
-			delayTimeAction (PlayTime, PlayAction);
+			DelayTimeAction (PlayTime, PlayCallBack);
 		} else {
-			PlayAction.OnCompleteMethod ();
+			PlayCallBack.OnCompleteMethod ();
 		}
 	}
 	

@@ -40,7 +40,7 @@ public class SkyAniSequence : SkyBaseSequence
 		if (AnimationSequence.Count > 0) {
 			AnimationSequence [0].Play ();
 		} else {
-			PlayAction.OnCompleteMethod ();
+			PlayCallBack.OnCompleteMethod ();
 		}
 	}
 	
@@ -51,7 +51,7 @@ public class SkyAniSequence : SkyBaseSequence
 			if (index < AnimationSequence.Count - 1) {
 				AnimationSequence [index + 1].Play ();
 			} else {
-				PlayAction.OnCompleteMethod ();
+				PlayCallBack.OnCompleteMethod ();
 			}
 		}
 	}

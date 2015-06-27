@@ -32,7 +32,7 @@ public class SkyFlash : SkyBaseAnimationObject
 			SkyAnimator.scaleTo (gameObject, PlayTime / 2f, scaleMin, SkyAniDuration.Linear, null);});
 		positionFirstComplete = new SkyAniCallBack ();
 		positionFirstComplete.AddCompleteMethod (() => {
-			SkyAnimator.moveTo (gameObject, PlayTime / 2f, SkyUtil.reletiveToLocal (positionMax, parentWidth, parentHight), true, PositionSkyAniDuration, PlayAction);});
+			SkyAnimator.moveTo (gameObject, PlayTime / 2f, SkyUtil.reletiveToLocal (positionMax, parentWidth, parentHight), true, PositionSkyAniDuration, PlayCallBack);});
 		colorFirstComplete = new SkyAniCallBack ();
 		colorFirstComplete.SetCompleteMethod (() => {
 			SkyAnimator.colorTo (mImage, PlayTime / 2f, colorMin, SkyAniDuration.Linear, null);});
@@ -40,7 +40,7 @@ public class SkyFlash : SkyBaseAnimationObject
 
 	public override void PlayLoop ()
 	{
-//		base.Play ();
+		base.PlayLoop ();
 		gameObject.SetActive (true);
 		transform.localScale = scaleMin;
 		transform.localPosition = SkyUtil.reletiveToLocal (positionMin, parentWidth, parentHight);

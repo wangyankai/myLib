@@ -11,7 +11,7 @@ public class SkyDelayAnimation : SkyBaseAnimationNormal {
 	public override void PlayLoop ()
 	{
 		base.PlayLoop ();
-		delayTimeAction (PlayTime,PlayAction);
+		DelayTimeAction (PlayTime,PlayCallBack);
 	}
 
 }

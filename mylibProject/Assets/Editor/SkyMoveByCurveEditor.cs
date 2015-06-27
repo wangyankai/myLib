@@ -69,11 +69,11 @@ public class SkyMoveByCurveEditor : Editor
 			}
 			if (GUILayout.Button (insertContent, EditorStyles.miniButtonMid, buttonWidth)) {
 				points.InsertArrayElementAtIndex (i);
-				((SkyMoveByCurve)target).isDirty = true;
+				((SkyMoveByCurve)target).IsDirty = true;
 			}
 			if (GUILayout.Button (deleteContent, EditorStyles.miniButtonRight, buttonWidth)) {
 				points.DeleteArrayElementAtIndex (i);
-				((SkyMoveByCurve)target).isDirty = true;
+				((SkyMoveByCurve)target).IsDirty = true;
 			}
 			
 			EditorGUILayout.EndHorizontal ();
@@ -111,7 +111,7 @@ public class SkyMoveByCurveEditor : Editor
 			Vector3 newPoint = Handles.FreeMoveHandle
 			(oldPoint, Quaternion.identity, 0.1f, pointSnap, Handles.DotCap);
 			if (oldPoint != newPoint) {
-				mObject.isDirty = true;
+				mObject.IsDirty = true;
 				mObject.targets [i].local = Quaternion.Inverse (rotation) *
 					starTransform.InverseTransformPoint (newPoint);
 				mObject.targets [i].local.x = mObject.targets [i].local.x / mObject.parentWidth + 0.5f;

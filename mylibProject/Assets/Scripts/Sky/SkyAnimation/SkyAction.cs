@@ -33,12 +33,12 @@ public interface SkyAction
 		set;
 	}
 
-	SkyAniCallBack DelayAction {
+	SkyAniCallBack DelayCallBack {
 		get;
 		set;
 	}
 
-	SkyAniCallBack PlayAction {
+	SkyAniCallBack PlayCallBack {
 		get;
 		set;
 	}
@@ -58,5 +58,5 @@ public interface SkyAction
 
 	void PlayNext ();
 
-	void RemoveFromSeqence ();
+	void RemoveFromParent ();
 }

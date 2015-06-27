@@ -16,7 +16,7 @@ public class SkyColorAnimation : SkyBaseAnimationObject {
 		mImage.color = colorMin;
 
 		colorFirstComplete = new SkyAniCallBack ();
-		colorFirstComplete.SetCompleteMethod (()=>{ SkyAnimator.colorTo (mImage, PlayTime/2f, colorMin, SkyAniDuration.Linear, PlayAction);});
+		colorFirstComplete.SetCompleteMethod (()=>{ SkyAnimator.colorTo (mImage, PlayTime/2f, colorMin, SkyAniDuration.Linear, PlayCallBack);});
 
 	}
 	

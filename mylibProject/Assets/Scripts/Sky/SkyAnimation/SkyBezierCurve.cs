@@ -8,14 +8,14 @@ public class SkyBezierCurve
 {
 	public AnimationCurve animX;
 	public AnimationCurve animY;
+	public AnimationCurve animZ;
 	public Vector3 startPoint;
 	public Vector3 endPoint;
 	public float timeDuration;
 	public int keyFrame = 60;
-//	public bool isActive = false;
-
 	[SerializeField]
-	public List<Vector3> middlePoints ;
+	public List<Vector3>
+		middlePoints ;
 	List<float> tPara = new List<float> ();
 	List<float> ftPara = new List<float> ();
 	List<int> para = new List<int> ();
@@ -59,7 +59,7 @@ public class SkyBezierCurve
 		}
 	}
 
-	private Keyframe[] genFrame (int lenth, float pStart, float pEnd, float pIn)
+	private Keyframe[] genFrame2 (int lenth, float pStart, float pEnd, float pIn)
 	{
 		Keyframe[] ks = new Keyframe[lenth + 1];
 		float step = 1 / (lenth * 1f);
@@ -70,7 +70,18 @@ public class SkyBezierCurve
 		return ks;
 	}
 
-	private void genFrame (Keyframe[] ks_x, Keyframe[] ks_y)
+	private void genFrame (Keyframe[] ks_x)
+	{
+		genPara ();
+		float step = 1 / ((ks_x.Length - 1) * 1f);
+		for (int i=0; i<ks_x.Length; i++) {
+			genParaT (step * i);
+			ks_x [i] = new Keyframe (step * i, genBezierX ());
+			ks_x [i].inTangent = 0;
+		}
+	}
+
+	private void genFrame2 (Keyframe[] ks_x, Keyframe[] ks_y)
 	{
 		genPara ();
 		float step = 1 / ((ks_x.Length - 1) * 1f);
@@ -80,6 +91,21 @@ public class SkyBezierCurve
 			ks_x [i].inTangent = 0;
 			ks_y [i] = new Keyframe (step * i, genBezierY ());
 			ks_y [i].inTangent = 0;
+		}
+	}
+
+	private void genFrame3 (Keyframe[] ks_x, Keyframe[] ks_y, Keyframe[] ks_z)
+	{
+		genPara ();
+		float step = 1 / ((ks_x.Length - 1) * 1f);
+		for (int i=0; i<ks_x.Length; i++) {
+			genParaT (step * i);
+			ks_x [i] = new Keyframe (step * i, genBezierX ());
+			ks_x [i].inTangent = 0;
+			ks_y [i] = new Keyframe (step * i, genBezierY ());
+			ks_y [i].inTangent = 0;
+			ks_z [i] = new Keyframe (step * i, genBezierZ ());
+			ks_z [i].inTangent = 0;
 		}
 	}
 
@@ -103,14 +129,44 @@ public class SkyBezierCurve
 		return temp;
 	}
 
+	private float genBezierZ ()
+	{
+		int lenth = middlePoints.Count + 2;
+		float temp = para [0] * ftPara [lenth - 1] * tPara [0] * startPoint.z + para [lenth - 1] * ftPara [0] * tPara [lenth - 1] * endPoint.z;
+		for (int i=1; i<=lenth-2; i++) {
+			temp += para [i] * ftPara [lenth - i - 1] * tPara [i] * middlePoints [i - 1].z;
+		}
+		return temp;
+	}
+
 	public void CreateCurve ()
 	{
 		int totalKeyFrame = (int)timeDuration * keyFrame;
 		Keyframe[] ks_x = new Keyframe[totalKeyFrame + 1];
+		genFrame (ks_x);
+		animX = new AnimationCurve (ks_x);
+	}
+
+	public void CreateCurve2 ()
+	{
+		int totalKeyFrame = (int)timeDuration * keyFrame;
+		Keyframe[] ks_x = new Keyframe[totalKeyFrame + 1];
 		Keyframe[] ks_y = new Keyframe[totalKeyFrame + 1];
-		genFrame (ks_x, ks_y);
+		genFrame2 (ks_x, ks_y);
 		animX = new AnimationCurve (ks_x);
 		animY = new AnimationCurve (ks_y);
+	}
+
+	public void CreateCurve3 ()
+	{
+		int totalKeyFrame = (int)timeDuration * keyFrame;
+		Keyframe[] ks_x = new Keyframe[totalKeyFrame + 1];
+		Keyframe[] ks_y = new Keyframe[totalKeyFrame + 1];
+		Keyframe[] ks_z = new Keyframe[totalKeyFrame + 1];
+		genFrame3 (ks_x, ks_y, ks_z);
+		animX = new AnimationCurve (ks_x);
+		animY = new AnimationCurve (ks_y);
+		animZ = new AnimationCurve (ks_z);
 	}
 
 	public void Init ()
@@ -121,25 +177,5 @@ public class SkyBezierCurve
 		}
 	}
 
-//	public static int genN (int a, int b)
-//	{
-//		if (a < b || a <= 0 || b < 0)
-//			return 0;
-//		if (b == 0) {
-//			return 1;
-//		}
-//
-//		if (b > (a / 2 + 1)) {
-//			return genN (a, a - b);
-//		}
-//
-//		int tempA = 1;
-//		int tempB = 1;
-//		for (int i=1; i<=b; i++) {
-//			tempA *= (a + 1 - i);
-//			tempB *= i;
-//		}
-//		return tempA / tempB;
-//	}
 }
 

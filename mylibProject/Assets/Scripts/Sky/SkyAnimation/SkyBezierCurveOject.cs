@@ -11,8 +11,8 @@ public class SkyBezierCurveOject : SkyBaseAnimationObject
 	public Color fixedPointColor = Color.green; // 线框颜色
 	public Color curveColor = Color.red;
 	public bool isDirty = true;
-	void Awake ()
 
+	void Awake ()
 	{
 		Init ();
 		if (AutoRun) {
@@ -24,6 +24,7 @@ public class SkyBezierCurveOject : SkyBaseAnimationObject
 
 	void Start (){
 	}
+
 	public override void Init ()
 	{
 		base.Init ();
@@ -48,7 +49,7 @@ public class SkyBezierCurveOject : SkyBaseAnimationObject
 	public void computePath ()
 	{
 		if (isDirty) {
-			skyBezierCurve.CreateCurve ();
+			skyBezierCurve.CreateCurve2 ();
 			isDirty = false;
 		}
 	}
@@ -62,15 +63,15 @@ public class SkyBezierCurveOject : SkyBaseAnimationObject
 
 	IEnumerator Tweening ()
 	{
-		if (PlayAction != null && PlayAction.OnStartMethod!=null)
-			PlayAction.OnStartMethod ();
+		if (PlayCallBack != null && PlayCallBack.OnStartMethod!=null)
+			PlayCallBack.OnStartMethod ();
 		float t = Time.time;
 		while (Time.time - t < skyBezierCurve.timeDuration) {
 			yield return 0;
 			UpdateAnimation (Time.time - t);
 		}
-		if (PlayAction != null && PlayAction.OnCompleteMethod != null) {
-			PlayAction.OnCompleteMethod ();
+		if (PlayCallBack != null && PlayCallBack.OnCompleteMethod != null) {
+			PlayCallBack.OnCompleteMethod ();
 		}
 	}
 

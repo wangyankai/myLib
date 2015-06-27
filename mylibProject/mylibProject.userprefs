@@ -1,22 +1,19 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Sky/Mesh/MeshImage.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Sky/SkyAnimation/SkyDelayAnimation.cs">
     <Files>
-      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyBaseAnimationNormal.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CreateElement.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyDelayAnimation.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyAniParallel.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyAniSequence.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyBaseSequence.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/TestForEditor.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyAction.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyBaseAnimationObject.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Sky/UI/UIWindow.cs" Line="1" Column="1" />
-      <File FileName="Assets/Shaders/UVAnimation.shader" Line="1" Column="1" />
-      <File FileName="Assets/Shaders/imageShime.shader" Line="1" Column="1" />
-      <File FileName="Assets/Star.cs" Line="1" Column="1" />
-      <File FileName="Assets/Star.shader" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Sky/Mesh/MeshImage.cs" Line="29" Column="3" />
+      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyBaseAnimationNormal.cs" Line="109" Column="3" />
+      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyBaseSequence.cs" Line="36" Column="4" />
+      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyBaseAnimationObject.cs" Line="71" Column="40" />
+      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyBezierCurve.cs" Line="128" Column="4" />
+      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyMoveByCurve.cs" Line="148" Column="2" />
+      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyFlash.cs" Line="22" Column="4" />
+      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyAction.cs" Line="30" Column="1" />
+      <File FileName="Assets/Scripts/CreateElement.cs" Line="64" Column="27" />
+      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyAniParallel.cs" Line="30" Column="3" />
+      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyAniSequence.cs" Line="43" Column="35" />
+      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyBezierCurveOject.cs" Line="26" Column="3" />
+      <File FileName="Assets/Scripts/Sky/SkyAnimation/SkyDelayAnimation.cs" Line="10" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

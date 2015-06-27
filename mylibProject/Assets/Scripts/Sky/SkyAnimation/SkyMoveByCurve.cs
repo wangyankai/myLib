@@ -31,20 +31,20 @@ public class SkyMoveByCurve : SkyBaseAnimationObject
 	private Transform m_Transform;
 	public Color m_Color = Color.green; // 线框颜色
 
-	public bool isDirty = true;
+	public bool IsDirty = true;
 	
 	public override void Init ()
 	{
 		base.Init ();
-		isDirty = true;
-		PlayAction.AddStepCompleteMethod (() => {
+		IsDirty = true;
+		PlayCallBack.AddStepCompleteMethod (() => {
 			transform.localScale = Vector3.zero;
 		});
 	}
 
 	public void computePath ()
 	{
-		if (isDirty) {
+		if (IsDirty) {
 			getNewSize ();
 			times.Clear ();
 			positions.Clear ();
@@ -66,18 +66,18 @@ public class SkyMoveByCurve : SkyBaseAnimationObject
 					times [i] /= sum;
 				}
 			}
-			isDirty = false;
+			IsDirty = false;
 		}
 	}
 
 	public override void PlayLoop ()
 	{
-//		base.Play ();
+		base.PlayLoop ();
 		gameObject.SetActive (true);
 		transform.localScale = Vector3.one;
 		transform.localPosition = SkyUtil.reletiveToLocal (targets [0].local, parentWidth, parentHight);
 		computePath ();
-		mSequence = SkyAnimator.moveToSequence (gameObject, times, positions, true, SkyAniDuration.Linear, PlayAction);
+		mSequence = SkyAnimator.moveToSequence (gameObject, times, positions, true, SkyAniDuration.Linear, PlayCallBack);
 	}
 
 	public override void Delay ()
@@ -103,7 +103,7 @@ public class SkyMoveByCurve : SkyBaseAnimationObject
 	{
 		if (targets == null || targets.Length == 0) {
 			targets = new Point[]{ new Point ()};
-			isDirty = true;
+			IsDirty = true;
 		}
 	}
 
@@ -126,13 +126,13 @@ public class SkyMoveByCurve : SkyBaseAnimationObject
 			return;
 
 		if ((!UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode) && positions.Count > 0 && (!transform.localPosition.Equals (positions [0]))) {
-			if (isDirty) {
+			if (IsDirty) {
 				transform.localPosition = positions [0];
 			} else {
 				positions [0] = transform.localPosition;
 				targets [0].local.x = positions [0].x / parentWidth + 0.5f;
 				targets [0].local.y = positions [0].y / parentHight + 0.5f;
-				isDirty = true;
+				IsDirty = true;
 			}
 		}
 
