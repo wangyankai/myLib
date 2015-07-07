@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using DG.DemiEditor;
 using DG.DOTweenEditor.Core;
 using DG.Tweening;
 using DG.Tweening.Core;
@@ -11,17 +12,17 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if TEXTMESHPRO
+#if DOTWEEN_TMP
     using TMPro;
 #endif
 
 namespace DG.DOTweenEditor
 {
     [CustomEditor(typeof(DOTweenAnimation))]
-    public class DOTweenAnimationInspector : Editor
+    public class DOTweenAnimationInspector : ABSAnimationInspector
     {
-        static internal readonly Dictionary<DOTweenAnimationType, Type[]> AnimationTypeToComponent = new Dictionary<DOTweenAnimationType, Type[]>() {
-            { DOTweenAnimationType.Move, new[] { typeof(Rigidbody), typeof(Rigidbody2D), typeof(Transform) } },
+        static readonly Dictionary<DOTweenAnimationType, Type[]> _AnimationTypeToComponent = new Dictionary<DOTweenAnimationType, Type[]>() {
+            { DOTweenAnimationType.Move, new[] { typeof(Rigidbody), typeof(Rigidbody2D), typeof(RectTransform), typeof(Transform) } },
             { DOTweenAnimationType.LocalMove, new[] { typeof(Transform) } },
             { DOTweenAnimationType.Rotate, new[] { typeof(Rigidbody), typeof(Rigidbody2D), typeof(Transform) } },
             { DOTweenAnimationType.LocalRotate, new[] { typeof(Transform) } },
@@ -29,31 +30,52 @@ namespace DG.DOTweenEditor
             { DOTweenAnimationType.Color, new[] { typeof(SpriteRenderer), typeof(Renderer), typeof(Image), typeof(Text) } },
             { DOTweenAnimationType.Fade, new[] { typeof(SpriteRenderer), typeof(Renderer), typeof(Image), typeof(Text) } },
             { DOTweenAnimationType.Text, new[] { typeof(Text) } },
-            { DOTweenAnimationType.PunchPosition, new[] { typeof(Transform) } },
+            { DOTweenAnimationType.PunchPosition, new[] { typeof(RectTransform), typeof(Transform) } },
             { DOTweenAnimationType.PunchRotation, new[] { typeof(Transform) } },
             { DOTweenAnimationType.PunchScale, new[] { typeof(Transform) } },
-            { DOTweenAnimationType.ShakePosition, new[] { typeof(Transform) } },
+            { DOTweenAnimationType.ShakePosition, new[] { typeof(RectTransform), typeof(Transform) } },
             { DOTweenAnimationType.ShakeRotation, new[] { typeof(Transform) } },
-            { DOTweenAnimationType.ShakeScale, new[] { typeof(Transform) } }
+            { DOTweenAnimationType.ShakeScale, new[] { typeof(Transform) } },
+            { DOTweenAnimationType.CameraAspect, new[] { typeof(Camera) } },
+            { DOTweenAnimationType.CameraBackgroundColor, new[] { typeof(Camera) } },
+            { DOTweenAnimationType.CameraFieldOfView, new[] { typeof(Camera) } },
+            { DOTweenAnimationType.CameraOrthoSize, new[] { typeof(Camera) } },
+            { DOTweenAnimationType.CameraPixelRect, new[] { typeof(Camera) } },
+            { DOTweenAnimationType.CameraRect, new[] { typeof(Camera) } },
         };
 
-#if TK2D
-        static internal readonly Dictionary<DOTweenAnimationType, Type[]> Tk2dAnimationTypeToComponent = new Dictionary<DOTweenAnimationType, Type[]>() {
+#if DOTWEEN_TK2D
+        static readonly Dictionary<DOTweenAnimationType, Type[]> _Tk2dAnimationTypeToComponent = new Dictionary<DOTweenAnimationType, Type[]>() {
             { DOTweenAnimationType.Color, new[] { typeof(tk2dBaseSprite), typeof(tk2dTextMesh) } },
             { DOTweenAnimationType.Fade, new[] { typeof(tk2dBaseSprite), typeof(tk2dTextMesh) } },
             { DOTweenAnimationType.Text, new[] { typeof(tk2dTextMesh) } }
         };
 #endif
-#if TEXTMESHPRO
-        static internal readonly Dictionary<DOTweenAnimationType, Type[]> TMPAnimationTypeToComponent = new Dictionary<DOTweenAnimationType, Type[]>() {
+#if DOTWEEN_TMP
+        static readonly Dictionary<DOTweenAnimationType, Type[]> _TMPAnimationTypeToComponent = new Dictionary<DOTweenAnimationType, Type[]>() {
             { DOTweenAnimationType.Color, new[] { typeof(TextMeshPro), typeof(TextMeshProUGUI) } },
             { DOTweenAnimationType.Fade, new[] { typeof(TextMeshPro), typeof(TextMeshProUGUI) } },
             { DOTweenAnimationType.Text, new[] { typeof(TextMeshPro), typeof(TextMeshProUGUI) } }
         };
 #endif
 
+        static readonly string[] _AnimationType = new[] {
+            "None",
+            "Move", "LocalMove",
+            "Rotate", "LocalRotate",
+            "Scale",
+            "Color", "Fade",
+            "Text",
+            "Punch/Position", "Punch/Rotation", "Punch/Scale",
+            "Shake/Position", "Shake/Rotation", "Shake/Scale",
+            "Camera/Aspect", "Camera/BackgroundColor", "Camera/FieldOfView", "Camera/OrthoSize", "Camera/PixelRect", "Camera/Rect"
+        };
+        static string[] _animationTypeNoSlashes; // _AnimationType list without slashes in values
+        static string[] _datString; // String representation of DOTweenAnimation enum (here for caching reasons)
+
         DOTweenAnimation _src;
-        SerializedProperty _onStartProperty, _onStepCompleteProperty, _onCompleteProperty;
+        bool _runtimeEditMode; // If TRUE allows to change and save stuff at runtime
+        int _totComponentsOnSrc; // Used to determine if a Component is added or removed from the source
 
         // ===================================================================================
         // MONOBEHAVIOUR METHODS -------------------------------------------------------------
@@ -62,51 +84,102 @@ namespace DG.DOTweenEditor
         {
             _src = target as DOTweenAnimation;
 
-            _onStartProperty = base.serializedObject.FindProperty("onStart");
-            _onStepCompleteProperty = base.serializedObject.FindProperty("onStepComplete");
-            _onCompleteProperty = base.serializedObject.FindProperty("onComplete");
+            onStartProperty = base.serializedObject.FindProperty("onStart");
+            onPlayProperty = base.serializedObject.FindProperty("onPlay");
+            onUpdateProperty = base.serializedObject.FindProperty("onUpdate");
+            onStepCompleteProperty = base.serializedObject.FindProperty("onStepComplete");
+            onCompleteProperty = base.serializedObject.FindProperty("onComplete");
+
+            // Convert _AnimationType to _animationTypeNoSlashes
+            int len = _AnimationType.Length;
+            _animationTypeNoSlashes = new string[len];
+            for (int i = 0; i < len; ++i) {
+                string a = _AnimationType[i];
+                a = a.Replace("/", "");
+                _animationTypeNoSlashes[i] = a;
+            }
         }
 
         override public void OnInspectorGUI()
         {
+        	base.OnInspectorGUI();
+
+            GUILayout.Space(3);
             EditorGUIUtils.SetGUIStyles();
+
+            bool playMode = Application.isPlaying;
+            _runtimeEditMode = _runtimeEditMode && playMode;
 
             GUILayout.BeginHorizontal();
             EditorGUIUtils.InspectorLogo();
-            GUILayout.Label(_src.animationType.ToString().ToUpper() + (string.IsNullOrEmpty(_src.id) ? "" : " [" + _src.id + "]"), EditorGUIUtils.sideLogoIconBoldLabelStyle);
+            GUILayout.Label(_src.animationType.ToString() + (string.IsNullOrEmpty(_src.id) ? "" : " [" + _src.id + "]"), EditorGUIUtils.sideLogoIconBoldLabelStyle);
             // Up-down buttons
             GUILayout.FlexibleSpace();
-            if (GUILayout.Button("▲", EditorGUIUtils.btIconStyle)) UnityEditorInternal.ComponentUtility.MoveComponentUp(_src);
-            if (GUILayout.Button("▼", EditorGUIUtils.btIconStyle)) UnityEditorInternal.ComponentUtility.MoveComponentDown(_src);
+            if (GUILayout.Button("▲", DeGUI.styles.button.toolIco)) UnityEditorInternal.ComponentUtility.MoveComponentUp(_src);
+            if (GUILayout.Button("▼", DeGUI.styles.button.toolIco)) UnityEditorInternal.ComponentUtility.MoveComponentDown(_src);
             GUILayout.EndHorizontal();
 
-            if (Application.isPlaying) {
-                GUILayout.Space(8);
-                GUILayout.Label("Animation Editor disabled while in play mode", EditorGUIUtils.wordWrapLabelStyle);
-                GUILayout.Space(4);
-                GUILayout.Label("NOTE: when using DOPlayNext, the sequence is determined by the DOTweenAnimation Components order in the target GameObject's Inspector", EditorGUIUtils.wordWrapLabelStyle);
-                GUILayout.Space(10);
-                return;
+            if (playMode) {
+                if (_runtimeEditMode) {
+                    
+                } else {
+                    GUILayout.Space(8);
+                    GUILayout.Label("Animation Editor disabled while in play mode", EditorGUIUtils.wordWrapLabelStyle);
+                    if (!_src.isActive) {
+                        GUILayout.Label("This animation has been toggled as inactive and won't be generated", EditorGUIUtils.wordWrapLabelStyle);
+                        GUI.enabled = false;
+                    }
+                    if (GUILayout.Button(new GUIContent("Activate Edit Mode", "Switches to Runtime Edit Mode, where you can change animations values and restart them"))) {
+                        _runtimeEditMode = true;
+                    }
+                    GUILayout.Label("NOTE: when using DOPlayNext, the sequence is determined by the DOTweenAnimation Components order in the target GameObject's Inspector", EditorGUIUtils.wordWrapLabelStyle);
+                    GUILayout.Space(10);
+                    if (!_runtimeEditMode) return;
+                }
             }
 
             Undo.RecordObject(_src, "DOTween Animation");
 
-            _src.isValid = Validate();
+//            _src.isValid = Validate(); // Moved down
 
             EditorGUIUtility.labelWidth = 120;
 
-            bool hasManager = _src.GetComponent<DOTweenVisualManager>() != null;
-            if (!hasManager) {
-                if (GUILayout.Button(new GUIContent("Add Manager", "Adds a manager component which allows you to choose additional options for this gameObject"))) {
-                    _src.gameObject.AddComponent<DOTweenVisualManager>();
+            if (playMode) {
+                GUILayout.Space(4);
+                DeGUILayout.Toolbar("Edit Mode Commands");
+                DeGUILayout.BeginVBox(DeGUI.styles.box.stickyTop);
+                    GUILayout.BeginHorizontal();
+                    if (GUILayout.Button("TogglePause")) _src.tween.TogglePause();
+                    if (GUILayout.Button("Rewind")) _src.tween.Rewind();
+                    if (GUILayout.Button("Restart")) _src.tween.Restart();
+                    GUILayout.EndHorizontal();
+                    if (GUILayout.Button("Commit changes and restart")) {
+                        _src.tween.Rewind();
+                        _src.tween.Kill();
+                        if (_src.isValid) {
+                            _src.CreateTween();
+                            _src.tween.Play();
+                        }
+                    }
+                    GUILayout.Label("To apply your changes when exiting Play mode, use the Component's upper right menu and choose \"Copy Component\", then \"Paste Component Values\" after exiting Play mode", DeGUI.styles.label.wordwrap);
+                DeGUILayout.EndVBox();
+            } else {
+                bool hasManager = _src.GetComponent<DOTweenVisualManager>() != null;
+                if (!hasManager) {
+                    if (GUILayout.Button(new GUIContent("Add Manager", "Adds a manager component which allows you to choose additional options for this gameObject"))) {
+                        _src.gameObject.AddComponent<DOTweenVisualManager>();
+                    }
                 }
             }
 
             GUILayout.BeginHorizontal();
                 DOTweenAnimationType prevAnimType = _src.animationType;
-                _src.animationType = (DOTweenAnimationType)EditorGUILayout.EnumPopup(_src.animationType, EditorGUIUtils.popupButton);
-                _src.autoPlay = EditorGUIUtils.ToggleButton(_src.autoPlay, new GUIContent("AutoPlay", "If selected, the tween will play automatically"));
-                _src.autoKill = EditorGUIUtils.ToggleButton(_src.autoKill, new GUIContent("AutoKill", "If selected, the tween will be killed when it completes, and won't be reusable"));
+//                _src.animationType = (DOTweenAnimationType)EditorGUILayout.EnumPopup(_src.animationType, EditorGUIUtils.popupButton);
+                _src.isActive = EditorGUILayout.Toggle(new GUIContent("", "If unchecked, this animation will not be created"), _src.isActive, GUILayout.Width(16));
+                GUI.enabled = _src.isActive;
+                _src.animationType = AnimationToDOTweenAnimationType(_AnimationType[EditorGUILayout.Popup(DOTweenAnimationTypeToPopupId(_src.animationType), _AnimationType)]);
+                _src.autoPlay = DeGUILayout.ToggleButton(_src.autoPlay, new GUIContent("AutoPlay", "If selected, the tween will play automatically"));
+                _src.autoKill = DeGUILayout.ToggleButton(_src.autoKill, new GUIContent("AutoKill", "If selected, the tween will be killed when it completes, and won't be reusable"));
             GUILayout.EndHorizontal();
             if (prevAnimType != _src.animationType) {
                 // Set default optional values based on animation type
@@ -118,7 +191,7 @@ namespace DG.DOTweenEditor
                 case DOTweenAnimationType.Scale:
                     _src.endValueV3 = Vector3.zero;
                     _src.endValueFloat = 0;
-                    _src.optionalBool0 = true;
+                    _src.optionalBool0 = _src.animationType == DOTweenAnimationType.Scale;
                     break;
                 case DOTweenAnimationType.Color:
                 case DOTweenAnimationType.Fade:
@@ -143,9 +216,26 @@ namespace DG.DOTweenEditor
                     _src.optionalFloat0 = 90;
                     _src.optionalBool0 = false;
                     break;
+                case DOTweenAnimationType.CameraAspect:
+                case DOTweenAnimationType.CameraFieldOfView:
+                case DOTweenAnimationType.CameraOrthoSize:
+                    _src.endValueFloat = 0;
+                    break;
+                case DOTweenAnimationType.CameraPixelRect:
+                case DOTweenAnimationType.CameraRect:
+                    _src.endValueRect = new Rect(0, 0, 0, 0);
+                    break;
                 }
             }
-            if (_src.animationType == DOTweenAnimationType.None) return;
+            if (_src.animationType == DOTweenAnimationType.None) {
+                _src.isValid = false;
+                if (GUI.changed) EditorUtility.SetDirty(_src);
+                return;
+            }
+
+            if (prevAnimType != _src.animationType || ComponentsChanged()) {
+                _src.isValid = Validate();
+            }
 
             if (!_src.isValid) {
                 GUI.color = Color.red;
@@ -153,6 +243,7 @@ namespace DG.DOTweenEditor
                 GUILayout.Label("No valid Component was found for the selected animation", EditorGUIUtils.wordWrapLabelStyle);
                 GUILayout.EndVertical();
                 GUI.color = Color.white;
+                if (GUI.changed) EditorUtility.SetDirty(_src);
                 return;
             }
 
@@ -160,6 +251,7 @@ namespace DG.DOTweenEditor
             if (_src.duration < 0) _src.duration = 0;
             _src.delay = EditorGUILayout.FloatField("Delay", _src.delay);
             if (_src.delay < 0) _src.delay = 0;
+            _src.isIndependentUpdate = EditorGUILayout.Toggle("Ignore TimeScale", _src.isIndependentUpdate);
             _src.easeType = EditorGUIUtils.FilteredEasePopup(_src.easeType);
             if (_src.easeType == Ease.INTERNAL_Custom) {
                 _src.easeCurve = EditorGUILayout.CurveField("   Ease Curve", _src.easeCurve);
@@ -225,51 +317,91 @@ namespace DG.DOTweenEditor
                 _src.optionalFloat0 = EditorGUILayout.Slider(new GUIContent("    Randomness", "The shake randomness"), _src.optionalFloat0, 0, 90);
                 if (_src.animationType == DOTweenAnimationType.ShakePosition) _src.optionalBool0 = EditorGUILayout.Toggle("    Snapping", _src.optionalBool0);
                 break;
+            case DOTweenAnimationType.CameraAspect:
+            case DOTweenAnimationType.CameraFieldOfView:
+            case DOTweenAnimationType.CameraOrthoSize:
+                GUIEndValueFloat();
+                canBeRelative = false;
+                break;
+            case DOTweenAnimationType.CameraBackgroundColor:
+                GUIEndValueColor();
+                canBeRelative = false;
+                break;
+            case DOTweenAnimationType.CameraPixelRect:
+            case DOTweenAnimationType.CameraRect:
+                GUIEndValueRect();
+                canBeRelative = false;
+                break;
             }
 
             // Final settings
             if (canBeRelative) _src.isRelative = EditorGUILayout.Toggle("    Relative", _src.isRelative);
 
             // Events
-            GUILayout.Space(4);
-            GUILayout.Label("EVENTS", EditorGUIUtils.boldLabelStyle);
-            GUILayout.BeginHorizontal();
-            _src.hasOnStart = EditorGUIUtils.ToggleButton(_src.hasOnStart, new GUIContent("OnStart", "Event called the first time the tween starts, after any eventual delay"));
-            _src.hasOnStepComplete = EditorGUIUtils.ToggleButton(_src.hasOnStepComplete, new GUIContent("OnStepComplete", "Event called at the end of each loop"));
-            _src.hasOnComplete = EditorGUIUtils.ToggleButton(_src.hasOnComplete, new GUIContent("OnComplete", "Event called at the end of the tween, all loops included"));
-            GUILayout.EndHorizontal();
-            base.serializedObject.Update();
-            if (_src.hasOnStart) EditorGUILayout.PropertyField(_onStartProperty, new GUILayoutOption[0]);
-            if (_src.hasOnStepComplete) EditorGUILayout.PropertyField(_onStepCompleteProperty, new GUILayoutOption[0]);
-            if (_src.hasOnComplete) EditorGUILayout.PropertyField(_onCompleteProperty, new GUILayoutOption[0]);
-            base.serializedObject.ApplyModifiedProperties();
+            AnimationInspectorGUI.AnimationEvents(this, _src);
+
+            if (GUI.changed) EditorUtility.SetDirty(_src);
+        }
+
+        // Returns TRUE if the Component layout on the src gameObject changed (a Component was added or removed)
+        bool ComponentsChanged()
+        {
+            int prevTotComponentsOnSrc = _totComponentsOnSrc;
+            _totComponentsOnSrc = _src.gameObject.GetComponents<Component>().Length;
+            return prevTotComponentsOnSrc != _totComponentsOnSrc;
         }
 
         // Checks if a Component that can be animated with the given animationType is attached to the src
         bool Validate()
         {
-            // First check for regular stuff
-            if (AnimationTypeToComponent.ContainsKey(_src.animationType)) {
-                foreach (Type t in AnimationTypeToComponent[_src.animationType]) {
-                    if (_src.GetComponent(t) != null) return true;
-                }
-            }
-            // Then check for external plugins
-#if TK2D
-            if (Tk2dAnimationTypeToComponent.ContainsKey(_src.animationType)) {
-                foreach (Type t in Tk2dAnimationTypeToComponent[_src.animationType]) {
-                    if (_src.GetComponent(t) != null) return true;
-                }
-            }
-#endif
-#if TEXTMESHPRO
-            if (TMPAnimationTypeToComponent.ContainsKey(_src.animationType)) {
-                foreach (Type t in TMPAnimationTypeToComponent[_src.animationType]) {
-                    if (_src.GetComponent(t) != null) return true;
+            if (_src.animationType == DOTweenAnimationType.None) return false;
+
+            Component srcTarget;
+            // First check for external plugins
+#if DOTWEEN_TK2D
+            if (_Tk2dAnimationTypeToComponent.ContainsKey(_src.animationType)) {
+                foreach (Type t in _Tk2dAnimationTypeToComponent[_src.animationType]) {
+                    srcTarget = _src.GetComponent(t);
+                    if (srcTarget != null) {
+                        _src.target = srcTarget;
+                        return true;
+                    }
                 }
             }
 #endif
+#if DOTWEEN_TMP
+            if (_TMPAnimationTypeToComponent.ContainsKey(_src.animationType)) {
+                foreach (Type t in _TMPAnimationTypeToComponent[_src.animationType]) {
+                    srcTarget = _src.GetComponent(t);
+                    if (srcTarget != null) {
+                        _src.target = srcTarget;
+                        return true;
+                    }
+                }
+            }
+#endif
+            // Then check for regular stuff
+            if (_AnimationTypeToComponent.ContainsKey(_src.animationType)) {
+                foreach (Type t in _AnimationTypeToComponent[_src.animationType]) {
+                    srcTarget = _src.GetComponent(t);
+                    if (srcTarget != null) {
+                        _src.target = srcTarget;
+                        return true;
+                    }
+                }
+            }
             return false;
+        }
+
+        DOTweenAnimationType AnimationToDOTweenAnimationType(string animation)
+        {
+            if (_datString == null) _datString = Enum.GetNames(typeof(DOTweenAnimationType));
+            animation = animation.Replace("/", "");
+            return (DOTweenAnimationType)(Array.IndexOf(_datString, animation));
+        }
+        int DOTweenAnimationTypeToPopupId(DOTweenAnimationType animation)
+        {
+            return Array.IndexOf(_animationTypeNoSlashes, animation.ToString());
         }
 
         void GUIEndValueFloat()
@@ -301,6 +433,14 @@ namespace DG.DOTweenEditor
             GUILayout.BeginHorizontal();
             GUIToFromButton();
             _src.endValueString = EditorGUILayout.TextArea(_src.endValueString, EditorGUIUtils.wordWrapTextArea);
+            GUILayout.EndHorizontal();
+        }
+
+        void GUIEndValueRect()
+        {
+            GUILayout.BeginHorizontal();
+            GUIToFromButton();
+            _src.endValueRect = EditorGUILayout.RectField(_src.endValueRect);
             GUILayout.EndHorizontal();
         }
 
