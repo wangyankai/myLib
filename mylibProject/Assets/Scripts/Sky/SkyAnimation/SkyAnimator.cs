@@ -129,4 +129,13 @@ public class SkyAnimator
 //	}
 
 
+	public static SkyDelayAnimation delayTo(float time,System.Action completeObj = null){
+		SkyDelayAnimation skyDelayAnimation = new SkyDelayAnimation ();
+		skyDelayAnimation.PlayTime = time;
+		if (completeObj != null) {
+			skyDelayAnimation.PlayCallBack.AddCompleteMethod (completeObj);
+		}
+		return skyDelayAnimation;
+	}
+
 }
