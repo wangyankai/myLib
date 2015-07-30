@@ -24,7 +24,6 @@ public enum UIDisplayState
 
 public class UIWindow : MonoBehaviour
 {
-
 	const string k_OpenTransitionName = "Open";
 	const string k_ClosedStateName = "Closed";
 	const string k_NormalStateName = "Normal";
@@ -35,10 +34,10 @@ public class UIWindow : MonoBehaviour
 	public bool DestoryOnQuit = false;
 	public UIAnimation UIAnimationIn = UIAnimation.NOAnimation;
 	public SkyAniDuration AniDurationIn = SkyAniDuration.Linear;
-	public float AppearTime = 1f;
+	public float AppearTime = 0.5f;
 	public UIAnimation UIAnimationOut = UIAnimation.NOAnimation;
 	public SkyAniDuration AniDurationOut = SkyAniDuration.Linear;
-	public float DisappearTime = 1f;
+	public float DisappearTime = 0.5f;
 	public bool AutoQuit = false;
 	public float DisplayTime = 2;
 	public UIDisplayState MUIDisplayState;
@@ -52,7 +51,6 @@ public class UIWindow : MonoBehaviour
 	public virtual void Init ()
 	{
 		animator = gameObject.GetComponent<Animator> ();
-		float t = Time.realtimeSinceStartup;
 
 		MUIDisplayState = UIDisplayState.Disable;
 		initPosition = this.transform.localPosition;
@@ -90,11 +88,11 @@ public class UIWindow : MonoBehaviour
 		if (MUIDisplayState == UIDisplayState.Disable) {
 			gameObject.SetActive (true);
 			this.transform.localPosition = initPosition;
-			shwoInAnimation ();
+			showInAnimation ();
 		}
 	}
 
-	private void shwoInAnimation ()
+	private void showInAnimation ()
 	{
 		switch (UIAnimationIn) {
 		case UIAnimation.Scale:
@@ -119,7 +117,6 @@ public class UIWindow : MonoBehaviour
 			animatorIn ();
 			break;
 		default:
-
 			noAnimationIn ();
 			break;
 		}
@@ -127,12 +124,12 @@ public class UIWindow : MonoBehaviour
 
 	private void noAnimationIn ()
 	{
-
 		if (InAction.OnStartMethod != null) {
 			InAction.OnStartMethod ();
 		}
-		RectTransform rectTransform = transform as RectTransform;
-		rectTransform.localScale = Vector3.one;
+
+		transform.localScale = Vector3.one;
+
 		if (InAction.OnCompleteMethod != null) {
 			InAction.OnCompleteMethod ();
 		}
@@ -142,34 +139,58 @@ public class UIWindow : MonoBehaviour
 	{
 		RectTransform rectTransform = transform as RectTransform;
 		rectTransform.localScale = Vector3.one;
-		SkyAnimator.scaleFrom (gameObject, AppearTime, Vector3.one * 0.05f, AniDurationIn, InAction);
+		SkyAnimator.scaleFrom (gameObject, AppearTime, Vector3.zero, AniDurationIn, InAction);
 	}
 
 	private void bottomIn ()
 	{
 		RectTransform rectTransform = transform as RectTransform;
+		transform.localScale = Vector3.one;
 		SkyAnimator.moveFrom (gameObject, AppearTime, new Vector3 (initPosition.x, -Screen.height, 0), true, AniDurationIn, InAction);
 	}
 
 	private void topIn ()
 	{
 		RectTransform rectTransform = transform as RectTransform;
-		rectTransform.localScale = Vector3.one;
+		transform.localScale = Vector3.one;
 		SkyAnimator.moveFrom (gameObject, AppearTime, new Vector3 (initPosition.x, Screen.height, 0), true, AniDurationIn, InAction);
 	}
 
 	private void leftIn ()
 	{
 		RectTransform rectTransform = transform as RectTransform;
-		rectTransform.localScale = Vector3.one;
+		transform.localScale = Vector3.one;
 		SkyAnimator.moveFrom (gameObject, AppearTime, new Vector3 (-Screen.width, initPosition.y, 0), true, AniDurationIn, InAction);
 	}
 
 	private void rightIn ()
 	{
 		RectTransform rectTransform = transform as RectTransform;
-		rectTransform.localScale = Vector3.one;
+		transform.localScale = Vector3.one;
 		SkyAnimator.moveFrom (gameObject, AppearTime, new Vector3 (Screen.width, initPosition.y, 0), true, AniDurationIn, InAction);
+	}
+
+	private  void animatorIn ()
+	{
+		InAction.OnStartMethod ();
+		if (animator != null) {
+			animator.speed = 1f / AppearTime;
+			animator.Play (k_OpenTransitionName);
+			StartCoroutine (Open (animator));
+		}
+	}
+	
+	IEnumerator Open (Animator anim)
+	{
+		if (anim != null) {
+			bool closedStateReached = anim.GetCurrentAnimatorStateInfo (layer_Index).IsName (k_OpenEndStateName);
+			while (!closedStateReached) {
+				if (!anim.IsInTransition (layer_Index))
+					closedStateReached = anim.GetCurrentAnimatorStateInfo (layer_Index).IsName (k_OpenEndStateName);
+				yield return new WaitForEndOfFrame ();
+			}
+		}
+		InAction.OnCompleteMethod ();
 	}
 
 	protected virtual void customIn ()
@@ -242,7 +263,7 @@ public class UIWindow : MonoBehaviour
 
 	private void scaleOut ()
 	{
-		SkyAnimator.scaleTo (gameObject, DisappearTime, Vector3.one * 0, AniDurationOut, OutAction);
+		SkyAnimator.scaleTo (gameObject, DisappearTime, Vector3.zero, AniDurationOut, OutAction);
 	}
 
 	private void bottomOut ()
@@ -269,36 +290,11 @@ public class UIWindow : MonoBehaviour
 	{
 	}
 
-	private  void animatorIn ()
-	{
-		InAction.OnStartMethod ();
-		if (animator != null) {
-			animator.speed = 1f/AppearTime;
-			animator.Play (k_OpenTransitionName);
-			StartCoroutine (Open (animator));
-		}
-	}
-	
-	IEnumerator Open (Animator anim)
-	{
-
-		if (anim != null) {
-			bool closedStateReached = anim.GetCurrentAnimatorStateInfo (layer_Index).IsName (k_OpenEndStateName);
-			while (!closedStateReached) {
-				if (!anim.IsInTransition (layer_Index))
-					closedStateReached = anim.GetCurrentAnimatorStateInfo (layer_Index).IsName (k_OpenEndStateName);
-				yield return new WaitForEndOfFrame ();
-			}
-		}
-
-		InAction.OnCompleteMethod ();
-	}
-	
 	private void animatorOut ()
 	{   
 		OutAction.OnStartMethod ();
 		if (animator != null) {
-			animator.speed = 1f/DisappearTime;
+			animator.speed = 1f / DisappearTime;
 			animator.Play (k_ClosedStateName);
 			StartCoroutine (Closed (animator));
 		}
