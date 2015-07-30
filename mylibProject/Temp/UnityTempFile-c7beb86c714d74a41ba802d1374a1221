@@ -153,7 +153,6 @@
 'Assets/Scripts/Sky/SrcollList/sample/MyScrollPanel.cs'
 'Assets/Scripts/Sky/UI/SkyResizeScale.cs'
 'Assets/Scripts/Sky/UI/UIWindow.cs'
-'Assets/Scripts/Sky/UI/UIWindowAnimator.cs'
 'Assets/Scripts/Sky/UI/Utils/ResizeByAuto.cs'
 'Assets/Scripts/Sky/UI/Utils/ResizeBySetting.cs'
 'Assets/Scripts/Sky/UI/Utils/ResizeDialog.cs'

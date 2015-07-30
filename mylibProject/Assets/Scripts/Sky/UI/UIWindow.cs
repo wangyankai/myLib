@@ -11,6 +11,7 @@ public enum UIAnimation
 	Right,
 	Top,
 	Bottom,
+	Animator
 }
 
 public enum UIDisplayState
@@ -24,6 +25,13 @@ public enum UIDisplayState
 public class UIWindow : MonoBehaviour
 {
 
+	const string k_OpenTransitionName = "Open";
+	const string k_ClosedStateName = "Closed";
+	const string k_NormalStateName = "Normal";
+	const string k_OpenEndStateName = "OpenEnd";
+	const string k_ClosedEndStateName = "ClosedEnd";
+	const int layer_Index = 0;
+	Animator animator;
 	public bool DestoryOnQuit = false;
 	public UIAnimation UIAnimationIn = UIAnimation.NOAnimation;
 	public SkyAniDuration AniDurationIn = SkyAniDuration.Linear;
@@ -43,6 +51,7 @@ public class UIWindow : MonoBehaviour
 
 	public virtual void Init ()
 	{
+		animator = gameObject.GetComponent<Animator> ();
 		float t = Time.realtimeSinceStartup;
 
 		MUIDisplayState = UIDisplayState.Disable;
@@ -105,6 +114,9 @@ public class UIWindow : MonoBehaviour
 			break;
 		case UIAnimation.Custom:
 			customIn ();
+			break;
+		case UIAnimation.Animator:
+			animatorIn ();
 			break;
 		default:
 
@@ -208,6 +220,9 @@ public class UIWindow : MonoBehaviour
 		case UIAnimation.Custom:
 			customOut ();
 			break;
+		case UIAnimation.Animator:
+			animatorOut ();
+			break;
 		default:
 			noAnimationOut ();
 			break;
@@ -252,6 +267,54 @@ public class UIWindow : MonoBehaviour
 
 	protected virtual void customOut ()
 	{
+	}
+
+	private  void animatorIn ()
+	{
+		InAction.OnStartMethod ();
+		if (animator != null) {
+			animator.speed = 1f/AppearTime;
+			animator.Play (k_OpenTransitionName);
+			StartCoroutine (Open (animator));
+		}
+	}
+	
+	IEnumerator Open (Animator anim)
+	{
+
+		if (anim != null) {
+			bool closedStateReached = anim.GetCurrentAnimatorStateInfo (layer_Index).IsName (k_OpenEndStateName);
+			while (!closedStateReached) {
+				if (!anim.IsInTransition (layer_Index))
+					closedStateReached = anim.GetCurrentAnimatorStateInfo (layer_Index).IsName (k_OpenEndStateName);
+				yield return new WaitForEndOfFrame ();
+			}
+		}
+
+		InAction.OnCompleteMethod ();
+	}
+	
+	private void animatorOut ()
+	{   
+		OutAction.OnStartMethod ();
+		if (animator != null) {
+			animator.speed = 1f/DisappearTime;
+			animator.Play (k_ClosedStateName);
+			StartCoroutine (Closed (animator));
+		}
+	}
+	
+	IEnumerator Closed (Animator anim)
+	{
+		if (anim != null) {
+			bool closedStateReached = anim.GetCurrentAnimatorStateInfo (layer_Index).IsName (k_ClosedEndStateName);
+			while (!closedStateReached) {
+				if (!anim.IsInTransition (layer_Index))
+					closedStateReached = anim.GetCurrentAnimatorStateInfo (layer_Index).IsName (k_ClosedEndStateName);
+				yield return new WaitForEndOfFrame ();
+			}
+		}
+		OutAction.OnCompleteMethod ();
 	}
 
 	public SkyAniCallBack InAction = null;

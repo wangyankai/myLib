@@ -147,7 +147,6 @@
      <Compile Include="Assets\Scripts\Sky\SrcollList\sample\MyScrollPanel.cs" />
      <Compile Include="Assets\Scripts\Sky\UI\SkyResizeScale.cs" />
      <Compile Include="Assets\Scripts\Sky\UI\UIWindow.cs" />
-     <Compile Include="Assets\Scripts\Sky\UI\UIWindowAnimator.cs" />
      <Compile Include="Assets\Scripts\Sky\UI\Utils\ResizeByAuto.cs" />
      <Compile Include="Assets\Scripts\Sky\UI\Utils\ResizeBySetting.cs" />
      <Compile Include="Assets\Scripts\Sky\UI\Utils\ResizeDialog.cs" />
