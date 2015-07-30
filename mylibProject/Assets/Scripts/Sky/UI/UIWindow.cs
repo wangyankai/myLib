@@ -45,11 +45,6 @@ public class UIWindow : MonoBehaviour
 	{
 		float t = Time.realtimeSinceStartup;
 
-		Debug.Log (t);
-		while (Time.realtimeSinceStartup - t < 5) {
-			 
-        }
-		Debug.Log (Time.realtimeSinceStartup);
 		MUIDisplayState = UIDisplayState.Disable;
 		initPosition = this.transform.localPosition;
 		OutAction = new SkyAniCallBack ();
@@ -84,8 +79,9 @@ public class UIWindow : MonoBehaviour
 	public virtual void ShowIn ()
 	{
 		if (MUIDisplayState == UIDisplayState.Disable) {
-			shwoInAnimation ();
 			gameObject.SetActive (true);
+			this.transform.localPosition = initPosition;
+			shwoInAnimation ();
 		}
 	}
 
@@ -125,7 +121,6 @@ public class UIWindow : MonoBehaviour
 		}
 		RectTransform rectTransform = transform as RectTransform;
 		rectTransform.localScale = Vector3.one;
-		rectTransform.localPosition = new Vector3 (0, 0, 0);
 		if (InAction.OnCompleteMethod != null) {
 			InAction.OnCompleteMethod ();
 		}
@@ -141,7 +136,6 @@ public class UIWindow : MonoBehaviour
 	private void bottomIn ()
 	{
 		RectTransform rectTransform = transform as RectTransform;
-		rectTransform.localPosition = initPosition;
 		SkyAnimator.moveFrom (gameObject, AppearTime, new Vector3 (initPosition.x, -Screen.height, 0), true, AniDurationIn, InAction);
 	}
 
@@ -149,7 +143,6 @@ public class UIWindow : MonoBehaviour
 	{
 		RectTransform rectTransform = transform as RectTransform;
 		rectTransform.localScale = Vector3.one;
-		rectTransform.localPosition = initPosition;
 		SkyAnimator.moveFrom (gameObject, AppearTime, new Vector3 (initPosition.x, Screen.height, 0), true, AniDurationIn, InAction);
 	}
 
@@ -157,7 +150,6 @@ public class UIWindow : MonoBehaviour
 	{
 		RectTransform rectTransform = transform as RectTransform;
 		rectTransform.localScale = Vector3.one;
-		rectTransform.localPosition = initPosition;
 		SkyAnimator.moveFrom (gameObject, AppearTime, new Vector3 (-Screen.width, initPosition.y, 0), true, AniDurationIn, InAction);
 	}
 
@@ -165,7 +157,6 @@ public class UIWindow : MonoBehaviour
 	{
 		RectTransform rectTransform = transform as RectTransform;
 		rectTransform.localScale = Vector3.one;
-		rectTransform.localPosition = initPosition;
 		SkyAnimator.moveFrom (gameObject, AppearTime, new Vector3 (Screen.width, initPosition.y, 0), true, AniDurationIn, InAction);
 	}
 

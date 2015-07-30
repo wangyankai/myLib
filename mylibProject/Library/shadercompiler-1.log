@@ -1,15 +1,3 @@
 Base path: /Applications/Unity/Unity.app/Contents
-Pipe name: \\.\pipe\UnityShaderCompiler-1--1604427308
+Pipe name: \\.\pipe\UnityShaderCompiler-1--1596202540
 Cmd: getPlatforms
-Cmd: compileSnippet
-  error: 2 plat 0 at (38): Can't open include file "GAFShaderBase.cginc"
-  api=0 type=0 insize=477 outsize=0 kw=GAF_VERTICES_TRANSFORM_OFF ok=0
-Cmd: compileSnippet
-  error: 2 plat 0 at (38): Can't open include file "GAFShaderBase.cginc"
-  api=0 type=1 insize=477 outsize=0 kw=GAF_VERTICES_TRANSFORM_OFF ok=0
-Cmd: compileSnippet
-  error: 2 plat 0 at (42): Can't open include file "GAFFilters.cginc"
-  api=0 type=0 insize=430 outsize=0 kw=GAF_COLOR_MTX_FILTER_OFF ok=0
-Cmd: compileSnippet
-  error: 2 plat 0 at (42): Can't open include file "GAFFilters.cginc"
-  api=0 type=1 insize=430 outsize=0 kw=GAF_COLOR_MTX_FILTER_OFF ok=0

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{D6D059DA-FC9A-B9DA-F663-DEC061A439B0}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-UnityScript</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_6_3;UNITY_4_6;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_IL2CPP;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;UNITY5_SCRIPTING_IN_UNITY4;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
+	<Reference Include="UnityEngine">
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_AntiTransRimShaderInOut.js" />
+     <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_TransRimShaderFader.js" />
+     <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_TransRimShaderInOut.js" />
+     <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_TransRimShaderIrisator.js" />
+     <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_UVScroller.js" />
+     <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_animRandomizer.js" />
+     <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_animSpeedRandomizer.js" />
+     <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_destroyThisTimed.js" />
+     <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_effectCaster.js" />
+     <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_materialAlphaFader.js" />
+     <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_materialColorRandomizer.js" />
+     <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_moveThis.js" />
+     <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_prefabGenerator.js" />
+     <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_randoMMoveInBox.js" />
+     <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_randomRotation.js" />
+     <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_randomScale.js" />
+     <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_rotateThis.js" />
+     <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_stohasticArrowMovement.js" />
+     <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_trailFade.js" />
+     <None Include="Assets\Shaders\UVAnimation.shader" />
+     <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
+     <None Include="Assets\ReadMe.txt" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFShaderBase.cginc" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders (Mobile)\CFXM_MobileParticleAdd_Alpha8.shader" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFObjectsGroup.shader" />
+     <None Include="Assets\Example Games\Flappy Bird Style\_ReadMe.txt" />
+     <None Include="Assets\Lib\GAF\Docs\What&apos;s new.txt" />
+     <None Include="Assets\Shaders\imageShime.shader" />
+     <None Include="Assets\Lib\ShurikenMagic\Shaders\SM_TransparentAntiRim.shader" />
+     <None Include="Assets\Font\font3\font.txt" />
+     <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFBlur.shader" />
+     <None Include="Assets\Star.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX2 Particle Alpha Blend Add.shader" />
+     <None Include="Assets\Demigiant\DemiLib\DemiLib.xml" />
+     <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
+     <None Include="Assets\JMO Assets\!JMO Assets Readme.txt" />
+     <None Include="Assets\Fonts\LuckiestGuy\LICENSE.txt" />
+     <None Include="Assets\Example Games\Angry Birds Style\_ReadMe.txt" />
+     <None Include="Assets\Demigiant\DOTween\readme.txt" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFFilters.cginc" />
+     <None Include="Assets\Lib\ShurikenMagic\Shaders\Illumin-VertexLit.shader" />
+     <None Include="Assets\Lib\Leaves Particles\Leaves - Readme.txt" />
+     <None Include="Assets\tutorial.txt" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_WaterWiggle.shader" />
+     <None Include="Assets\Demigiant\DOTween\DOTween43.xml" />
+     <None Include="Assets\Font\font2\font.txt" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFMaskReset.shader" />
+     <None Include="Assets\Example Games\2D Scrolling Shooter\Fonts\PressStart2P-Regular\OFL.txt" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFFilteredObject.shader" />
+     <None Include="Assets\Example Games\Hat Trick - The Catch Game\_ReadMe.txt" />
+     <None Include="Assets\Example Games\Hat Trick - The Catch Game\Fonts\LuckiestGuy\LICENSE.txt" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFGlow.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX2 Particle Alpha Blend Tint.shader" />
+     <None Include="Assets\BitmapFontDemo\MyFont.fnt" />
+     <None Include="Assets\Example Games\2D Scrolling Shooter\_ReadMe.txt" />
+     <None Include="Assets\Storm Effects\README.txt" />
+     <None Include="Assets\Font\font1\font.txt" />
+     <None Include="Assets\JMO Assets\Cartoon FX\CartoonFX2 Readme.txt" />
+     <None Include="Assets\BitmapFontDemo\MyFontRetina.fnt" />
+     <None Include="Assets\Lib\ShurikenMagic\Shaders\SM_2sided_transparent.shader" />
+     <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
+     <None Include="Assets\Lib\GAF\Resources\Shaders\GAFMask.shader" />
+     <None Include="Assets\Lib\codeandweb.com\Readme.txt" />
+     <None Include="Assets\Fonts\PressStart2P-Regular\OFL.txt" />
+     <None Include="Assets\Lib\GAF\Docs\Readme.txt" />
+     <None Include="Assets\Lib\ShurikenMagic\Shaders\SM_TransparentRim.shader" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.3/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="DemiLib">
+ <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/Demigiant/DemiLib/DemiLib.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween43">
+ <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/Demigiant/DOTween/DOTween43.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween46">
+ <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/Demigiant/DOTween/DOTween46.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTweenPro">
+ <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+ </Reference>
+ <Reference Include="GAF">
+ <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/Lib/GAF/Plugins/GAF.dll</HintPath>
+ </Reference>
+ <Reference Include="Ionic.Zip.Reduced">
+ <HintPath>/Volumes/SSD/myLib/mylibProject/Assets/Lib/GAF/Plugins/Ionic.Zip.Reduced.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>

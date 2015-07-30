@@ -73,6 +73,7 @@
      <None Include="Assets\Example Games\Flappy Bird Style\_ReadMe.txt" />
      <None Include="Assets\Lib\GAF\Docs\What&apos;s new.txt" />
      <None Include="Assets\Shaders\imageShime.shader" />
+     <None Include="Assets\Lib\ShurikenMagic\Shaders\SM_TransparentAntiRim.shader" />
      <None Include="Assets\Font\font3\font.txt" />
      <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />
      <None Include="Assets\Lib\GAF\Resources\Shaders\GAFBlur.shader" />
@@ -85,6 +86,7 @@
      <None Include="Assets\Example Games\Angry Birds Style\_ReadMe.txt" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\Lib\GAF\Resources\Shaders\GAFFilters.cginc" />
+     <None Include="Assets\Lib\ShurikenMagic\Shaders\Illumin-VertexLit.shader" />
      <None Include="Assets\Lib\Leaves Particles\Leaves - Readme.txt" />
      <None Include="Assets\tutorial.txt" />
      <None Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_WaterWiggle.shader" />
@@ -103,11 +105,16 @@
      <None Include="Assets\Font\font1\font.txt" />
      <None Include="Assets\JMO Assets\Cartoon FX\CartoonFX2 Readme.txt" />
      <None Include="Assets\BitmapFontDemo\MyFontRetina.fnt" />
+     <None Include="Assets\Lib\ShurikenMagic\Shaders\SM_2sided_transparent.shader" />
      <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
      <None Include="Assets\Lib\GAF\Resources\Shaders\GAFMask.shader" />
      <None Include="Assets\Lib\codeandweb.com\Readme.txt" />
      <None Include="Assets\Fonts\PressStart2P-Regular\OFL.txt" />
      <None Include="Assets\Lib\GAF\Docs\Readme.txt" />
+     <None Include="Assets\Lib\ShurikenMagic\Shaders\SM_TransparentRim.shader" />
+ <Reference Include="Assembly-UnityScript">
+ <HintPath>/Volumes/SSD/myLib/mylibProject/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.3/UnityEngine.UI.dll</HintPath>
  </Reference>

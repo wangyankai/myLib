@@ -1,0 +1,170 @@
+-debug
+-target:library
+-nowarn:0169
+-out:'Temp/Assembly-CSharp.dll'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll'
+-r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.3/UnityEngine.UI.dll'
+-r:'Assets/Demigiant/DemiLib/DemiLib.dll'
+-r:'Assets/Demigiant/DOTween/DOTween.dll'
+-r:'Assets/Demigiant/DOTween/DOTween43.dll'
+-r:'Assets/Demigiant/DOTween/DOTween46.dll'
+-r:'Assets/Demigiant/DOTweenPro/DOTweenPro.dll'
+-r:'Assets/Lib/GAF/Plugins/GAF.dll'
+-r:'Assets/Lib/GAF/Plugins/Ionic.Zip.Reduced.dll'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll'
+-define:UNITY_4_6_3
+-define:UNITY_4_6
+-define:UNITY_STANDALONE_OSX
+-define:ENABLE_MICROPHONE
+-define:ENABLE_TEXTUREID_MAP
+-define:ENABLE_UNITYEVENTS
+-define:ENABLE_NEW_HIERARCHY 
+-define:ENABLE_AUDIO_FMOD
+-define:UNITY_STANDALONE
+-define:ENABLE_TERRAIN
+-define:ENABLE_SUBSTANCE
+-define:ENABLE_GENERICS
+-define:INCLUDE_IL2CPP
+-define:INCLUDE_WP8SUPPORT
+-define:ENABLE_MOVIES
+-define:ENABLE_WWW
+-define:ENABLE_IMAGEEFFECTS
+-define:ENABLE_4_6_FEATURES
+-define:INCLUDE_WP_BLUE_SUPPORT
+-define:ENABLE_WEBCAM
+-define:INCLUDE_METROSUPPORT
+-define:RENDER_SOFTWARE_CURSOR
+-define:ENABLE_NETWORK
+-define:ENABLE_PHYSICS
+-define:UNITY5_SCRIPTING_IN_UNITY4
+-define:ENABLE_CACHING
+-define:ENABLE_CLOTH
+-define:ENABLE_2D_PHYSICS
+-define:ENABLE_GAMECENTER
+-define:ENABLE_SHADOWS
+-define:ENABLE_AUDIO
+-define:ENABLE_NAVMESH_CARVING
+-define:ENABLE_DUCK_TYPING
+-define:ENABLE_SINGLE_INSTANCE_BUILD_SETTING
+-define:ENABLE_MONO
+-define:ENABLE_PROFILER
+-define:UNITY_EDITOR
+-define:UNITY_EDITOR_OSX
+-define:UNITY_TEAM_LICENSE
+-define:UNITY_PRO_LICENSE
+'Assets/BitmapFont/Scripts/BitmapFont.cs'
+'Assets/BitmapFont/Scripts/BitmapFontLabel.cs'
+'Assets/Demigiant/DOTweenPro/DOTweenAnimation.cs'
+'Assets/Example Games/2D Scrolling Shooter/Scripts/Background.cs'
+'Assets/Example Games/2D Scrolling Shooter/Scripts/Bullet.cs'
+'Assets/Example Games/2D Scrolling Shooter/Scripts/DestroyArea.cs'
+'Assets/Example Games/2D Scrolling Shooter/Scripts/Emitter.cs'
+'Assets/Example Games/2D Scrolling Shooter/Scripts/Enemy.cs'
+'Assets/Example Games/2D Scrolling Shooter/Scripts/Explosion.cs'
+'Assets/Example Games/2D Scrolling Shooter/Scripts/Manager.cs'
+'Assets/Example Games/2D Scrolling Shooter/Scripts/ObjectPool.cs'
+'Assets/Example Games/2D Scrolling Shooter/Scripts/Player.cs'
+'Assets/Example Games/2D Scrolling Shooter/Scripts/ShipResetScript.cs'
+'Assets/Example Games/2D Scrolling Shooter/Scripts/Spaceship.cs'
+'Assets/Example Games/2D Scrolling Shooter/Scripts/WaveScript.cs'
+'Assets/Example Games/Angry Birds Style/Scripts/ProjectileDragging.cs'
+'Assets/Example Games/Angry Birds Style/Scripts/ProjectileFollow.cs'
+'Assets/Example Games/Angry Birds Style/Scripts/Resetter.cs'
+'Assets/Example Games/Angry Birds Style/Scripts/TargetDamage.cs'
+'Assets/Example Games/Flappy Bird Style/Scripts/BirdScript.cs'
+'Assets/Example Games/Flappy Bird Style/Scripts/CameraFollow.cs'
+'Assets/Example Games/Flappy Bird Style/Scripts/ColumnScript.cs'
+'Assets/Example Games/Flappy Bird Style/Scripts/ColumnSpawnScript.cs'
+'Assets/Example Games/Flappy Bird Style/Scripts/GameControlScript.cs'
+'Assets/Example Games/Flappy Bird Style/Scripts/ScrollScript.cs'
+'Assets/Example Games/Hat Trick - The Catch Game/Scripts/HT_DestroyOnContact.cs'
+'Assets/Example Games/Hat Trick - The Catch Game/Scripts/HT_Explode.cs'
+'Assets/Example Games/Hat Trick - The Catch Game/Scripts/HT_GameController.cs'
+'Assets/Example Games/Hat Trick - The Catch Game/Scripts/HT_HatController.cs'
+'Assets/Example Games/Hat Trick - The Catch Game/Scripts/HT_Restart.cs'
+'Assets/Example Games/Hat Trick - The Catch Game/Scripts/HT_Score.cs'
+'Assets/Example Games/Hat Trick - The Catch Game/Scripts/HT_SetParticleSortingLayer.cs'
+'Assets/Example Games/Hat Trick - The Catch Game/Scripts/HT_StartGame.cs'
+'Assets/ItemCtrl.cs'
+'Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX2_Demo.cs'
+'Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX_AutoStopLoopedEffect.cs'
+'Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_New.cs'
+'Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_RandomDir.cs'
+'Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_RotateCamera.cs'
+'Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_Translate.cs'
+'Assets/JMO Assets/Cartoon FX/Demo/UI/CFX_Demo_GTButton.cs'
+'Assets/JMO Assets/Cartoon FX/Demo/UI/CFX_Demo_GTToggle.cs'
+'Assets/JMO Assets/Cartoon FX/Scripts/CFX2_AutoRotate.cs'
+'Assets/JMO Assets/Cartoon FX/Scripts/CFX_AutoDestructShuriken.cs'
+'Assets/JMO Assets/Cartoon FX/Scripts/CFX_AutodestructWhenNoChildren.cs'
+'Assets/JMO Assets/Cartoon FX/Scripts/CFX_InspectorHelp.cs'
+'Assets/JMO Assets/Cartoon FX/Scripts/CFX_LightIntensityFade.cs'
+'Assets/JMO Assets/Cartoon FX/Scripts/CFX_ShurikenThreadFix.cs'
+'Assets/JMO Assets/Cartoon FX/Spawn System/CFX_SpawnSystem.cs'
+'Assets/Lib/GAF/Examples/Scripts/GAFSceneController.cs'
+'Assets/Lib/GAF/Scripts/Asset/GAFAnimationAsset.cs'
+'Assets/Lib/GAF/Scripts/Asset/GAFTexturesResource.cs'
+'Assets/Lib/GAF/Scripts/Core/GAFBakedMovieClip.cs'
+'Assets/Lib/GAF/Scripts/Core/GAFMovieClip.cs'
+'Assets/Lib/GAF/Scripts/Objects/GAFBakedObject.cs'
+'Assets/Lib/GAF/Scripts/Objects/GAFBakedObjectController.cs'
+'Assets/Lib/GAF/Scripts/Objects/GAFBakedObjectsManager.cs'
+'Assets/Lib/GAF/Scripts/Objects/GAFObject.cs'
+'Assets/Lib/GAF/Scripts/Objects/GAFObjectsManager.cs'
+'Assets/ListView.cs'
+'Assets/Scripts/CreateElement.cs'
+'Assets/Scripts/DragTest.cs'
+'Assets/Scripts/ExtendClass.cs'
+'Assets/Scripts/GAFTest.cs'
+'Assets/Scripts/Sky/Mesh/MeshImage.cs'
+'Assets/Scripts/Sky/SkyAnimation/SkyAction.cs'
+'Assets/Scripts/Sky/SkyAnimation/SkyAniCallBack.cs'
+'Assets/Scripts/Sky/SkyAnimation/SkyAniDuration.cs'
+'Assets/Scripts/Sky/SkyAnimation/SkyAniParallel.cs'
+'Assets/Scripts/Sky/SkyAnimation/SkyAniSequence.cs'
+'Assets/Scripts/Sky/SkyAnimation/SkyAnimator.cs'
+'Assets/Scripts/Sky/SkyAnimation/SkyBaseAnimationNormal.cs'
+'Assets/Scripts/Sky/SkyAnimation/SkyBaseAnimationObject.cs'
+'Assets/Scripts/Sky/SkyAnimation/SkyBaseSequence.cs'
+'Assets/Scripts/Sky/SkyAnimation/SkyBezierCurve.cs'
+'Assets/Scripts/Sky/SkyAnimation/SkyBezierCurveOject.cs'
+'Assets/Scripts/Sky/SkyAnimation/SkyColorAnimation.cs'
+'Assets/Scripts/Sky/SkyAnimation/SkyCustomParticleSystem.cs'
+'Assets/Scripts/Sky/SkyAnimation/SkyDelayAnimation.cs'
+'Assets/Scripts/Sky/SkyAnimation/SkyFlash.cs'
+'Assets/Scripts/Sky/SkyAnimation/SkyMoveByCurve.cs'
+'Assets/Scripts/Sky/SkyAnimation/SkyRestParticleSystemShape.cs'
+'Assets/Scripts/Sky/SkyAnimation/SkySetParticleSortingLayer.cs'
+'Assets/Scripts/Sky/SkyAnimation/SkyUtil.cs'
+'Assets/Scripts/Sky/SkyCustomFont/BMFont.cs'
+'Assets/Scripts/Sky/SkyCustomFont/BMFontReader.cs'
+'Assets/Scripts/Sky/SkyCustomFont/BMGlyph.cs'
+'Assets/Scripts/Sky/SkyCustomFont/BetterList.cs'
+'Assets/Scripts/Sky/SkyCustomFont/ByteReader.cs'
+'Assets/Scripts/Sky/SkyCustomFont/MyFont.cs'
+'Assets/Scripts/Sky/SkyGameCamera.cs'
+'Assets/Scripts/Sky/SrcollList/SkyElementBase.cs'
+'Assets/Scripts/Sky/SrcollList/SkyElementConfig.cs'
+'Assets/Scripts/Sky/SrcollList/SkyScrollPanel.cs'
+'Assets/Scripts/Sky/SrcollList/SkyScrollRect.cs'
+'Assets/Scripts/Sky/SrcollList/sample/ElementButton.cs'
+'Assets/Scripts/Sky/SrcollList/sample/ElementButtonConfig.cs'
+'Assets/Scripts/Sky/SrcollList/sample/ItemPlistConfig.cs'
+'Assets/Scripts/Sky/SrcollList/sample/MyScrollPanel.cs'
+'Assets/Scripts/Sky/UI/SkyResizeScale.cs'
+'Assets/Scripts/Sky/UI/UIWindow.cs'
+'Assets/Scripts/Sky/UI/UIWindowAnimator.cs'
+'Assets/Scripts/Sky/UI/Utils/ResizeByAuto.cs'
+'Assets/Scripts/Sky/UI/Utils/ResizeBySetting.cs'
+'Assets/Scripts/Sky/UI/Utils/ResizeDialog.cs'
+'Assets/Scripts/Sky/UI/Utils/SharedPrefs.cs'
+'Assets/Scripts/Sky/UI/Utils/SkySreenUtils.cs'
+'Assets/Scripts/Sky/UI/Utils/SkyTime.cs'
+'Assets/Scripts/Sky/UI/Utils/TimeRecord.cs'
+'Assets/Scripts/SkyDragEvent.cs'
+'Assets/Scripts/TestExtend.cs'
+'Assets/Scripts/TestForEditor.cs'
+'Assets/Scripts/UITest.cs'
+'Assets/Star.cs'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Xml.Linq.dll'
