@@ -54,16 +54,15 @@ public class SpriteTextPanel : MonoBehaviour
 	private void RelayoutPanel (string coinsCount)
 	{
 		this._textContent = coinsCount;
-		List<GameObject> arrayList = new List<GameObject> ();
 		for (int i = 0; i<gameObject.transform.childCount; i++) {
 			GameObject go = gameObject.transform.GetChild (i).gameObject;
-//			DestroyImmediate (go);
 			arrayList.Add(go);
 		}
 
 		for (int i=0; i<arrayList.Count; i++) {
 			DestroyImmediate (arrayList[i]);
 		}
+		arrayList.Clear ();
 
 		if (coinsCount.Length < 1 || MSpriteTexConfig == null)
 			return;
@@ -121,6 +120,7 @@ public class SpriteTextPanel : MonoBehaviour
 		default:
 			break;
 		}
+
 		float startY = (1 - height) / 2f;
 		float endY = startY + height;
 		float endX = startX + width;
@@ -142,7 +142,6 @@ public class SpriteTextPanel : MonoBehaviour
 			number.transform.SetParent (transform, false);
 			Image image = number.GetComponent<Image> ();
 			if (hasSprite) {
-           
 				image.sprite = spriteItemForThis.MSprite;
 				image.color = new Color (1f, 1f, 1f, 1f);
 				widthFactorForThis = spriteItemForThis.WidthFactor;
@@ -168,4 +167,6 @@ public class SpriteTextPanel : MonoBehaviour
 		}
 
 	}
+
+	private List<GameObject> arrayList = new List<GameObject> ();
 }
