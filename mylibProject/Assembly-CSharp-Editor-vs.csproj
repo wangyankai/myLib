@@ -49,6 +49,7 @@
      <Compile Include="Assets\Demigiant\DOTweenPro\Editor\DOTweenAnimationInspector.cs" />
      <Compile Include="Assets\Editor\SkyBezierEditor.cs" />
      <Compile Include="Assets\Editor\SkyMoveByCurveEditor.cs" />
+     <Compile Include="Assets\Editor\SpriteText\SpriteTextEditor.cs" />
      <Compile Include="Assets\Editor\StarInspector.cs" />
      <Compile Include="Assets\Editor\TestEditor.cs" />
      <Compile Include="Assets\JMO Assets\Cartoon FX Easy Editor\Editor\CFXEasyEditor.cs" />

@@ -110,6 +110,8 @@
      <Compile Include="Assets\Scripts\DragTest.cs" />
      <Compile Include="Assets\Scripts\ExtendClass.cs" />
      <Compile Include="Assets\Scripts\GAFTest.cs" />
+     <Compile Include="Assets\Scripts\MaterialController.cs" />
+     <Compile Include="Assets\Scripts\RoleController.cs" />
      <Compile Include="Assets\Scripts\Sky\Mesh\MeshImage.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAction.cs" />
      <Compile Include="Assets\Scripts\Sky\SkyAnimation\SkyAniCallBack.cs" />
@@ -146,6 +148,8 @@
      <Compile Include="Assets\Scripts\Sky\SrcollList\sample\ItemPlistConfig.cs" />
      <Compile Include="Assets\Scripts\Sky\SrcollList\sample\MyScrollPanel.cs" />
      <Compile Include="Assets\Scripts\Sky\UI\SkyResizeScale.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\SpriteText\SpriteTexConfig.cs" />
+     <Compile Include="Assets\Scripts\Sky\UI\SpriteText\SpriteTextPanel.cs" />
      <Compile Include="Assets\Scripts\Sky\UI\UIWindow.cs" />
      <Compile Include="Assets\Scripts\Sky\UI\Utils\ResizeByAuto.cs" />
      <Compile Include="Assets\Scripts\Sky\UI\Utils\ResizeBySetting.cs" />

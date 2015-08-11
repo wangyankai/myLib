@@ -46,6 +46,15 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\GlowOutline\femaleWarrior\Scripts\GUI\slider1.js" />
+     <Compile Include="Assets\GlowOutline\femaleWarrior\Scripts\constantMovement.js" />
+     <Compile Include="Assets\GlowOutline\femaleWarrior\Scripts\mipmap2.js" />
+     <Compile Include="Assets\GlowOutline\femaleWarrior\Scripts\mouseSpin.js" />
+     <Compile Include="Assets\GlowOutline\femaleWarrior\Scripts\preserveLocalPosition.js" />
+     <Compile Include="Assets\GlowOutline\femaleWarrior\Scripts\rope.js" />
+     <Compile Include="Assets\GlowOutline\femaleWarrior\Scripts\shadow.js" />
+     <Compile Include="Assets\GlowOutline\femaleWarrior\Scripts\showCaseAnimation.js" />
+     <Compile Include="Assets\GlowOutline\femaleWarrior\Scripts\stickTo.js" />
      <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_AntiTransRimShaderInOut.js" />
      <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_TransRimShaderFader.js" />
      <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_TransRimShaderInOut.js" />
