@@ -74,7 +74,7 @@
      <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_rotateThis.js" />
      <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_stohasticArrowMovement.js" />
      <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_trailFade.js" />
-     <None Include="Assets\Shaders\UVAnimation.shader" />
+     <None Include="Assets\MyLib\Shaders\UVAnimation.shader" />
      <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
      <None Include="Assets\ReadMe.txt" />
      <None Include="Assets\Lib\GAF\Resources\Shaders\GAFShaderBase.cginc" />
@@ -82,7 +82,7 @@
      <None Include="Assets\Lib\GAF\Resources\Shaders\GAFObjectsGroup.shader" />
      <None Include="Assets\Example Games\Flappy Bird Style\_ReadMe.txt" />
      <None Include="Assets\Lib\GAF\Docs\What&apos;s new.txt" />
-     <None Include="Assets\Shaders\imageShime.shader" />
+     <None Include="Assets\MyLib\Shaders\imageShime.shader" />
      <None Include="Assets\Lib\ShurikenMagic\Shaders\SM_TransparentAntiRim.shader" />
      <None Include="Assets\Font\font3\font.txt" />
      <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />

@@ -47,9 +47,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Demigiant\DOTweenPro\Editor\DOTweenAnimationInspector.cs" />
-     <Compile Include="Assets\Editor\SkyBezierEditor.cs" />
-     <Compile Include="Assets\Editor\SkyMoveByCurveEditor.cs" />
-     <Compile Include="Assets\Editor\SpriteText\SpriteTextEditor.cs" />
      <Compile Include="Assets\Editor\StarInspector.cs" />
      <Compile Include="Assets\Editor\TestEditor.cs" />
      <Compile Include="Assets\JMO Assets\Cartoon FX Easy Editor\Editor\CFXEasyEditor.cs" />
@@ -65,7 +62,10 @@
      <Compile Include="Assets\Lib\GAF\Scripts\Objects\Editor\GAFBakedObjectsManagerEditor.cs" />
      <Compile Include="Assets\Lib\GAF\Scripts\Objects\Editor\GAFObjectEditor.cs" />
      <Compile Include="Assets\Lib\codeandweb.com\Editor\TexturePackerImporter.cs" />
-     <None Include="Assets\Shaders\UVAnimation.shader" />
+     <Compile Include="Assets\MyLib\Scripts\Sky\SkyAnimation\Editor\SkyBezierEditor.cs" />
+     <Compile Include="Assets\MyLib\Scripts\Sky\SkyAnimation\Editor\SkyMoveByCurveEditor.cs" />
+     <Compile Include="Assets\MyLib\Scripts\Sky\UI\Editor\SpriteTextEditor.cs" />
+     <None Include="Assets\MyLib\Shaders\UVAnimation.shader" />
      <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
      <None Include="Assets\ReadMe.txt" />
      <None Include="Assets\Lib\GAF\Resources\Shaders\GAFShaderBase.cginc" />
@@ -73,7 +73,7 @@
      <None Include="Assets\Lib\GAF\Resources\Shaders\GAFObjectsGroup.shader" />
      <None Include="Assets\Example Games\Flappy Bird Style\_ReadMe.txt" />
      <None Include="Assets\Lib\GAF\Docs\What&apos;s new.txt" />
-     <None Include="Assets\Shaders\imageShime.shader" />
+     <None Include="Assets\MyLib\Shaders\imageShime.shader" />
      <None Include="Assets\Lib\ShurikenMagic\Shaders\SM_TransparentAntiRim.shader" />
      <None Include="Assets\Font\font3\font.txt" />
      <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />

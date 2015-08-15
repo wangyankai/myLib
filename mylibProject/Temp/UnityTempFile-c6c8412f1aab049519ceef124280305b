@@ -65,9 +65,6 @@
 -define:UNITY_TEAM_LICENSE
 -define:UNITY_PRO_LICENSE
 'Assets/Demigiant/DOTweenPro/Editor/DOTweenAnimationInspector.cs'
-'Assets/Editor/SkyBezierEditor.cs'
-'Assets/Editor/SkyMoveByCurveEditor.cs'
-'Assets/Editor/SpriteText/SpriteTextEditor.cs'
 'Assets/Editor/StarInspector.cs'
 'Assets/Editor/TestEditor.cs'
 'Assets/JMO Assets/Cartoon FX Easy Editor/Editor/CFXEasyEditor.cs'
@@ -83,5 +80,8 @@
 'Assets/Lib/GAF/Scripts/Objects/Editor/GAFBakedObjectsManagerEditor.cs'
 'Assets/Lib/GAF/Scripts/Objects/Editor/GAFObjectEditor.cs'
 'Assets/Lib/codeandweb.com/Editor/TexturePackerImporter.cs'
+'Assets/Scripts/Sky/SkyAnimation/Editor/SkyBezierEditor.cs'
+'Assets/Scripts/Sky/SkyAnimation/Editor/SkyMoveByCurveEditor.cs'
+'Assets/Scripts/Sky/UI/Editor/SpriteTextEditor.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/2.0/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/2.0/System.Xml.Linq.dll'
