@@ -134,6 +134,7 @@
      <Compile Include="Assets\Lib\TextMesh Pro\Scripts\TMPro_UpdateManager.cs" />
      <Compile Include="Assets\Lib\TextMesh Pro\Scripts\TextMeshPro.cs" />
      <Compile Include="Assets\Lib\TextMesh Pro\Scripts\TextMeshProFont.cs" />
+     <Compile Include="Assets\Lib\UniMerge\Demo\TestScript.cs" />
      <Compile Include="Assets\ListView.cs" />
      <Compile Include="Assets\MyLib\Scripts\CreateElement.cs" />
      <Compile Include="Assets\MyLib\Scripts\DragTest.cs" />
@@ -192,6 +193,7 @@
      <Compile Include="Assets\MyLib\Scripts\TestForEditor.cs" />
      <Compile Include="Assets\MyLib\Scripts\UITest.cs" />
      <Compile Include="Assets\Star.cs" />
+     <None Include="Assets\Lib\UniMerge\readme.txt" />
      <None Include="Assets\MyLib\Shaders\UVAnimation.shader" />
      <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
      <None Include="Assets\Lib\TextMesh Pro\Resources\Shaders\TMPro_Bitmap-Mobile.shader" />

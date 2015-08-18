@@ -94,10 +94,16 @@
      <Compile Include="Assets\Lib\TextMesh Pro\Editor\TMPro_FontEditor.cs" />
      <Compile Include="Assets\Lib\TextMesh Pro\Editor\TMPro_FontPlugin.cs" />
      <Compile Include="Assets\Lib\TextMesh Pro\Editor\TMPro_SDFMaterialEditor.cs" />
+     <Compile Include="Assets\Lib\UniMerge\Editor\FillScene.cs" />
+     <Compile Include="Assets\Lib\UniMerge\Editor\ObjectMerge.cs" />
+     <Compile Include="Assets\Lib\UniMerge\Editor\SceneMerge.cs" />
+     <Compile Include="Assets\Lib\UniMerge\Editor\UniMergeConfig.cs" />
+     <Compile Include="Assets\Lib\UniMerge\Editor\Util.cs" />
      <Compile Include="Assets\Lib\codeandweb.com\Editor\TexturePackerImporter.cs" />
      <Compile Include="Assets\MyLib\Scripts\Sky\SkyAnimation\Editor\SkyBezierEditor.cs" />
      <Compile Include="Assets\MyLib\Scripts\Sky\SkyAnimation\Editor\SkyMoveByCurveEditor.cs" />
      <Compile Include="Assets\MyLib\Scripts\Sky\UI\Editor\SpriteTextEditor.cs" />
+     <None Include="Assets\Lib\UniMerge\readme.txt" />
      <None Include="Assets\MyLib\Shaders\UVAnimation.shader" />
      <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
      <None Include="Assets\Lib\TextMesh Pro\Resources\Shaders\TMPro_Bitmap-Mobile.shader" />

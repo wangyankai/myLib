@@ -74,6 +74,7 @@
      <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_rotateThis.js" />
      <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_stohasticArrowMovement.js" />
      <Compile Include="Assets\Lib\ShurikenMagic\Scripts\SM_trailFade.js" />
+     <None Include="Assets\Lib\UniMerge\readme.txt" />
      <None Include="Assets\MyLib\Shaders\UVAnimation.shader" />
      <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
      <None Include="Assets\Lib\TextMesh Pro\Resources\Shaders\TMPro_Bitmap-Mobile.shader" />
