@@ -105,6 +105,12 @@
      <Compile Include="Assets\Lib\GAF\Scripts\Objects\GAFBakedObjectsManager.cs" />
      <Compile Include="Assets\Lib\GAF\Scripts\Objects\GAFObject.cs" />
      <Compile Include="Assets\Lib\GAF\Scripts\Objects\GAFObjectsManager.cs" />
+     <Compile Include="Assets\Lib\PrefabEvolution\Sources\EvolvePrefab.cs" />
+     <Compile Include="Assets\Lib\PrefabEvolution\Sources\PEExposedProperties.cs" />
+     <Compile Include="Assets\Lib\PrefabEvolution\Sources\PEHideFlagsUtility.cs" />
+     <Compile Include="Assets\Lib\PrefabEvolution\Sources\PELinkage.cs" />
+     <Compile Include="Assets\Lib\PrefabEvolution\Sources\PEModifications.cs" />
+     <Compile Include="Assets\Lib\PrefabEvolution\Sources\PEPrefabScript.cs" />
      <Compile Include="Assets\Lib\TextMesh Pro\Examples\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\Lib\TextMesh Pro\Examples\Scripts\Benchmark02.cs" />
      <Compile Include="Assets\Lib\TextMesh Pro\Examples\Scripts\Benchmark03.cs" />
